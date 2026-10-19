@@ -1,0 +1,505 @@
+<!DOCTYPE html>
+<!--
+=====================================================================
+  FREE CLASS LANDING PAGE TEMPLATE
+  -------------------------------------------------------------------
+  TO REUSE FOR ANOTHER GYM:
+    1. Edit the GYM CONFIG block directly below (name, city, copy, colors).
+    2. Paste the GHL form embed code into the GHL-FORM-EMBED div
+       (search this file for "GHL-FORM-EMBED").
+    3. That's it. Everything else reads from the config.
+
+  Tokens you can use inside any text value:
+    {gym}   -> gymName
+    {city}  -> city
+    *word*  -> wraps the word in the accent color (headlines only)
+=====================================================================
+-->
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<script>
+/* ===================================================================
+   GYM CONFIG  >>>  EDIT THIS BLOCK FOR EACH GYM  <<<
+   =================================================================== */
+var CONFIG = {
+
+  /* ---------- Basics ---------- */
+  gymName:  "CrossFit East Coast",
+  city:     "Braintree, MA",
+  pageTitle:"Free CrossFit Class in Braintree | {gym}",
+  metaDescription: "Claim your free CrossFit class at {gym} in {city}. Beginner friendly, coach-led, no experience needed.",
+
+  /* ---------- Colors (one accent only) ---------- */
+  colors: {
+    accent:     "#FF4A1C",  // buttons, highlights, step numbers
+    accentText: "#FFFFFF",  // text that sits on top of the accent color
+    dark:       "#0E1013",  // hero + top bar background
+    light:      "#F5F4F1",  // light section background
+    ink:        "#14161A"   // main text on light sections
+  },
+
+  /* ---------- Buttons ---------- */
+  ctaText:      "Claim My Free Class",
+  topBarCta:    "Claim Free Class",
+
+  /* ---------- Hero (message-matched to a "free class" Google ad) ---------- */
+  eyebrow:   "{city}",
+  headline:  "Your First CrossFit Class Is *Free*",
+  subhead:   "Coach-led, beginner-friendly workouts in {city}. No experience, no contract, no pressure. Just show up and we'll take care of the rest.",
+  trustBullets: [
+    "Built for total beginners",
+    "Every class led by a certified coach",
+    "Zero commitment, nothing to pay"
+  ],
+  formHeading: "Claim Your Free Class",
+  formSubtext: "Takes 30 seconds. We'll text you to pick a time.",
+
+  /* ---------- How it works ---------- */
+  stepsHeading: "How It Works",
+  steps: [
+    { title: "Claim your spot", text: "Fill out the quick form. It takes less than a minute." },
+    { title: "We text you to book", text: "A coach texts you to find a class time that fits your schedule." },
+    { title: "Come train", text: "Show up, meet the coach, and get your first workout in. We scale everything to you." }
+  ],
+
+  /* ---------- Why us ---------- */
+  whyHeading: "More Than a Workout",
+  why: [
+    { title: "Fitness",        text: "Coached group classes that build real strength and conditioning, scaled to your level from day one." },
+    { title: "Nutrition",      text: "Simple, sustainable nutrition guidance so your results show up outside the gym too." },
+    { title: "Accountability", text: "Coaches and members who know your name and notice when you miss. That's what keeps people consistent." }
+  ],
+
+  /* ---------- Testimonials ----------
+     !!! PLACEHOLDERS. REPLACE WITH REAL MEMBER REVIEWS BEFORE RUNNING ADS. !!!
+     Use real names (first name + last initial is fine) with permission.
+     Made-up testimonials violate Google Ads and FTC rules. */
+  testimonialsHeading: "What Members Say",
+  testimonials: [
+    { quote: "I was nervous walking in because I hadn't worked out in years. The coaches scaled everything and I never felt out of place. Down 22 lbs and stronger than I've ever been.", name: "Jessica R.", detail: "Member since 2023" },
+    { quote: "Tried every big box gym in the area and never stuck with it. The accountability here is different. People notice when you're not there.", name: "Mike D.", detail: "Member since 2022" },
+    { quote: "The free class sold me. Coach walked me through every movement and the people were welcoming from the first minute.", name: "Danielle P.", detail: "Member since 2024" }
+  ],
+
+  /* ---------- FAQ (answer beginner fears) ---------- */
+  faqHeading: "Questions Beginners Ask",
+  faqs: [
+    { q: "I'm out of shape. Is this too hard for me?", a: "No. Every workout is scaled to your fitness level. Most of our members started out of shape. The coach adjusts the weight, reps, and movements so you get a great workout without getting hurt." },
+    { q: "I've never done CrossFit. Will I know what to do?", a: "You don't need to. Your coach walks you through every movement before the workout starts. You'll never be left guessing." },
+    { q: "Is the class really free?", a: "Yes. Your first class is 100% free. No credit card, no contract, and no obligation to sign up after." },
+    { q: "What should I bring?", a: "Comfortable workout clothes, sneakers, and a water bottle. We'll handle the rest." }
+  ],
+
+  /* ---------- Final CTA ---------- */
+  finalHeadline: "Your *Free Class* Is Waiting",
+  finalSubtext:  "Spots in each class are limited so coaches can give you real attention. Claim yours now and we'll text you to book."
+};
+/* ===================== END GYM CONFIG ===================== */
+
+/* Apply colors + title before first paint (no flash). */
+(function () {
+  var r = document.documentElement.style, c = CONFIG.colors;
+  r.setProperty("--accent", c.accent);
+  r.setProperty("--accent-text", c.accentText);
+  r.setProperty("--dark", c.dark);
+  r.setProperty("--light", c.light);
+  r.setProperty("--ink", c.ink);
+  document.title = CONFIG.pageTitle.replace(/\{gym\}/g, CONFIG.gymName).replace(/\{city\}/g, CONFIG.city);
+  var m = document.createElement("meta");
+  m.name = "description";
+  m.content = CONFIG.metaDescription.replace(/\{gym\}/g, CONFIG.gymName).replace(/\{city\}/g, CONFIG.city);
+  document.head.appendChild(m);
+})();
+</script>
+
+<style>
+:root {
+  --accent: #FF4A1C;
+  --accent-text: #FFFFFF;
+  --dark: #0E1013;
+  --light: #F5F4F1;
+  --ink: #14161A;
+  --muted: #5B6068;
+  --white: #FFFFFF;
+  --radius: 10px;
+  --max: 1120px;
+  --font: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+}
+*, *::before, *::after { box-sizing: border-box; }
+html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+body {
+  margin: 0;
+  font-family: var(--font);
+  font-size: 17px;
+  line-height: 1.55;
+  color: var(--ink);
+  background: var(--light);
+  -webkit-font-smoothing: antialiased;
+}
+h1, h2, h3 { margin: 0; line-height: 1.05; letter-spacing: -0.02em; font-weight: 900; }
+p { margin: 0; }
+.wrap { width: 100%; max-width: var(--max); margin: 0 auto; padding: 0 20px; }
+.accent { color: var(--accent); }
+
+/* ---------- Buttons ---------- */
+.btn {
+  display: inline-block;
+  background: var(--accent);
+  color: var(--accent-text);
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  text-decoration: none;
+  border-radius: var(--radius);
+  padding: 16px 28px;
+  font-size: 16px;
+  transition: transform .12s ease, filter .12s ease;
+  text-align: center;
+}
+.btn:hover { filter: brightness(1.08); transform: translateY(-1px); }
+.btn:active { transform: translateY(0); }
+.btn-sm { padding: 10px 14px; font-size: 12px; white-space: nowrap; flex-shrink: 0; }
+.btn-lg { padding: 20px 36px; font-size: 18px; width: 100%; max-width: 420px; }
+
+/* ---------- Top bar ---------- */
+.topbar {
+  position: sticky; top: 0; z-index: 50;
+  background: var(--dark);
+  border-bottom: 1px solid rgba(255,255,255,.08);
+}
+.topbar .wrap { display: flex; align-items: center; justify-content: space-between; gap: 12px; height: 62px; }
+.brand {
+  color: var(--white);
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+  font-size: 16px;
+  line-height: 1.1;
+}
+
+/* ---------- Hero ---------- */
+.hero {
+  position: relative;
+  overflow: hidden;
+  background: var(--dark);
+  color: var(--white);
+  padding: 40px 0 56px;
+}
+/* Diagonal accent slash. Graphic, not photographic. */
+.hero::before {
+  content: "";
+  position: absolute;
+  right: -20%; top: -30%;
+  width: 70%; height: 160%;
+  background: linear-gradient(115deg, transparent 0 46%, var(--accent) 46% 49%, transparent 49% 55%, rgba(255,255,255,.04) 55% 100%);
+  pointer-events: none;
+}
+.hero .wrap { position: relative; display: grid; gap: 36px; }
+.eyebrow {
+  display: inline-block;
+  font-size: 13px;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  color: var(--accent);
+  margin-bottom: 14px;
+}
+.hero h1 {
+  font-size: clamp(40px, 10vw, 76px);
+  text-transform: uppercase;
+}
+.hero .sub {
+  margin-top: 18px;
+  font-size: 18px;
+  color: rgba(255,255,255,.78);
+  max-width: 540px;
+}
+.trust { list-style: none; padding: 0; margin: 24px 0 0; display: grid; gap: 10px; }
+.trust li {
+  display: flex; align-items: center; gap: 12px;
+  font-weight: 700;
+  font-size: 16px;
+}
+.trust li::before {
+  content: "";
+  flex: 0 0 22px; height: 22px;
+  border-radius: 50%;
+  background: var(--accent) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='white' stroke-width='3.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M5 12.5l4.5 4.5L19 7.5'/%3E%3C/svg%3E") center/14px no-repeat;
+}
+
+/* ---------- Form card ---------- */
+.form-card {
+  background: var(--white);
+  color: var(--ink);
+  border-radius: 14px;
+  padding: 26px 20px;
+  box-shadow: 0 24px 60px rgba(0,0,0,.45);
+  border-top: 6px solid var(--accent);
+  scroll-margin-top: 80px;
+}
+.form-card h2 { font-size: 26px; text-transform: uppercase; }
+.form-card .form-sub { color: var(--muted); margin-top: 6px; font-size: 15px; }
+
+/* Placeholder styling. Safe to leave: once the GHL embed is pasted in,
+   the dashed box is hidden automatically (see :has rule below). */
+#GHL-FORM-EMBED { margin-top: 18px; min-height: 360px; }
+#GHL-FORM-EMBED .ghl-placeholder {
+  height: 360px;
+  border: 2px dashed #C9CCD1;
+  border-radius: var(--radius);
+  display: flex; align-items: center; justify-content: center;
+  text-align: center;
+  color: #8A8F97;
+  font-size: 14px;
+  font-weight: 700;
+  padding: 20px;
+}
+#GHL-FORM-EMBED:has(iframe) .ghl-placeholder { display: none; }
+#GHL-FORM-EMBED iframe { width: 100%; border: 0; }
+
+/* ---------- Light sections ---------- */
+section.block { padding: 64px 0; }
+section.block.alt { background: var(--white); }
+.section-head { text-align: center; margin-bottom: 36px; }
+.section-head h2 { font-size: clamp(30px, 6vw, 46px); text-transform: uppercase; }
+.section-head .bar { width: 56px; height: 5px; background: var(--accent); margin: 16px auto 0; border-radius: 3px; }
+
+/* Steps */
+.steps { display: grid; gap: 16px; counter-reset: step; }
+.step {
+  background: var(--white);
+  border-radius: var(--radius);
+  padding: 26px 22px;
+  border: 1px solid #E6E4DF;
+  position: relative;
+}
+.step .num {
+  font-size: 56px;
+  font-weight: 900;
+  line-height: 1;
+  color: var(--accent);
+  letter-spacing: -0.04em;
+}
+.step h3 { font-size: 22px; text-transform: uppercase; margin-top: 10px; }
+.step p { color: var(--muted); margin-top: 8px; }
+
+/* Why us */
+.why { display: grid; gap: 16px; }
+.why-item {
+  padding: 26px 22px;
+  border-left: 5px solid var(--accent);
+  background: var(--light);
+  border-radius: 0 var(--radius) var(--radius) 0;
+}
+.why-item h3 { font-size: 22px; text-transform: uppercase; }
+.why-item p { color: var(--muted); margin-top: 8px; }
+
+/* Testimonials */
+.quotes { display: grid; gap: 16px; }
+.quote {
+  background: var(--white);
+  border-radius: var(--radius);
+  padding: 26px 22px;
+  border: 1px solid #E6E4DF;
+  display: flex; flex-direction: column;
+}
+.stars { color: var(--accent); letter-spacing: 3px; font-size: 18px; }
+.quote blockquote { margin: 12px 0 18px; font-size: 17px; flex: 1; }
+.quote .who { font-weight: 800; text-transform: uppercase; font-size: 14px; letter-spacing: .04em; }
+.quote .who span { display: block; font-weight: 600; text-transform: none; letter-spacing: 0; color: var(--muted); font-size: 13px; margin-top: 2px; }
+
+/* FAQ */
+.faq { max-width: 760px; margin: 0 auto; display: grid; gap: 12px; }
+.faq details {
+  background: var(--light);
+  border-radius: var(--radius);
+  border: 1px solid #E6E4DF;
+}
+.faq summary {
+  cursor: pointer;
+  list-style: none;
+  padding: 20px 52px 20px 20px;
+  font-weight: 800;
+  font-size: 17px;
+  position: relative;
+}
+.faq summary::-webkit-details-marker { display: none; }
+.faq summary::after {
+  content: "+";
+  position: absolute; right: 20px; top: 50%;
+  transform: translateY(-50%);
+  font-size: 26px; font-weight: 700;
+  color: var(--accent);
+  transition: transform .15s ease;
+}
+.faq details[open] summary::after { transform: translateY(-50%) rotate(45deg); }
+.faq details p { padding: 0 20px 20px; color: var(--muted); }
+
+/* Final CTA */
+.final {
+  background: var(--dark);
+  color: var(--white);
+  text-align: center;
+  padding: 72px 0 96px;
+  position: relative;
+  overflow: hidden;
+}
+.final::before {
+  content: "";
+  position: absolute; left: 0; right: 0; top: 0;
+  height: 6px; background: var(--accent);
+}
+.final h2 { font-size: clamp(34px, 8vw, 60px); text-transform: uppercase; }
+.final p { color: rgba(255,255,255,.75); margin: 16px auto 28px; max-width: 560px; font-size: 18px; }
+
+/* ---------- Tablet / desktop ---------- */
+@media (min-width: 720px) {
+  .brand { font-size: 19px; }
+  .btn-sm { padding: 12px 20px; font-size: 14px; }
+  .steps, .why, .quotes { grid-template-columns: repeat(3, 1fr); }
+  section.block { padding: 88px 0; }
+}
+@media (min-width: 960px) {
+  .hero { padding: 72px 0 88px; }
+  .hero .wrap { grid-template-columns: 1.1fr 0.9fr; align-items: center; gap: 56px; }
+  .form-card { padding: 32px 28px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .btn, .faq summary::after { transition: none; }
+}
+</style>
+</head>
+<body>
+
+<!-- ================= TOP BAR (name + CTA only) ================= -->
+<header class="topbar">
+  <div class="wrap">
+    <div class="brand" data-c="gymName"></div>
+    <a class="btn btn-sm" href="#claim" data-c="topBarCta"></a>
+  </div>
+</header>
+
+<main>
+<!-- ================= HERO ================= -->
+<section class="hero">
+  <div class="wrap">
+    <div>
+      <span class="eyebrow" data-c="eyebrow"></span>
+      <h1 data-c="headline" data-accent></h1>
+      <p class="sub" data-c="subhead"></p>
+      <ul class="trust" id="trust"></ul>
+    </div>
+
+    <div class="form-card" id="claim">
+      <h2 data-c="formHeading"></h2>
+      <p class="form-sub" data-c="formSubtext"></p>
+
+      <!-- =========================================================
+           GHL-FORM-EMBED
+           Paste your GoHighLevel form embed code INSIDE this div,
+           replacing the placeholder below. GHL embeds usually look like:
+             <iframe src="https://api.leadconnectorhq.com/widget/form/XXXX" ...></iframe>
+             <script src="https://link.msgsndr.com/js/form_embed.js"></script>
+           The dashed placeholder hides itself once an iframe is present.
+           ========================================================= -->
+      <div id="GHL-FORM-EMBED">
+        <div class="ghl-placeholder">GHL-FORM-EMBED<br>Paste GoHighLevel form embed code here</div>
+      </div>
+      <!-- ===================== END GHL-FORM-EMBED ===================== -->
+    </div>
+  </div>
+</section>
+
+<!-- ================= HOW IT WORKS ================= -->
+<section class="block">
+  <div class="wrap">
+    <div class="section-head"><h2 data-c="stepsHeading"></h2><div class="bar"></div></div>
+    <div class="steps" id="steps"></div>
+  </div>
+</section>
+
+<!-- ================= WHY US ================= -->
+<section class="block alt">
+  <div class="wrap">
+    <div class="section-head"><h2 data-c="whyHeading"></h2><div class="bar"></div></div>
+    <div class="why" id="why"></div>
+  </div>
+</section>
+
+<!-- ================= TESTIMONIALS ================= -->
+<section class="block">
+  <div class="wrap">
+    <div class="section-head"><h2 data-c="testimonialsHeading"></h2><div class="bar"></div></div>
+    <div class="quotes" id="quotes"></div>
+  </div>
+</section>
+
+<!-- ================= FAQ ================= -->
+<section class="block alt">
+  <div class="wrap">
+    <div class="section-head"><h2 data-c="faqHeading"></h2><div class="bar"></div></div>
+    <div class="faq" id="faq"></div>
+  </div>
+</section>
+
+<!-- ================= FINAL CTA ================= -->
+<section class="final">
+  <div class="wrap">
+    <h2 data-c="finalHeadline" data-accent></h2>
+    <p data-c="finalSubtext"></p>
+    <a class="btn btn-lg" href="#claim" data-c="ctaText"></a>
+  </div>
+</section>
+</main>
+
+<!-- Renders config text into the page. No need to edit below. -->
+<script>
+(function () {
+  var C = CONFIG;
+  function esc(s) {
+    return String(s).replace(/[&<>"']/g, function (ch) {
+      return { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[ch];
+    });
+  }
+  function fill(s) {
+    return esc(s).replace(/\{gym\}/g, esc(C.gymName)).replace(/\{city\}/g, esc(C.city));
+  }
+  function accent(s) {
+    return fill(s).replace(/\*(.+?)\*/g, '<span class="accent">$1</span>');
+  }
+
+  // Simple text slots
+  var els = document.querySelectorAll("[data-c]");
+  for (var i = 0; i < els.length; i++) {
+    var el = els[i], val = C[el.getAttribute("data-c")];
+    if (val == null) continue;
+    el.innerHTML = el.hasAttribute("data-accent") ? accent(val) : fill(val);
+  }
+
+  // Lists
+  function render(id, items, tpl) {
+    document.getElementById(id).innerHTML = items.map(tpl).join("");
+  }
+  render("trust", C.trustBullets, function (t) { return "<li>" + fill(t) + "</li>"; });
+  render("steps", C.steps, function (s, n) {
+    return '<div class="step"><div class="num">0' + (n + 1) + "</div><h3>" + fill(s.title) + "</h3><p>" + fill(s.text) + "</p></div>";
+  });
+  render("why", C.why, function (w) {
+    return '<div class="why-item"><h3>' + fill(w.title) + "</h3><p>" + fill(w.text) + "</p></div>";
+  });
+  render("quotes", C.testimonials, function (t) {
+    return '<figure class="quote" style="margin:0"><div class="stars" aria-label="5 stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div><blockquote>&ldquo;' +
+      fill(t.quote) + '&rdquo;</blockquote><figcaption class="who">' + fill(t.name) +
+      (t.detail ? "<span>" + fill(t.detail) + "</span>" : "") + "</figcaption></figure>";
+  });
+  render("faq", C.faqs, function (f) {
+    return "<details><summary>" + fill(f.q) + "</summary><p>" + fill(f.a) + "</p></details>";
+  });
+})();
+</script>
+</body>
+</html>
