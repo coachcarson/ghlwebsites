@@ -29,16 +29,20 @@ var CONFIG = {
   /* ---------- Basics ---------- */
   gymName:  "CrossFit East Coast",
   city:     "Braintree, MA",
+  /* Logo shown in the top bar instead of the gym name.
+     Leave "" to use the logo embedded in this file (CrossFit East Coast).
+     For another gym, paste an image URL here (e.g. from the GHL media library). */
+  logoUrl:  "",
   pageTitle:"Free CrossFit Class in Braintree | {gym}",
   metaDescription: "Claim your free CrossFit class at {gym} in {city}. Beginner friendly, coach-led, no experience needed.",
 
   /* ---------- Colors (one accent only) ---------- */
   colors: {
-    accent:     "#FF4A1C",  // buttons, highlights, step numbers
-    accentText: "#FFFFFF",  // text that sits on top of the accent color
-    dark:       "#0E1013",  // hero + top bar background
-    light:      "#F5F4F1",  // light section background
-    ink:        "#14161A"   // main text on light sections
+    accent:     "#DF3224",  // buttons, highlights, step numbers (brand red)
+    accentText: "#F7F7F7",  // text that sits on top of the accent color (brand white)
+    dark:       "#000000",  // hero + top bar background (brand black)
+    light:      "#F7F7F7",  // light section background (brand white)
+    ink:        "#000000"   // main text on light sections (brand black)
   },
 
   /* ---------- Buttons ---------- */
@@ -117,11 +121,11 @@ var CONFIG = {
 
 <style>
 :root {
-  --accent: #FF4A1C;
-  --accent-text: #FFFFFF;
-  --dark: #0E1013;
-  --light: #F5F4F1;
-  --ink: #14161A;
+  --accent: #DF3224;
+  --accent-text: #F7F7F7;
+  --dark: #000000;
+  --light: #F7F7F7;
+  --ink: #000000;
   --muted: #5B6068;
   --white: #FFFFFF;
   --radius: 10px;
@@ -171,13 +175,11 @@ p { margin: 0; }
   border-bottom: 1px solid rgba(255,255,255,.08);
 }
 .topbar .wrap { display: flex; align-items: center; justify-content: space-between; gap: 12px; height: 62px; }
-.brand {
-  color: var(--white);
-  font-weight: 900;
-  text-transform: uppercase;
-  letter-spacing: 0.02em;
-  font-size: 16px;
-  line-height: 1.1;
+.brand-logo {
+  display: block;
+  height: 44px;
+  width: auto;
+  border-radius: 6px;
 }
 
 /* ---------- Hero ---------- */
@@ -273,7 +275,7 @@ section.block.alt { background: var(--white); }
   background: var(--white);
   border-radius: var(--radius);
   padding: 26px 22px;
-  border: 1px solid #E6E4DF;
+  border: 1px solid #E3E3E3;
   position: relative;
 }
 .step .num {
@@ -303,7 +305,7 @@ section.block.alt { background: var(--white); }
   background: var(--white);
   border-radius: var(--radius);
   padding: 26px 22px;
-  border: 1px solid #E6E4DF;
+  border: 1px solid #E3E3E3;
   display: flex; flex-direction: column;
 }
 .stars { color: var(--accent); letter-spacing: 3px; font-size: 18px; }
@@ -316,7 +318,7 @@ section.block.alt { background: var(--white); }
 .faq details {
   background: var(--light);
   border-radius: var(--radius);
-  border: 1px solid #E6E4DF;
+  border: 1px solid #E3E3E3;
 }
 .faq summary {
   cursor: pointer;
@@ -357,7 +359,7 @@ section.block.alt { background: var(--white); }
 
 /* ---------- Tablet / desktop ---------- */
 @media (min-width: 720px) {
-  .brand { font-size: 19px; }
+  .brand-logo { height: 48px; }
   .btn-sm { padding: 12px 20px; font-size: 14px; }
   .steps, .why, .quotes { grid-template-columns: repeat(3, 1fr); }
   section.block { padding: 88px 0; }
@@ -378,7 +380,8 @@ section.block.alt { background: var(--white); }
 <!-- ================= TOP BAR (name + CTA only) ================= -->
 <header class="topbar">
   <div class="wrap">
-    <div class="brand" data-c="gymName"></div>
+    <!-- Logo. Swap via CONFIG.logoUrl at the top of the file. -->
+    <img class="brand-logo" id="logo" width="44" height="44" alt="" src="data:image/jpeg;base64,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">
     <a class="btn btn-sm" href="#claim" data-c="topBarCta"></a>
   </div>
 </header>
@@ -471,6 +474,11 @@ section.block.alt { background: var(--white); }
   function accent(s) {
     return fill(s).replace(/\*(.+?)\*/g, '<span class="accent">$1</span>');
   }
+
+  // Logo
+  var logo = document.getElementById("logo");
+  if (C.logoUrl) logo.src = C.logoUrl;
+  logo.alt = C.gymName + " logo";
 
   // Simple text slots
   var els = document.querySelectorAll("[data-c]");
