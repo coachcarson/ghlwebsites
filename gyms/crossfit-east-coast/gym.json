@@ -6,7 +6,7 @@
   "domain": "crossfit-eastcoast.com",
   "pagePath": "free-crossfit-class",
   "thankYouPath": "free-class-thank-you",
-  "privacyUrl": "/privacy-policy",
+  "privacyUrl": "",
   "logoFile": "logo.jpg",
   "logoUrl": "",
   "seoTitle": "Free CrossFit Class in Braintree | CrossFit East Coast",
@@ -48,5 +48,5 @@
   "finalHeadline": "Your *Free Class* Is Waiting",
   "finalSubtext": "Spots in each class are limited so coaches can give you real attention. Claim yours now and we'll text you to book.",
   "copyPageUrl": "https://claude.ai/artifact/1pCLeFwRrKSbY543f9pq9C",
-  "notes": "First gym built. GHL form FCWeb (inline embed, fields: first name, last name, phone, email) has its own heading, so formHeading/formSubtext are blank. Live at https://crossfit-eastcoast.com/free-crossfit-class (free-class was taken on the domain)."
+  "notes": "First gym built. GHL form FCWeb (inline embed, fields: first name, last name, phone, email) has its own heading, so formHeading/formSubtext are blank. Live at https://crossfit-eastcoast.com/free-crossfit-class (free-class was taken on the domain). privacyUrl blank: Ryan keeps a GHL footer with the Privacy Policy link on these pages."
 }
