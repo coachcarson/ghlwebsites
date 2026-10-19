@@ -163,6 +163,8 @@ html, body { overflow-x: clip; }
 #fcl #GHL-FORM-EMBED { margin-top: 18px; min-height: 360px; }
 #fcl .form-card h2:empty, #fcl .form-card .form-sub:empty { display: none; }
 #fcl .form-card:has(h2:empty):has(.form-sub:empty) #GHL-FORM-EMBED { margin-top: 0; }
+/* No page heading = the GHL form brings its own padding, so drop the card's */
+#fcl .hero .form-card:has(h2:empty):has(.form-sub:empty) { padding: 0; overflow: hidden; }
 #fcl #GHL-FORM-EMBED .ghl-placeholder {
   height: 360px;
   border: 2px dashed #C9CCD1;
@@ -281,7 +283,7 @@ html, body { overflow-x: clip; }
   #fcl section.block { padding: 88px 0; }
 }
 @media (min-width: 960px) {
-  #fcl .hero { padding: 72px 0 88px; }
+  #fcl .hero { padding: 48px 0 56px; }
   #fcl .form-card { padding: 32px 28px; }
 }
 /* Side-by-side hero only when the form card can be ~580px wide.
