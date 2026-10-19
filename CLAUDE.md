@@ -95,4 +95,4 @@ Nothing goes in GHL's Custom CSS box; the block carries its own CSS.
 
 | Gym | Folder | Domain | Copy page |
 |---|---|---|---|
-| CrossFit East Coast (Braintree, MA) | gyms/crossfit-east-coast | crossfit-eastcoast.com | https://claude.ai/artifact/1pCLeFwRrKSbY543f9pq9C |
+| CrossFit East Coast (Braintree, MA) | gyms/crossfit-east-coast | crossfit-eastcoast.com/free-crossfit-class | https://claude.ai/artifact/1pCLeFwRrKSbY543f9pq9C |

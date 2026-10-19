@@ -3,7 +3,7 @@
   "city": "Braintree, MA",
   "address": "160 Granite Street, Braintree, MA 02184",
   "domain": "crossfit-eastcoast.com",
-  "pagePath": "braintree-free-class",
+  "pagePath": "free-crossfit-class",
   "privacyUrl": "/privacy-policy",
   "logoFile": "logo.jpg",
   "logoUrl": "",
@@ -46,5 +46,5 @@
   "finalHeadline": "Your *Free Class* Is Waiting",
   "finalSubtext": "Spots in each class are limited so coaches can give you real attention. Claim yours now and we'll text you to book.",
   "copyPageUrl": "https://claude.ai/artifact/1pCLeFwRrKSbY543f9pq9C",
-  "notes": "First gym built. GHL form FCWeb (inline embed) has its own heading, so formHeading/formSubtext are blank. free-class path was taken on the domain; confirm the final pagePath used in GHL."
+  "notes": "First gym built. GHL form FCWeb (inline embed, fields: first name, last name, phone, email) has its own heading, so formHeading/formSubtext are blank. Live at https://crossfit-eastcoast.com/free-crossfit-class (free-class was taken on the domain)."
 }
