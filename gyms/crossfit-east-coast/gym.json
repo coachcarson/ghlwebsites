@@ -1,0 +1,50 @@
+{
+  "gymName": "CrossFit East Coast",
+  "city": "Braintree, MA",
+  "address": "160 Granite Street, Braintree, MA 02184",
+  "domain": "crossfit-eastcoast.com",
+  "pagePath": "braintree-free-class",
+  "privacyUrl": "/privacy-policy",
+  "logoFile": "logo.jpg",
+  "logoUrl": "",
+  "seoTitle": "Free CrossFit Class in Braintree | CrossFit East Coast",
+  "seoDescription": "Claim your free CrossFit class at CrossFit East Coast in Braintree, MA. Beginner friendly, coach-led, no experience needed.",
+  "colors": {
+    "accent": "#DF3224",
+    "accentText": "#F7F7F7",
+    "dark": "#000000",
+    "light": "#F7F7F7",
+    "ink": "#000000"
+  },
+  "ctaText": "Claim My Free Class",
+  "topBarCta": "Claim Free Class",
+  "eyebrow": "{city}",
+  "headline": "Your First CrossFit Class Is *Free*",
+  "subhead": "Coach-led, beginner-friendly workouts. No experience, no contract, no pressure.",
+  "trustBullets": [
+    "Built for total beginners",
+    "Every class led by a certified coach",
+    "Zero commitment, nothing to pay"
+  ],
+  "formHeading": "",
+  "formSubtext": "",
+  "stepsHeading": "How It Works",
+  "steps": [
+    {
+      "title": "Claim your spot",
+      "text": "Fill out the quick form. It takes less than a minute."
+    },
+    {
+      "title": "We text you to book",
+      "text": "A coach texts you to find a class time that fits your schedule."
+    },
+    {
+      "title": "Come train",
+      "text": "Show up, meet the coach, and get your first workout in. We scale everything to you."
+    }
+  ],
+  "finalHeadline": "Your *Free Class* Is Waiting",
+  "finalSubtext": "Spots in each class are limited so coaches can give you real attention. Claim yours now and we'll text you to book.",
+  "copyPageUrl": "https://claude.ai/artifact/1pCLeFwRrKSbY543f9pq9C",
+  "notes": "First gym built. GHL form FCWeb (inline embed) has its own heading, so formHeading/formSubtext are blank. free-class path was taken on the domain; confirm the final pagePath used in GHL."
+}

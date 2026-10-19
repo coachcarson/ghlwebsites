@@ -1,0 +1,89 @@
+<title>{{GYM_NAME}} Page Code</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<style>
+/* Layout: one column, two numbered paste steps, each a big copy button over a scrollable code preview. */
+:root {
+  --bg: #F7F7F7; --surface: #FFFFFF; --fg: #111111; --muted: #5E5A59;
+  --line: #E2DEDD; --accent: #DF3224; --accent-fg: #FFFFFF; --code-bg: #FBFAFA; --ok: #1E7A3E;
+  --font: system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+  --mono: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+}
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) {
+  --bg: #0F0E0E; --surface: #1A1818; --fg: #F2F0EF; --muted: #A7A1A0;
+  --line: #2E2A2A; --accent: #E9483B; --accent-fg: #FFFFFF; --code-bg: #141212; --ok: #5CC982; color-scheme: dark } }
+:root[data-theme="dark"] {
+  --bg: #0F0E0E; --surface: #1A1818; --fg: #F2F0EF; --muted: #A7A1A0;
+  --line: #2E2A2A; --accent: #E9483B; --accent-fg: #FFFFFF; --code-bg: #141212; --ok: #5CC982; color-scheme: dark }
+body { background: var(--bg); color: var(--fg); font-family: var(--font); font-size: 16px; line-height: 1.5; }
+.page { max-width: 820px; margin: 0 auto; padding-block: 32px 56px;
+  padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px));
+  display: flex; flex-direction: column; gap: 24px; }
+h1 { margin: 0; font-size: clamp(26px, 5vw, 34px); line-height: 1.1; font-weight: 900; letter-spacing: -0.02em; text-wrap: balance; }
+.lead { margin: 8px 0 0; color: var(--muted); max-width: 62ch; }
+.step { background: var(--surface); border: 1px solid var(--line); border-radius: 12px; padding: 20px; display: flex; flex-direction: column; gap: 14px; min-width: 0; }
+.step-head { display: flex; flex-direction: column; gap: 4px; }
+.label { font-size: 12px; font-weight: 800; letter-spacing: .12em; text-transform: uppercase; color: var(--accent); }
+h2 { margin: 0; font-size: 20px; font-weight: 800; }
+.where { margin: 0; color: var(--muted); font-size: 15px; }
+.where b { color: var(--fg); }
+.copy { appearance: none; border: 0; border-radius: 10px; background: var(--accent); color: var(--accent-fg);
+  font: 800 16px/1 var(--font); letter-spacing: .03em; text-transform: uppercase; padding: 18px 20px; cursor: pointer; width: 100%; }
+.copy:hover { filter: brightness(1.07); }
+.copy:focus-visible { outline: 3px solid var(--fg); outline-offset: 3px; }
+.copy.done { background: var(--ok); }
+.status { margin: 0; font-size: 14px; color: var(--muted); min-height: 1.5em; }
+textarea { width: 100%; height: 180px; resize: vertical; border: 1px solid var(--line); border-radius: 8px;
+  background: var(--code-bg); color: var(--fg); font: 12px/1.5 var(--mono); padding: 12px; white-space: pre; overflow: auto; }
+.note { margin: 0; font-size: 14px; color: var(--muted); }
+@media (prefers-reduced-motion: no-preference) { .copy { transition: background .15s ease, filter .15s ease; } }
+</style>
+
+<main class="page">
+  <header>
+    <h1>{{GYM_NAME}} free class page</h1>
+    <p class="lead">One copy, one paste. Styles, page, and your GHL form are all in this block.</p>
+  </header>
+
+  <section class="step">
+    <div class="step-head">
+      <span class="label">One paste</span>
+      <h2>Copy the whole page</h2>
+      <p class="where">In GHL, click your <b>Custom JS/HTML</b> element and open its code editor. Select everything already in it (Ctrl+A, or Cmd+A on Mac) and delete it. Paste this in, then save the element <b>and</b> save the page.</p>
+    </div>
+    <button class="copy" id="copy-all" type="button">Copy Everything</button>
+    <p class="status" id="status-all" aria-live="polite"></p>
+    <textarea id="code-all" readonly spellcheck="false" aria-label="Page code"></textarea>
+  </section>
+
+  <p class="note">If you pasted CSS into the <b>&gt;_ Custom CSS</b> box earlier, you can leave it or clear it. It no longer matters. The builder canvas may look blank. Check it in Preview.</p>
+</main>
+
+<script type="application/json" id="payload">{{PAYLOAD}}</script>
+<script>
+(function () {
+  var code = JSON.parse(document.getElementById("payload").textContent);
+  ["all"].forEach(function (k) {
+    var ta = document.getElementById("code-" + k);
+    ta.value = code[k];
+    var btn = document.getElementById("copy-" + k), st = document.getElementById("status-" + k);
+    var label = btn.textContent;
+    function ok() {
+      btn.classList.add("done"); btn.textContent = "Copied";
+      st.textContent = "Copied " + code[k].length.toLocaleString() + " characters. Paste it in GHL now.";
+      setTimeout(function () { btn.classList.remove("done"); btn.textContent = label; }, 2500);
+    }
+    function fallback() {
+      ta.focus(); ta.select(); ta.setSelectionRange(0, ta.value.length);
+      var done = false;
+      try { done = document.execCommand("copy"); } catch (e) {}
+      if (done) ok();
+      else st.textContent = "Your browser blocked auto-copy. The code below is selected: press Ctrl+C (Cmd+C on Mac).";
+    }
+    btn.addEventListener("click", function () {
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(code[k]).then(ok, fallback);
+      } else fallback();
+    });
+  });
+})();
+</script>
