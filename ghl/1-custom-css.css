@@ -155,6 +155,8 @@ html, body { overflow-x: clip; }
 #fcl .form-card .form-sub { color: var(--muted); margin-top: 6px; font-size: 15px; }
 
 #fcl #GHL-FORM-EMBED { margin-top: 18px; min-height: 360px; }
+#fcl .form-card h2:empty, #fcl .form-card .form-sub:empty { display: none; }
+#fcl .form-card:has(h2:empty):has(.form-sub:empty) #GHL-FORM-EMBED { margin-top: 0; }
 #fcl #GHL-FORM-EMBED .ghl-placeholder {
   height: 360px;
   border: 2px dashed #C9CCD1;
