@@ -268,6 +268,10 @@ html, body { overflow-x: clip; }
 }
 #fcl .final h2 { font-size: clamp(34px, 8vw, 60px); text-transform: uppercase; color: var(--white); }
 #fcl .final p { color: rgba(255,255,255,.75); margin: 16px auto 28px; max-width: 560px; font-size: 18px; }
+#fcl .final .legal { margin: 40px 0 0; font-size: 13px; color: rgba(255,255,255,.5); }
+#fcl .final .legal a { color: rgba(255,255,255,.6); text-decoration: underline; }
+#fcl .final .legal a:hover { color: rgba(255,255,255,.9); }
+#fcl .final .legal[hidden] { display: none; }
 
 /* ---------- Tablet / desktop ---------- */
 @media (min-width: 720px) {

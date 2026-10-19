@@ -274,6 +274,10 @@ html, body { overflow-x: clip; }
 }
 #fcl .final h2 { font-size: clamp(34px, 8vw, 60px); text-transform: uppercase; color: var(--white); }
 #fcl .final p { color: rgba(255,255,255,.75); margin: 16px auto 28px; max-width: 560px; font-size: 18px; }
+#fcl .final .legal { margin: 40px 0 0; font-size: 13px; color: rgba(255,255,255,.5); }
+#fcl .final .legal a { color: rgba(255,255,255,.6); text-decoration: underline; }
+#fcl .final .legal a:hover { color: rgba(255,255,255,.9); }
+#fcl .final .legal[hidden] { display: none; }
 
 /* ---------- Tablet / desktop ---------- */
 @media (min-width: 720px) {
@@ -391,6 +395,7 @@ html, body { overflow-x: clip; }
     <h2 data-c="finalHeadline" data-accent></h2>
     <p data-c="finalSubtext"></p>
     <a class="btn btn-lg" href="#claim" data-c="ctaText"></a>
+    <p class="legal"><a id="privacy-link" href="/privacy-policy" target="_blank" rel="noopener">Privacy Policy</a></p>
   </div>
 </section>
 </main>
@@ -410,6 +415,9 @@ var CONFIG = {
      Leave "" to use the logo embedded in this file (CrossFit East Coast).
      For another gym, paste an image URL here (e.g. from the GHL media library). */
   logoUrl:  "",
+  /* Privacy policy link at the bottom of the page (opens in a new tab).
+     Use the page's path or full URL. Leave "" to hide it. */
+  privacyUrl: "/privacy-policy",
 
   /* ---------- Colors (one accent only) ---------- */
   colors: {
@@ -479,6 +487,10 @@ var CONFIG = {
   var logo = document.getElementById("logo");
   if (C.logoUrl) logo.src = C.logoUrl;
   logo.alt = C.gymName + " logo";
+
+  // Privacy link
+  var pl = document.getElementById("privacy-link");
+  if (C.privacyUrl) pl.href = C.privacyUrl; else pl.parentNode.hidden = true;
 
   // Simple text slots
   var els = document.querySelectorAll("[data-c]");
