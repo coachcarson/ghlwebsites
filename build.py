@@ -5,8 +5,9 @@
     python3 build.py --all
 
 Reads   gyms/<gym>/gym.json, gyms/<gym>/form-embed.html, gyms/<gym>/<logoFile>
-Writes  gyms/<gym>/ghl-paste.html   one block for a GHL Custom JS/HTML element
-        gyms/<gym>/copy-page.html   "Copy Everything" page, published as an Artifact
+Writes  gyms/<gym>/ghl-paste.html        landing page block for a GHL Custom JS/HTML element
+        gyms/<gym>/thank-you-paste.html  thank-you page block (form redirects here)
+        gyms/<gym>/copy-page.html        "Copy" page for both, published as an Artifact
 """
 import base64
 import io
@@ -18,8 +19,24 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parent
 TEMPLATE = ROOT / "template" / "landing-template.html"
 COPY_TEMPLATE = ROOT / "template" / "copy-page-template.html"
+THANKS_TEMPLATE = ROOT / "template" / "thank-you-template.html"
 LOGO_HEIGHT_PX = 120  # displayed at 44-48px, 2x+ for sharp screens
 DEFAULT_FORM_HEIGHT = 420
+
+# Thank-you page copy. Override any key with a "thankYou" object in gym.json
+# (e.g. a different headline when the offer isn't a free class).
+DEFAULT_THANK_YOU = {
+    "eyebrow": "You're in",
+    "headline": "Your *Free Class* Is Claimed",
+    "subhead": "Keep an eye on your phone. A coach from {gym} will text you shortly to pick your class time.",
+    "stepsHeading": "What Happens Next",
+    "steps": [
+        {"title": "Watch for our text", "text": "A coach will text you to find a class time that fits your schedule."},
+        {"title": "Pick your time", "text": "Reply with the day and time that work best. That locks in your spot."},
+        {"title": "Show up ready", "text": "Wear comfortable workout clothes and sneakers, bring water, and get there a few minutes early to meet your coach."},
+    ],
+    "locationHeading": "Where To Find Us",
+}
 
 
 def js(value):
@@ -87,6 +104,60 @@ var CONFIG = {{
 /* ===================== END GYM CONFIG ===================== */"""
 
 
+def thank_you_config_block(g):
+    """The thank-you page's config block."""
+    t = {**DEFAULT_THANK_YOU, **g.get("thankYou", {})}
+    c = g["colors"]
+    steps = ",\n".join(
+        f"    {{ title: {js(s['title'])}, text: {js(s['text'])} }}" for s in t["steps"]
+    )
+    return f"""/* ===================================================================
+   GYM CONFIG  >>>  EDIT THIS BLOCK FOR EACH GYM  <<<
+   =================================================================== */
+var CONFIG = {{
+
+  /* ---------- Basics ---------- */
+  gymName:  {js(g["gymName"])},
+  city:     {js(g["city"])},
+  logoUrl:  {js(g.get("logoUrl", ""))},
+  privacyUrl: {js(g.get("privacyUrl", ""))},
+  /* Shown at the bottom. Leave "" to hide. */
+  address:  {js(g.get("address", ""))},
+  phone:    {js(g.get("phone", ""))},
+
+  /* ---------- Colors (match the landing page) ---------- */
+  colors: {{
+    accent:     {js(c["accent"])},
+    accentText: {js(c["accentText"])},
+    dark:       {js(c["dark"])},
+    light:      {js(c["light"])},
+    ink:        {js(c["ink"])}
+  }},
+
+  /* ---------- Confirmation ---------- */
+  eyebrow:   {js(t["eyebrow"])},
+  headline:  {js(t["headline"])},
+  subhead:   {js(t["subhead"])},
+
+  /* ---------- What happens next ---------- */
+  stepsHeading: {js(t["stepsHeading"])},
+  steps: [
+{steps}
+  ],
+
+  /* ---------- Location ---------- */
+  locationHeading: {js(t["locationHeading"])}
+}};
+/* ===================== END GYM CONFIG ===================== */"""
+
+
+def fill_tokens(page, pairs):
+    for token, value in pairs:
+        assert page.count(token) == 1, f"template token {token} missing or repeated"
+        page = page.replace(token, value)
+    return page
+
+
 def logo_src(gym_dir, g):
     """Embed the logo as a data URI, resized so the paste stays small."""
     path = gym_dir / g["logoFile"]
@@ -124,22 +195,32 @@ def build(gym_dir):
     gym_dir = Path(gym_dir).resolve()
     g = json.loads((gym_dir / "gym.json").read_text())
     embed, height = form_embed(gym_dir)
-    page = TEMPLATE.read_text()
-    for token, value in [
+    logo = logo_src(gym_dir, g)
+    landing = TEMPLATE.read_text()
+    page = fill_tokens(landing, [
         ("{{GYM_NAME}}", g["gymName"]),
         ("{{CONFIG}}", config_block(g)),
-        ("{{LOGO_SRC}}", logo_src(gym_dir, g)),
+        ("{{LOGO_SRC}}", logo),
         ("{{FORM_EMBED}}", embed),
         ("{{FORM_HEIGHT}}", str(height)),
-    ]:
-        assert page.count(token) == 1, f"template token {token} missing or repeated"
-        page = page.replace(token, value)
+    ])
     (gym_dir / "ghl-paste.html").write_text(page)
 
-    payload = json.dumps({"all": page}).replace("</", "<\\/")
+    # Thank-you page reuses the landing page's stylesheet so the two always match
+    style = re.search(r"<style>\n(.*?)\n</style>", landing, re.S).group(1)
+    thanks = fill_tokens(THANKS_TEMPLATE.read_text(), [
+        ("{{GYM_NAME}}", g["gymName"]),
+        ("{{STYLE}}", style),
+        ("{{CONFIG}}", thank_you_config_block(g)),
+        ("{{LOGO_SRC}}", logo),
+    ])
+    (gym_dir / "thank-you-paste.html").write_text(thanks)
+
+    payload = json.dumps({"all": page, "thanks": thanks}).replace("</", "<\\/")
     copy = COPY_TEMPLATE.read_text().replace("{{GYM_NAME}}", g["gymName"]).replace("{{PAYLOAD}}", payload)
     (gym_dir / "copy-page.html").write_text(copy)
-    print(f"built {gym_dir.name}: ghl-paste.html ({len(page):,} chars), copy-page.html")
+    print(f"built {gym_dir.name}: ghl-paste.html ({len(page):,} chars), "
+          f"thank-you-paste.html ({len(thanks):,} chars), copy-page.html")
 
 
 if __name__ == "__main__":

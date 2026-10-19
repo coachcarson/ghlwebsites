@@ -41,28 +41,40 @@ textarea { width: 100%; height: 180px; resize: vertical; border: 1px solid var(-
 <main class="page">
   <header>
     <h1>{{GYM_NAME}} free class page</h1>
-    <p class="lead">One copy, one paste. Styles, page, and your GHL form are all in this block.</p>
+    <p class="lead">Two pages, one paste each. Styles, logo, colors and your GHL form are all inside each block.</p>
   </header>
 
   <section class="step">
     <div class="step-head">
-      <span class="label">One paste</span>
-      <h2>Copy the whole page</h2>
-      <p class="where">In GHL, click your <b>Custom JS/HTML</b> element and open its code editor. Select everything already in it (Ctrl+A, or Cmd+A on Mac) and delete it. Paste this in, then save the element <b>and</b> save the page.</p>
+      <span class="label">Page 1 · Landing page</span>
+      <h2>Copy the landing page</h2>
+      <p class="where">In GHL, click the landing page's <b>Custom JS/HTML</b> element and open its code editor. Select everything already in it (Ctrl+A, or Cmd+A on Mac) and delete it. Paste this in, then save the element <b>and</b> save the page.</p>
     </div>
-    <button class="copy" id="copy-all" type="button">Copy Everything</button>
+    <button class="copy" id="copy-all" type="button">Copy Landing Page</button>
     <p class="status" id="status-all" aria-live="polite"></p>
-    <textarea id="code-all" readonly spellcheck="false" aria-label="Page code"></textarea>
+    <textarea id="code-all" readonly spellcheck="false" aria-label="Landing page code"></textarea>
   </section>
 
-  <p class="note">If you pasted CSS into the <b>&gt;_ Custom CSS</b> box earlier, you can leave it or clear it. It no longer matters. The builder canvas may look blank. Check it in Preview.</p>
+  <section class="step">
+    <div class="step-head">
+      <span class="label">Page 2 · Thank you page</span>
+      <h2>Copy the thank you page</h2>
+      <p class="where">Make a second page on the same website (path like <b>free-class-thank-you</b>). Add one <b>Custom JS/HTML</b> element, paste this in, save the element and the page. Then set the form's <b>On Submit</b> to redirect to this page's URL.</p>
+    </div>
+    <button class="copy" id="copy-thanks" type="button">Copy Thank You Page</button>
+    <p class="status" id="status-thanks" aria-live="polite"></p>
+    <textarea id="code-thanks" readonly spellcheck="false" aria-label="Thank you page code"></textarea>
+  </section>
+
+  <p class="note">The builder canvas may look blank. Check both pages in Preview.</p>
 </main>
 
 <script type="application/json" id="payload">{{PAYLOAD}}</script>
 <script>
 (function () {
   var code = JSON.parse(document.getElementById("payload").textContent);
-  ["all"].forEach(function (k) {
+  ["all", "thanks"].forEach(function (k) {
+    if (!code[k]) { document.getElementById("copy-" + k).closest(".step").hidden = true; return; }
     var ta = document.getElementById("code-" + k);
     ta.value = code[k];
     var btn = document.getElementById("copy-" + k), st = document.getElementById("status-" + k);

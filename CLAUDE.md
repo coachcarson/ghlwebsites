@@ -16,17 +16,25 @@ Marketer (Brittany) signed off on a minimal page. Do not add sections back witho
 No nav, no footer links, no exits. The form is the only action.
 Removed on purpose: "More Than a Workout", testimonials, FAQ.
 
+**Thank-you page** (form redirects here on submit), same styling/logo/colors:
+logo-only top bar, check + "You're in" + headline + "watch your phone" subhead,
+What Happens Next (3 steps), Where To Find Us (address, optional phone) + Privacy link.
+Copy defaults live in `DEFAULT_THANK_YOU` in build.py; override per gym with a
+`thankYou` object in gym.json (do this when the offer is not a free class).
+
 ## Repo map
 
 ```
 build.py                          builds a gym: python3 build.py gyms/<gym>   (or --all)
 template/landing-template.html    the page (CSS + HTML + JS) with {{TOKENS}}
-template/copy-page-template.html  the "Copy Everything" helper page
+template/thank-you-template.html  thank-you page; build injects the landing page's <style>
+template/copy-page-template.html  the copy helper page (both pages)
 gyms/<gym>/gym.json               all text, colors, offer, domain, path, SEO, notes
 gyms/<gym>/form-embed.html        that gym's GHL inline form embed (iframe + script)
 gyms/<gym>/logo.(png|jpg)         logo; build resizes to 120px tall and embeds it
-gyms/<gym>/ghl-paste.html         OUTPUT: one block for a GHL Custom JS/HTML element
-gyms/<gym>/copy-page.html         OUTPUT: published as an Artifact with a Copy button
+gyms/<gym>/ghl-paste.html         OUTPUT: landing page block for a GHL Custom JS/HTML element
+gyms/<gym>/thank-you-paste.html   OUTPUT: thank-you page block
+gyms/<gym>/copy-page.html         OUTPUT: published as an Artifact, Copy buttons for both
 INTAKE.md                         what Ryan sends per gym
 ```
 
@@ -55,7 +63,11 @@ Change a gym's words/colors/offer in its `gym.json`, then rebuild that gym.
 2. Open the element's code editor, Ctrl/Cmd+A, delete, paste Copy Everything. Save element AND page.
 3. Delete template header/footer sections from this page only (global sections: "this page only").
 4. Page settings: path (e.g. `braintree-free-class`), SEO title + meta description.
-5. Preview (the builder canvas may look blank, that is normal), then Publish, then test on a phone.
+5. Thank-you page: second page on the same website (path like `free-class-thank-you`), same
+   one-element setup, paste Copy Thank You Page. Then in the GHL form: On Submit > Redirect to
+   URL > the full thank-you URL. Put the Google Ads conversion on the thank-you page load.
+6. Preview (the builder canvas may look blank, that is normal), then Publish, then test on a phone:
+   submit the form and confirm it lands on the thank-you page.
 Nothing goes in GHL's Custom CSS box; the block carries its own CSS.
 
 ## GHL lessons learned (do not relearn these)
