@@ -52,7 +52,7 @@ var CONFIG = {
   /* ---------- Hero (message-matched to a "free class" Google ad) ---------- */
   eyebrow:   "{city}",
   headline:  "Your First CrossFit Class Is *Free*",
-  subhead:   "Coach-led, beginner-friendly workouts in {city}. No experience, no contract, no pressure. Just show up and we'll take care of the rest.",
+  subhead:   "Coach-led, beginner-friendly workouts. No experience, no contract, no pressure.",
   trustBullets: [
     "Built for total beginners",
     "Every class led by a certified coach",
@@ -67,32 +67,6 @@ var CONFIG = {
     { title: "Claim your spot", text: "Fill out the quick form. It takes less than a minute." },
     { title: "We text you to book", text: "A coach texts you to find a class time that fits your schedule." },
     { title: "Come train", text: "Show up, meet the coach, and get your first workout in. We scale everything to you." }
-  ],
-
-  /* ---------- Why us ---------- */
-  whyHeading: "More Than a Workout",
-  why: [
-    { title: "Fitness",        text: "Coached group classes that build real strength and conditioning, scaled to your level from day one." },
-    { title: "Nutrition",      text: "Simple, sustainable nutrition guidance so your results show up outside the gym too." },
-    { title: "Accountability", text: "Coaches and members who know your name and notice when you miss. That's what keeps people consistent." }
-  ],
-
-  /* ---------- Testimonials ----------
-     Real Google reviews, quoted word for word. First names only. */
-  testimonialsHeading: "What Members Say",
-  testimonials: [
-    { quote: "I'm new to this gym stuff and so far I like it! Everyone has been welcoming and friendly, and the atmosphere is motivating without feeling intimidating. The staff and members are helpful, and I already feel comfortable being here.", name: "Yolanda", detail: "Google review" },
-    { quote: "I love the atmosphere at CrossFit EC! The coaches are uplifting. They have an in-house app that aids in tracking progress, especially with nutrition coaching from Danielle. Highly recommend it for beginners and experienced CrossFitters!", name: "Katherine", detail: "Google review" },
-    { quote: "Great experience. Positive environment. Focused. Love how they hold you accountable.", name: "Claudia", detail: "Google review" }
-  ],
-
-  /* ---------- FAQ (answer beginner fears) ---------- */
-  faqHeading: "Questions Beginners Ask",
-  faqs: [
-    { q: "I'm out of shape. Is this too hard for me?", a: "No. Every workout is scaled to your fitness level. Most of our members started out of shape. The coach adjusts the weight, reps, and movements so you get a great workout without getting hurt." },
-    { q: "I've never done CrossFit. Will I know what to do?", a: "You don't need to. Your coach walks you through every movement before the workout starts. You'll never be left guessing." },
-    { q: "Is the class really free?", a: "Yes. Your first class is 100% free. No credit card, no contract, and no obligation to sign up after." },
-    { q: "What should I bring?", a: "Comfortable workout clothes, sneakers, and a water bottle. We'll handle the rest." }
   ],
 
   /* ---------- Final CTA ---------- */
@@ -423,30 +397,6 @@ section.block.alt { background: var(--white); }
   </div>
 </section>
 
-<!-- ================= WHY US ================= -->
-<section class="block alt">
-  <div class="wrap">
-    <div class="section-head"><h2 data-c="whyHeading"></h2><div class="bar"></div></div>
-    <div class="why" id="why"></div>
-  </div>
-</section>
-
-<!-- ================= TESTIMONIALS ================= -->
-<section class="block">
-  <div class="wrap">
-    <div class="section-head"><h2 data-c="testimonialsHeading"></h2><div class="bar"></div></div>
-    <div class="quotes" id="quotes"></div>
-  </div>
-</section>
-
-<!-- ================= FAQ ================= -->
-<section class="block alt">
-  <div class="wrap">
-    <div class="section-head"><h2 data-c="faqHeading"></h2><div class="bar"></div></div>
-    <div class="faq" id="faq"></div>
-  </div>
-</section>
-
 <!-- ================= FINAL CTA ================= -->
 <section class="final">
   <div class="wrap">
@@ -493,17 +443,6 @@ section.block.alt { background: var(--white); }
   render("trust", C.trustBullets, function (t) { return "<li>" + fill(t) + "</li>"; });
   render("steps", C.steps, function (s, n) {
     return '<div class="step"><div class="num">0' + (n + 1) + "</div><h3>" + fill(s.title) + "</h3><p>" + fill(s.text) + "</p></div>";
-  });
-  render("why", C.why, function (w) {
-    return '<div class="why-item"><h3>' + fill(w.title) + "</h3><p>" + fill(w.text) + "</p></div>";
-  });
-  render("quotes", C.testimonials, function (t) {
-    return '<figure class="quote" style="margin:0"><div class="stars" aria-label="5 stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div><blockquote>&ldquo;' +
-      fill(t.quote) + '&rdquo;</blockquote><figcaption class="who">' + fill(t.name) +
-      (t.detail ? "<span>" + fill(t.detail) + "</span>" : "") + "</figcaption></figure>";
-  });
-  render("faq", C.faqs, function (f) {
-    return "<details><summary>" + fill(f.q) + "</summary><p>" + fill(f.a) + "</p></details>";
   });
 })();
 </script>
