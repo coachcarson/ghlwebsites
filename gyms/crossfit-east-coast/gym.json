@@ -28,8 +28,8 @@
     "Every class led by a certified coach",
     "Zero commitment, nothing to pay"
   ],
-  "formHeading": "",
-  "formSubtext": "",
+  "formHeading": "Claim Your Free Class",
+  "formSubtext": "Takes 30 seconds. A coach will text you to pick a time.",
   "stepsHeading": "How It Works",
   "steps": [
     {
@@ -48,5 +48,5 @@
   "finalHeadline": "Your *Free Class* Is Waiting",
   "finalSubtext": "Spots in each class are limited so coaches can give you real attention. Claim yours now and we'll text you to book.",
   "copyPageUrl": "https://claude.ai/artifact/1pCLeFwRrKSbY543f9pq9C",
-  "notes": "First gym built. GHL form FCWeb (inline embed, fields: first name, last name, phone, email) has its own heading, so formHeading/formSubtext are blank. Live at https://crossfit-eastcoast.com/free-crossfit-class (free-class was taken on the domain). privacyUrl blank: Ryan keeps a GHL footer with the Privacy Policy link on these pages."
+  "notes": "First gym built. GHL form FCWeb (inline embed, fields: first name, last name, phone, email) no longer has its own heading (Ryan removed it), so the page shows formHeading/formSubtext. Live at https://crossfit-eastcoast.com/free-crossfit-class (free-class was taken on the domain). privacyUrl blank: Ryan keeps a GHL footer with the Privacy Policy link on these pages."
 }
