@@ -34,10 +34,10 @@
   "ctaText": "Book My Free Consultation",
   "topBarCta": "Free Consultation",
   "eyebrow": "{city}",
-  "headline": "Book Your *Free* 20-Minute Consultation",
+  "headline": "Book Your *Free* 20⁠-⁠Minute Consultation",
   "subhead": "Strength training and nutrition coaching built around you. No pressure, no obligation.",
   "trustBullets": [
-    "Free 20-minute 1-on-1 with a coach",
+    "Free 20⁠-⁠minute 1-on-1 with a coach",
     "Strength and nutrition coaching in one place",
     "Zero pressure, no obligation"
   ],
@@ -64,10 +64,10 @@
     }
   ],
   "finalHeadline": "Your *Free Consultation* Is Waiting",
-  "finalSubtext": "Take the first step. Request your free 20-minute consultation and we'll text you to set a time.",
+  "finalSubtext": "Take the first step. Request your free 20⁠-⁠minute consultation and we'll text you to set a time.",
   "thankYou": {
     "headline": "Your *Free Consultation* Is Requested",
-    "subhead": "Keep an eye on your phone. A coach from {gym} will text you shortly to set up your 20-minute consultation.",
+    "subhead": "Keep an eye on your phone. A coach from {gym} will text you shortly to set up your 20⁠-⁠minute consultation.",
     "steps": [
       {
         "title": "Watch for our text",

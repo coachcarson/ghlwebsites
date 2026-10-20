@@ -325,6 +325,27 @@ html, body { overflow-x: clip; }
 @media (max-width: 1099px) {
   #fcl .form-card { max-width: 640px; }
 }
+/* ---------- Phones: tighter type and spacing so the form shows above the fold ---------- */
+@media (max-width: 719px) {
+  #fcl .topbar .wrap { height: 56px; }
+  #fcl .hero { padding: 22px 0 28px; }
+  #fcl .hero .wrap { gap: 22px; }
+  #fcl .eyebrow { font-size: 11px; margin-bottom: 8px; }
+  #fcl .hero h1 { font-size: clamp(28px, 8.2vw, 40px); }
+  #fcl .hero .sub { font-size: 15px; line-height: 1.45; margin-top: 10px; }
+  #fcl .trust { margin-top: 14px; gap: 7px; }
+  #fcl .trust li { font-size: 14px; gap: 10px; }
+  #fcl .trust li::before { flex-basis: 18px; height: 18px; background-size: 11px; }
+  #fcl .form-card { padding: 20px 16px; }
+  #fcl .form-card h2 { font-size: 21px; }
+  #fcl .form-card .form-sub { font-size: 13px; margin-top: 4px; }
+  #fcl #GHL-FORM-EMBED { margin-top: 10px; }
+  #fcl section.block { padding: 44px 0; }
+  #fcl .section-head { margin-bottom: 24px; }
+  #fcl .step { padding: 20px 18px; }
+  #fcl .step .num { font-size: 44px; }
+  #fcl .final { padding: 48px 0 52px; }
+}
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
   #fcl .btn, #fcl .faq summary::after { transition: none; }

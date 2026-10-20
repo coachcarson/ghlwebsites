@@ -64,6 +64,8 @@ Change a gym's words/colors/offer in its `gym.json`, then rebuild that gym.
    - `logoHeight`: px, for wide logos (RAW = 52).
    - `topBarStripe`: color or CSS gradient for a 5px stripe across the top bar (RAW: green to blue).
    Thank-you page hides "Where To Find Us" when `address` is "".
+   Phones (<720px) use tighter type/spacing so the form shows above the fold (Ryan's ask).
+   Keep "20-minute" style words together with word joiners: "20\u2060-\u2060minute".
 5. `python3 build.py gyms/<gym>`, render-check it (see Testing), then publish
    `gyms/<gym>/copy-page.html` with the Artifact tool (new artifact per gym) and save the
    URL to `copyPageUrl` in gym.json. Commit + push.
