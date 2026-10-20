@@ -7,9 +7,10 @@
   "pagePath": "get-started",
   "thankYouPath": "get-started-thank-you",
   "privacyUrl": "",
-  "logoFile": "logo-placeholder.png",
+  "logoFile": "logo.png",
   "logoUrl": "",
   "topBar": "dark",
+  "logoHeight": 48,
   "fonts": {
     "display": "Barlow Condensed",
     "displayWeights": "700;800",
@@ -30,7 +31,7 @@
   "ctaText": "Get Started Now",
   "topBarCta": "Get Started",
   "eyebrow": "{city}",
-  "headline": "Get Started at *F45 Cross Trails*",
+  "headline": "Get Started at *F45 Cross Trails*",
   "subhead": "Team training in {city}. Fill out the form and our team will reach out to get you set up.",
   "trustBullets": [
     "45⁠-⁠minute team workouts",
@@ -75,5 +76,5 @@
     ]
   },
   "copyPageUrl": "https://claude.ai/artifact/QL6VDztrjsP7C7d628qwxQ",
-  "notes": "Offer: Get Started Now (no free class or consult; team reaches out). Brand: navy #221452 (dark), red #da001a (buttons/highlights), white. Brand fonts are Gotham Condensed / Gotham, which are not on Google Fonts, so Barlow Condensed / Montserrat stand in. Round Rock, TX (from search; f45training.com blocked from sandbox). Waiting on: real logo (placeholder text logo now), street address, privacy policy location, Google ad headline. GHL form '2026 Google Opt-In', data-height 400."
+  "notes": "Offer: Get Started Now (no free class or consult; team reaches out). Brand: navy #221452 (dark), red #da001a (buttons/highlights), white. Brand fonts are Gotham Condensed / Gotham, which are not on Google Fonts, so Barlow Condensed / Montserrat stand in. Round Rock, TX (from search; f45training.com blocked from sandbox). Logo: F45 Training logo reversed to white (red lines kept) for the navy top bar. Waiting on: street address, privacy policy location, Google ad headline. GHL form '2026 Google Opt-In', data-height 400."
 }

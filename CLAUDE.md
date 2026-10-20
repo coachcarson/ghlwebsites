@@ -123,6 +123,10 @@ Nothing goes in GHL's Custom CSS box; the block carries its own CSS.
   itself ~250px, leaving a gap the user could not scroll back. Fix: sections use
   `overflow: clip` (cannot be scrolled), and CTAs call scrollToCard() which scrolls only the
   window (or a real GHL scroll wrapper). Never use scrollIntoView / #anchor jumps here.
+- **Headings never split mid-word:** GHL themes can force break-word; template resets it on
+  h1-h3. Do not glue long names with non-breaking spaces (F45 "TRAIL/S" bug); shrink instead.
+- **Logos on a dark top bar:** a navy/black-on-white logo can be reversed to white with a
+  transparent background (F45). Keep accent colors (red lines) as-is.
 - Earlier attempt with separate Custom CSS box + HTML element failed (CSS did not apply).
   One all-in-one block is the method.
 
@@ -140,5 +144,5 @@ Nothing goes in GHL's Custom CSS box; the block carries its own CSS.
 |---|---|---|---|
 | CrossFit East Coast (Braintree, MA) | gyms/crossfit-east-coast | crossfit-eastcoast.com/free-crossfit-class | https://claude.ai/artifact/1pCLeFwRrKSbY543f9pq9C |
 | RAW Fitness (Washington Township, MI) | gyms/raw-fitness | info.rawfitlife.com/free-consultation | https://claude.ai/artifact/CQhQzEn3KVdLURxpw7Uvf7 |
-| F45 Cross Trails (Round Rock, TX) | gyms/f45-cross-trails | schedule.f45-crosstrails.com/get-started (placeholder logo) | https://claude.ai/artifact/QL6VDztrjsP7C7d628qwxQ |
+| F45 Cross Trails (Round Rock, TX) | gyms/f45-cross-trails | schedule.f45-crosstrails.com/get-started | https://claude.ai/artifact/QL6VDztrjsP7C7d628qwxQ |
 | Grinders Fitness (Northglenn, CO) | gyms/grinders-fitness | grindersfitnessgym.com/northglenn-free-class (paths unconfirmed) | https://claude.ai/artifact/7kxYGvdxAHUabRGiwtVPs5 |

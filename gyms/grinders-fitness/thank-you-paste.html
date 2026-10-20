@@ -55,6 +55,9 @@ html, body { overflow-x: clip; }
   margin: 0;
   padding: 0;
   font-family: var(--font-display);
+  overflow-wrap: normal;   /* never split a word mid-way (GHL themes set break-word) */
+  word-break: normal;
+  hyphens: manual;
   line-height: 1.05;
   letter-spacing: -0.02em;
   font-weight: var(--display-weight, 900);
@@ -360,7 +363,7 @@ html, body { overflow-x: clip; }
 #fcl.condensed .btn-sm { font-size: 15px; }
 #fcl.condensed .btn-lg { font-size: 22px; }
 @media (min-width: 1100px) {
-  #fcl.condensed .hero h1 { font-size: 68px; }
+  #fcl.condensed .hero h1 { font-size: 62px; }
 }
 @media (max-width: 719px) {
   #fcl.condensed .eyebrow { font-size: 16px; }
