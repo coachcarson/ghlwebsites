@@ -1,0 +1,79 @@
+{
+  "gymName": "F45 Cross Trails",
+  "city": "Round Rock, TX",
+  "address": "",
+  "phone": "",
+  "domain": "schedule.f45-crosstrails.com",
+  "pagePath": "get-started",
+  "thankYouPath": "get-started-thank-you",
+  "privacyUrl": "",
+  "logoFile": "logo-placeholder.png",
+  "logoUrl": "",
+  "topBar": "dark",
+  "fonts": {
+    "display": "Barlow Condensed",
+    "displayWeights": "700;800",
+    "body": "Montserrat",
+    "bodyWeights": "400;500;700",
+    "headingWeight": "800",
+    "condensed": true
+  },
+  "seoTitle": "Get Started at F45 Cross Trails | Round Rock, TX",
+  "seoDescription": "Get started at F45 Training Cross Trails in Round Rock, TX. 45-minute team workouts. Fill out the form and our team will reach out to get you set up.",
+  "colors": {
+    "accent": "#DA001A",
+    "accentText": "#FFFFFF",
+    "dark": "#221452",
+    "light": "#F4F3F8",
+    "ink": "#221452"
+  },
+  "ctaText": "Get Started Now",
+  "topBarCta": "Get Started",
+  "eyebrow": "{city}",
+  "headline": "Get Started at *F45 Cross Trails*",
+  "subhead": "Team training in {city}. Fill out the form and our team will reach out to get you set up.",
+  "trustBullets": [
+    "45⁠-⁠minute team workouts",
+    "Our team reaches out to you",
+    "No pressure, no obligation"
+  ],
+  "formHeading": "Get Started Now",
+  "formSubtext": "Takes 30 seconds. Our team will reach out to get you set up.",
+  "stepsHeading": "How It Works",
+  "steps": [
+    {
+      "title": "Fill out the form",
+      "text": "It takes less than a minute."
+    },
+    {
+      "title": "We reach out",
+      "text": "Someone from our team texts you to answer questions and find a start time that works for you."
+    },
+    {
+      "title": "Start training",
+      "text": "Show up, meet the team, and get your first workout in."
+    }
+  ],
+  "finalHeadline": "Ready? *Get Started Now*",
+  "finalSubtext": "Fill out the form and our team will reach out to get you set up.",
+  "thankYou": {
+    "headline": "We'll Be In *Touch Soon*",
+    "subhead": "Keep an eye on your phone. Someone from the {gym} team will reach out shortly to get you started.",
+    "steps": [
+      {
+        "title": "Watch for our text",
+        "text": "Our team will text you to answer questions and find a start time that fits your schedule."
+      },
+      {
+        "title": "Pick your start",
+        "text": "Reply with the day and time that work best and we'll get you on the schedule."
+      },
+      {
+        "title": "Show up ready",
+        "text": "Wear comfortable workout clothes and sneakers, bring water, and get there a few minutes early."
+      }
+    ]
+  },
+  "copyPageUrl": "https://claude.ai/artifact/QL6VDztrjsP7C7d628qwxQ",
+  "notes": "Offer: Get Started Now (no free class or consult; team reaches out). Brand: navy #221452 (dark), red #da001a (buttons/highlights), white. Brand fonts are Gotham Condensed / Gotham, which are not on Google Fonts, so Barlow Condensed / Montserrat stand in. Round Rock, TX (from search; f45training.com blocked from sandbox). Waiting on: real logo (placeholder text logo now), street address, privacy policy location, Google ad headline. GHL form '2026 Google Opt-In', data-height 400."
+}

@@ -73,7 +73,8 @@ var CONFIG = {{
   fonts: {{
     display: {js(g.get("fonts", {}).get("display", ""))}, displayWeights: {js(g.get("fonts", {}).get("displayWeights", "700;800;900"))},
     body:    {js(g.get("fonts", {}).get("body", ""))}, bodyWeights:    {js(g.get("fonts", {}).get("bodyWeights", "400;700"))},
-    headingWeight: {js(g.get("fonts", {}).get("headingWeight", ""))}  /* "" = 900 */
+    headingWeight: {js(g.get("fonts", {}).get("headingWeight", ""))},  /* "" = 900 */
+    condensed: {js(bool(g.get("fonts", {}).get("condensed", False)))}  /* true for condensed display fonts: bigger headings */
   }},
   /* Logo height in px in the top bar. "" = default (44 mobile, 48 desktop). */
   logoHeight: {js(g.get("logoHeight", ""))},
@@ -150,7 +151,8 @@ var CONFIG = {{
   fonts: {{
     display: {js(g.get("fonts", {}).get("display", ""))}, displayWeights: {js(g.get("fonts", {}).get("displayWeights", "700;800;900"))},
     body:    {js(g.get("fonts", {}).get("body", ""))}, bodyWeights:    {js(g.get("fonts", {}).get("bodyWeights", "400;700"))},
-    headingWeight: {js(g.get("fonts", {}).get("headingWeight", ""))}  /* "" = 900 */
+    headingWeight: {js(g.get("fonts", {}).get("headingWeight", ""))},  /* "" = 900 */
+    condensed: {js(bool(g.get("fonts", {}).get("condensed", False)))}  /* true for condensed display fonts: bigger headings */
   }},
   /* Logo height in px in the top bar. "" = default (44 mobile, 48 desktop). */
   logoHeight: {js(g.get("logoHeight", ""))},

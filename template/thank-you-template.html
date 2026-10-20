@@ -22,6 +22,7 @@
   box-shadow: 0 0 0 10px rgba(255,255,255,.06);
 }
 #fcl .ty-hero h1 { font-size: clamp(38px, 8vw, 64px); }
+#fcl.condensed .ty-hero h1 { font-size: clamp(46px, 11vw, 84px); }
 #fcl .ty-hero .sub { margin-left: auto; margin-right: auto; max-width: 560px; }
 #fcl .ty-hero { padding: 56px 0 64px; }
 #fcl .final .address { color: var(--white); font-size: 20px; font-weight: 700; margin: 18px auto 0; }
@@ -107,6 +108,7 @@
     document.head.appendChild(link);
   }
   if (C.topBar === "light") document.getElementById("fcl").classList.add("topbar-light");
+  if (f.condensed) document.getElementById("fcl").classList.add("condensed");
   if (C.topBarStripe) root.setProperty("--topbar-stripe", C.topBarStripe);
   if (f.headingWeight) root.setProperty("--display-weight", f.headingWeight);
   if (C.logoHeight) document.getElementById("logo").style.height = C.logoHeight + "px";

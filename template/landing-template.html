@@ -346,6 +346,27 @@ html, body { overflow-x: clip; }
   #fcl .step .num { font-size: 44px; }
   #fcl .final { padding: 48px 0 52px; }
 }
+/* ---------- Condensed display fonts (CONFIG.fonts.condensed): bigger, looser ---------- */
+#fcl.condensed h1, #fcl.condensed h2, #fcl.condensed h3 { letter-spacing: 0.005em; }
+#fcl.condensed .eyebrow { font-size: 19px; letter-spacing: 0.14em; }
+#fcl.condensed .hero h1 { font-size: clamp(46px, 12vw, 88px); }
+#fcl.condensed .form-card h2 { font-size: 32px; }
+#fcl.condensed .section-head h2 { font-size: clamp(38px, 7.5vw, 58px); }
+#fcl.condensed .step h3 { font-size: 26px; }
+#fcl.condensed .step .num { font-size: 64px; }
+#fcl.condensed .final h2 { font-size: clamp(42px, 9.5vw, 76px); }
+#fcl.condensed .btn { font-size: 19px; letter-spacing: 0.06em; }
+#fcl.condensed .btn-sm { font-size: 15px; }
+#fcl.condensed .btn-lg { font-size: 22px; }
+@media (min-width: 1100px) {
+  #fcl.condensed .hero h1 { font-size: 68px; }
+}
+@media (max-width: 719px) {
+  #fcl.condensed .eyebrow { font-size: 16px; }
+  #fcl.condensed .hero h1 { font-size: clamp(36px, 10.5vw, 48px); }
+  #fcl.condensed .form-card h2 { font-size: 26px; }
+  #fcl.condensed .step .num { font-size: 52px; }
+}
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
   #fcl .btn, #fcl .faq summary::after { transition: none; }
@@ -459,6 +480,7 @@ html, body { overflow-x: clip; }
     document.head.appendChild(link);
   }
   if (C.topBar === "light") document.getElementById("fcl").classList.add("topbar-light");
+  if (f.condensed) document.getElementById("fcl").classList.add("condensed");
   if (C.topBarStripe) root.setProperty("--topbar-stripe", C.topBarStripe);
   var fc = C.formCrop || {};
   if (fc.top || fc.bottom || fc.sides) {

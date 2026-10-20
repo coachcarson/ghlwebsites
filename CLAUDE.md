@@ -60,6 +60,9 @@ Change a gym's words/colors/offer in its `gym.json`, then rebuild that gym.
    Per-gym look options in gym.json (all optional, defaults = CrossFit East Coast look):
    - `fonts`: {display, displayWeights, body, bodyWeights, headingWeight} Google Fonts names.
      Heavy display faces (Kanit) look best with headingWeight "800", not 900.
+     Condensed display faces (Barlow Condensed): add `"condensed": true` for bigger headings.
+     Paid fonts (Gotham, etc.) are not on Google Fonts: use the closest free match
+     (Gotham -> Montserrat, Gotham Condensed -> Barlow Condensed) and tell Ryan.
    - `topBar`: "light" for logos made for white backgrounds (keeps the dark hero).
    - `logoHeight`: px, for wide logos (RAW = 52).
    - `topBarStripe`: color or CSS gradient for a 5px stripe across the top bar (RAW: green to blue).
@@ -131,3 +134,4 @@ Nothing goes in GHL's Custom CSS box; the block carries its own CSS.
 |---|---|---|---|
 | CrossFit East Coast (Braintree, MA) | gyms/crossfit-east-coast | crossfit-eastcoast.com/free-crossfit-class | https://claude.ai/artifact/1pCLeFwRrKSbY543f9pq9C |
 | RAW Fitness (Washington Township, MI) | gyms/raw-fitness | info.rawfitlife.com/free-consultation | https://claude.ai/artifact/CQhQzEn3KVdLURxpw7Uvf7 |
+| F45 Cross Trails (Round Rock, TX) | gyms/f45-cross-trails | schedule.f45-crosstrails.com/get-started (placeholder logo) | https://claude.ai/artifact/QL6VDztrjsP7C7d628qwxQ |
