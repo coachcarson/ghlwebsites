@@ -88,6 +88,21 @@
   root.setProperty("--dark", k.dark);
   root.setProperty("--light", k.light);
   root.setProperty("--ink", k.ink);
+
+  // Fonts (Google Fonts) and top bar style
+  var f = C.fonts || {};
+  var fams = [];
+  if (f.display) { fams.push("family=" + f.display.replace(/ /g, "+") + ":wght@" + (f.displayWeights || "700;800;900")); root.setProperty("--font-display", '"' + f.display + '", var(--font-base)'); }
+  if (f.body) { fams.push("family=" + f.body.replace(/ /g, "+") + ":wght@" + (f.bodyWeights || "400;700")); root.setProperty("--font", '"' + f.body + '", var(--font-base)'); }
+  if (fams.length) {
+    var link = document.createElement("link");
+    link.rel = "stylesheet";
+    link.href = "https://fonts.googleapis.com/css2?" + fams.join("&") + "&display=swap";
+    document.head.appendChild(link);
+  }
+  if (C.topBar === "light") document.getElementById("fcl").classList.add("topbar-light");
+  if (f.headingWeight) root.setProperty("--display-weight", f.headingWeight);
+  if (C.logoHeight) document.getElementById("logo").style.height = C.logoHeight + "px";
   function esc(s) {
     return String(s).replace(/[&<>"']/g, function (ch) {
       return { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[ch];
@@ -108,6 +123,9 @@
   // Privacy link
   var pl = document.getElementById("privacy-link");
   if (C.privacyUrl) pl.href = C.privacyUrl; else pl.parentNode.hidden = true;
+
+  // No address: drop the location band
+  if (!C.address) document.querySelector("#fcl .final").hidden = true;
 
   // Phone line (plain number, tap to call on phones)
   if (C.phone) {

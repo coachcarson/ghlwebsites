@@ -27,7 +27,9 @@ html, body { overflow-x: clip; }
   --line: #E3E3E3;
   --radius: 10px;
   --max: 1120px;
-  --font: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  --font-base: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  --font: var(--font-base);          /* body text; CONFIG.fonts.body overrides */
+  --font-display: var(--font);       /* headings, buttons, numbers; CONFIG.fonts.display overrides */
 
   /* Break out of GHL's row/column width so sections run edge to edge */
   width: 100vw;
@@ -45,13 +47,14 @@ html, body { overflow-x: clip; }
   -webkit-text-size-adjust: 100%;
 }
 #fcl *, #fcl *::before, #fcl *::after { box-sizing: border-box; }
+#fcl [hidden] { display: none !important; }
 #fcl h1, #fcl h2, #fcl h3 {
   margin: 0;
   padding: 0;
-  font-family: var(--font);
+  font-family: var(--font-display);
   line-height: 1.05;
   letter-spacing: -0.02em;
-  font-weight: 900;
+  font-weight: var(--display-weight, 900);
   color: inherit;
 }
 #fcl p, #fcl ul, #fcl figure, #fcl blockquote { margin: 0; padding: 0; }
@@ -63,7 +66,7 @@ html, body { overflow-x: clip; }
   display: inline-block;
   background: var(--accent);
   color: var(--accent-text);
-  font-family: var(--font);
+  font-family: var(--font-display);
   font-weight: 800;
   text-transform: uppercase;
   letter-spacing: 0.04em;
@@ -87,6 +90,8 @@ html, body { overflow-x: clip; }
   background: var(--dark);
   border-bottom: 1px solid rgba(255,255,255,.08);
 }
+/* Light top bar for logos built for white backgrounds (CONFIG.topBar = "light") */
+#fcl.topbar-light .topbar { background: #FFFFFF; border-bottom-color: rgba(0,0,0,.08); }
 #fcl .topbar .wrap { display: flex; align-items: center; justify-content: space-between; gap: 12px; height: 62px; }
 #fcl .brand-logo {
   display: block;
@@ -114,6 +119,7 @@ html, body { overflow-x: clip; }
 }
 #fcl .hero .wrap { position: relative; display: grid; gap: 36px; }
 #fcl .eyebrow {
+  font-family: var(--font-display);
   display: inline-block;
   font-size: 13px;
   font-weight: 800;
@@ -197,8 +203,9 @@ html, body { overflow-x: clip; }
   position: relative;
 }
 #fcl .step .num {
+  font-family: var(--font-display);
   font-size: 56px;
-  font-weight: 900;
+  font-weight: var(--display-weight, 900);
   line-height: 1;
   color: var(--accent);
   letter-spacing: -0.04em;
@@ -390,6 +397,16 @@ var CONFIG = {
   /* Shown at the bottom. Leave "" to hide. */
   address:  "160 Granite Street, Braintree, MA 02184",
   phone:    "",
+  /* Top bar: "dark" or "light" (light = white bar, for logos made for white). */
+  topBar:   "dark",
+  /* Google Fonts. Leave names "" for the fast system font. */
+  fonts: {
+    display: "", displayWeights: "700;800;900",
+    body:    "", bodyWeights:    "400;700",
+    headingWeight: ""  /* "" = 900 */
+  },
+  /* Logo height in px in the top bar. "" = default (44 mobile, 48 desktop). */
+  logoHeight: "",
 
   /* ---------- Colors (match the landing page) ---------- */
   colors: {
@@ -429,6 +446,21 @@ var CONFIG = {
   root.setProperty("--dark", k.dark);
   root.setProperty("--light", k.light);
   root.setProperty("--ink", k.ink);
+
+  // Fonts (Google Fonts) and top bar style
+  var f = C.fonts || {};
+  var fams = [];
+  if (f.display) { fams.push("family=" + f.display.replace(/ /g, "+") + ":wght@" + (f.displayWeights || "700;800;900")); root.setProperty("--font-display", '"' + f.display + '", var(--font-base)'); }
+  if (f.body) { fams.push("family=" + f.body.replace(/ /g, "+") + ":wght@" + (f.bodyWeights || "400;700")); root.setProperty("--font", '"' + f.body + '", var(--font-base)'); }
+  if (fams.length) {
+    var link = document.createElement("link");
+    link.rel = "stylesheet";
+    link.href = "https://fonts.googleapis.com/css2?" + fams.join("&") + "&display=swap";
+    document.head.appendChild(link);
+  }
+  if (C.topBar === "light") document.getElementById("fcl").classList.add("topbar-light");
+  if (f.headingWeight) root.setProperty("--display-weight", f.headingWeight);
+  if (C.logoHeight) document.getElementById("logo").style.height = C.logoHeight + "px";
   function esc(s) {
     return String(s).replace(/[&<>"']/g, function (ch) {
       return { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[ch];
@@ -449,6 +481,9 @@ var CONFIG = {
   // Privacy link
   var pl = document.getElementById("privacy-link");
   if (C.privacyUrl) pl.href = C.privacyUrl; else pl.parentNode.hidden = true;
+
+  // No address: drop the location band
+  if (!C.address) document.querySelector("#fcl .final").hidden = true;
 
   // Phone line (plain number, tap to call on phones)
   if (C.phone) {

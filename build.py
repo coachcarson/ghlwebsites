@@ -65,6 +65,16 @@ var CONFIG = {{
   /* Privacy policy link at the bottom of the page (opens in a new tab).
      Use the page's path or full URL. Leave "" to hide it. */
   privacyUrl: {js(g.get("privacyUrl", ""))},
+  /* Top bar: "dark" or "light" (light = white bar, for logos made for white). */
+  topBar:   {js(g.get("topBar", "dark"))},
+  /* Google Fonts. Leave names "" for the fast system font. */
+  fonts: {{
+    display: {js(g.get("fonts", {}).get("display", ""))}, displayWeights: {js(g.get("fonts", {}).get("displayWeights", "700;800;900"))},
+    body:    {js(g.get("fonts", {}).get("body", ""))}, bodyWeights:    {js(g.get("fonts", {}).get("bodyWeights", "400;700"))},
+    headingWeight: {js(g.get("fonts", {}).get("headingWeight", ""))}  /* "" = 900 */
+  }},
+  /* Logo height in px in the top bar. "" = default (44 mobile, 48 desktop). */
+  logoHeight: {js(g.get("logoHeight", ""))},
 
   /* ---------- Colors (one accent only) ---------- */
   colors: {{
@@ -124,6 +134,16 @@ var CONFIG = {{
   /* Shown at the bottom. Leave "" to hide. */
   address:  {js(g.get("address", ""))},
   phone:    {js(g.get("phone", ""))},
+  /* Top bar: "dark" or "light" (light = white bar, for logos made for white). */
+  topBar:   {js(g.get("topBar", "dark"))},
+  /* Google Fonts. Leave names "" for the fast system font. */
+  fonts: {{
+    display: {js(g.get("fonts", {}).get("display", ""))}, displayWeights: {js(g.get("fonts", {}).get("displayWeights", "700;800;900"))},
+    body:    {js(g.get("fonts", {}).get("body", ""))}, bodyWeights:    {js(g.get("fonts", {}).get("bodyWeights", "400;700"))},
+    headingWeight: {js(g.get("fonts", {}).get("headingWeight", ""))}  /* "" = 900 */
+  }},
+  /* Logo height in px in the top bar. "" = default (44 mobile, 48 desktop). */
+  logoHeight: {js(g.get("logoHeight", ""))},
 
   /* ---------- Colors (match the landing page) ---------- */
   colors: {{

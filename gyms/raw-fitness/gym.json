@@ -1,0 +1,79 @@
+{
+  "gymName": "RAW Fitness",
+  "city": "Washington Township, MI",
+  "address": "58928 Van Dyke Rd, Washington Township, MI 48094",
+  "phone": "",
+  "domain": "madeatrawfitness.com",
+  "pagePath": "free-consultation",
+  "thankYouPath": "free-consultation-thank-you",
+  "privacyUrl": "/privacy-policy",
+  "logoFile": "logo.png",
+  "logoUrl": "",
+  "topBar": "light",
+  "logoHeight": 52,
+  "fonts": {
+    "display": "Kanit",
+    "displayWeights": "700;800",
+    "body": "Ubuntu",
+    "bodyWeights": "400;500;700",
+    "headingWeight": "800"
+  },
+  "seoTitle": "Free Fitness Consultation in Washington Township | RAW Fitness",
+  "seoDescription": "Book a free 20-minute consultation at RAW Fitness in Washington Township, MI. Strength training and nutrition coaching built around you. No pressure, no obligation.",
+  "colors": {
+    "accent": "#3FB24B",
+    "accentText": "#0B1E2B",
+    "dark": "#0B1E2B",
+    "light": "#F3F7F9",
+    "ink": "#0B1E2B"
+  },
+  "ctaText": "Book My Free Consult",
+  "topBarCta": "Free Consultation",
+  "eyebrow": "{city}",
+  "headline": "Book Your *Free* 20-Minute Consultation",
+  "subhead": "Strength training and nutrition coaching built around you. No pressure, no obligation.",
+  "trustBullets": [
+    "Free 20-minute 1-on-1 with a coach",
+    "Strength and nutrition coaching in one place",
+    "Zero pressure, no obligation"
+  ],
+  "formHeading": "Book Your Free Consult",
+  "formSubtext": "Takes 30 seconds. We'll text you to pick a time.",
+  "stepsHeading": "How It Works",
+  "steps": [
+    {
+      "title": "Request your consult",
+      "text": "Fill out the quick form. It takes less than a minute."
+    },
+    {
+      "title": "We text you to schedule",
+      "text": "A coach texts you to find a time that works for you."
+    },
+    {
+      "title": "Meet your coach",
+      "text": "Spend 20 minutes on your goals and find out exactly how we can help you reach them."
+    }
+  ],
+  "finalHeadline": "Your *Free Consult* Is Waiting",
+  "finalSubtext": "Take the first step. Request your free 20-minute consult and we'll text you to set a time.",
+  "thankYou": {
+    "headline": "Your *Free Consult* Is Requested",
+    "subhead": "Keep an eye on your phone. A coach from {gym} will text you shortly to set up your 20-minute consultation.",
+    "steps": [
+      {
+        "title": "Watch for our text",
+        "text": "A coach will text you to find a time that fits your schedule."
+      },
+      {
+        "title": "Pick your time",
+        "text": "Reply with the day and time that work best. That locks in your consult."
+      },
+      {
+        "title": "Bring your goals",
+        "text": "Come ready to talk about where you are now and where you want to be. We'll take it from there."
+      }
+    ]
+  },
+  "copyPageUrl": "https://claude.ai/artifact/CQhQzEn3KVdLURxpw7Uvf7",
+  "notes": "Draft built from the logo, brand colors (green #3fb24b, blue #00afee, white), fonts (Kanit/Ubuntu) and offer (free 20-min consultation). Site facts from search (site blocked from sandbox): strength training + nutrition coaching, weight loss, Macomb adults 30+. Waiting on: GHL form embed, confirm page path, privacy URL, phone (site shows 3 different numbers). Logo has a white background, so topBar is light. Accent text is dark because white on #3fb24b is too low contrast."
+}

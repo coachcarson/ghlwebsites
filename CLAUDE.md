@@ -50,7 +50,14 @@ Change a gym's words/colors/offer in its `gym.json`, then rebuild that gym.
    `*word*` turns a word accent-colored. `{city}` / `{gym}` tokens work in any text.
    Short subhead (1 line). Bullets under ~40 chars. Never invent testimonials, stats or claims;
    only use what Ryan gives. Offer limits ("first 20") only if real.
-4. Colors: one accent. accentText must be readable on accent. dark = hero/top bar, light = section bg.
+4. Colors: one accent. accentText must be readable on accent (white on bright green/blue fails;
+   use the dark color instead). dark = hero/top bar, light = section bg.
+   Per-gym look options in gym.json (all optional, defaults = CrossFit East Coast look):
+   - `fonts`: {display, displayWeights, body, bodyWeights, headingWeight} Google Fonts names.
+     Heavy display faces (Kanit) look best with headingWeight "800", not 900.
+   - `topBar`: "light" for logos made for white backgrounds (keeps the dark hero).
+   - `logoHeight`: px, for wide logos (RAW = 52).
+   Thank-you page hides "Where To Find Us" when `address` is "".
 5. `python3 build.py gyms/<gym>`, render-check it (see Testing), then publish
    `gyms/<gym>/copy-page.html` with the Artifact tool (new artifact per gym) and save the
    URL to `copyPageUrl` in gym.json. Commit + push.
@@ -108,3 +115,4 @@ Nothing goes in GHL's Custom CSS box; the block carries its own CSS.
 | Gym | Folder | Domain | Copy page |
 |---|---|---|---|
 | CrossFit East Coast (Braintree, MA) | gyms/crossfit-east-coast | crossfit-eastcoast.com/free-crossfit-class | https://claude.ai/artifact/1pCLeFwRrKSbY543f9pq9C |
+| RAW Fitness (Washington Township, MI) | gyms/raw-fitness | madeatrawfitness.com (draft, no form yet) | https://claude.ai/artifact/CQhQzEn3KVdLURxpw7Uvf7 |
