@@ -96,9 +96,9 @@ Nothing goes in GHL's Custom CSS box; the block carries its own CSS.
   form live; set `formHeight` in gym.json (estimate ~85px per stacked field + consent + button)
   so the card is not cut off before it does.
 - **Dead space inside the form** (GHL form padding we cannot style through the iframe):
-  `formCrop` {top, bottom, sides} in gym.json crops the iframe frame. RAW = 40/80/30, set from
-  phone screenshots. Too much cuts the form off; confirm on phone + desktop after changing.
-  Better fix when Ryan can: lower the form's padding in GHL (mobile view), then crop 0.
+  `formCrop` {top, bottom, sides} in gym.json crops the iframe frame. On RAW, 40/80/30 clipped
+  the first label and made the form scroll inside, so it is back to 0. Prefer fixing padding in
+  the GHL form itself (mobile view). Only use small crops, and confirm on a real phone.
 - **Form has its own heading?** Set `formHeading`/`formSubtext` to "" so the page's heading hides
   and the card drops its padding (no double heading, no double padding).
 - **Form edits in GHL show up live**; only re-paste when the embed code itself changes.

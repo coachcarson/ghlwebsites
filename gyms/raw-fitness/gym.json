@@ -44,9 +44,9 @@
   "formHeading": "Claim Your Free Consultation",
   "formSubtext": "Takes 30 seconds. A coach will text you to set a time.",
   "formCrop": {
-    "top": 40,
-    "bottom": 80,
-    "sides": 30
+    "top": 0,
+    "bottom": 0,
+    "sides": 0
   },
   "stepsHeading": "How It Works",
   "steps": [
