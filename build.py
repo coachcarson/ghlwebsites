@@ -221,6 +221,7 @@ def build(gym_dir):
     gym_dir = Path(gym_dir).resolve()
     g = json.loads((gym_dir / "gym.json").read_text())
     embed, height = form_embed(gym_dir)
+    height = g.get("formHeight") or height  # override when the embed has no usable data-height
     logo = logo_src(gym_dir, g)
     landing = TEMPLATE.read_text()
     page = fill_tokens(landing, [

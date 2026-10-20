@@ -42,6 +42,7 @@
   ],
   "formHeading": "Claim Your Free Consultation",
   "formSubtext": "Takes 30 seconds. A coach will text you to set a time.",
+  "formHeight": 560,
   "stepsHeading": "How It Works",
   "steps": [
     {
@@ -78,5 +79,5 @@
     ]
   },
   "copyPageUrl": "https://claude.ai/artifact/CQhQzEn3KVdLURxpw7Uvf7",
-  "notes": "Draft built from the logo, brand colors (green #3fb24b, blue #00afee, white), fonts (Kanit/Ubuntu) and offer (free 20-min consultation). Site facts from search (site blocked from sandbox): strength training + nutrition coaching, weight loss, Macomb adults 30+. Waiting on: GHL form embed, confirm page path, privacy URL, phone (site shows 3 different numbers). Logo has a white background, so topBar is light. Brand: green #3fb24b (buttons), blue #00afee (highlights + How It Works band), black, white. Ryan wanted lots of blue. Black text on green/blue because white on those is too low contrast."
+  "notes": "Draft built from the logo, brand colors (green #3fb24b, blue #00afee, white), fonts (Kanit/Ubuntu) and offer (free 20-min consultation). Site facts from search (site blocked from sandbox): strength training + nutrition coaching, weight loss, Macomb adults 30+. GHL form \"Google Opt-In\" (first, last, email, phone, consent; no heading, page shows it). Embed came with data-height=\"undefined\", so formHeight 560 is set by estimate. Waiting on: confirm page path, privacy URL, phone (site shows 3 different numbers). Logo has a white background, so topBar is light. Brand: green #3fb24b (buttons), blue #00afee (highlights + How It Works band), black, white. Ryan wanted lots of blue. Black text on green/blue because white on those is too low contrast."
 }

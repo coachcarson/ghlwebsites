@@ -91,6 +91,9 @@ Nothing goes in GHL's Custom CSS box; the block carries its own CSS.
   Fix = shorter form, not wider card: First Name, Phone, Email, SMS consent, button.
 - **Form height:** `data-height` in the embed sets the iframe's min-height in our CSS. If Ryan
   shortens the form, take the new embed (new data-height) and rebuild, or there is white space.
+- **`data-height="undefined"`** sometimes comes in the embed. GHL's script still resizes the
+  form live; set `formHeight` in gym.json (estimate ~85px per stacked field + consent + button)
+  so the card is not cut off before it does.
 - **Form has its own heading?** Set `formHeading`/`formSubtext` to "" so the page's heading hides
   and the card drops its padding (no double heading, no double padding).
 - **Form edits in GHL show up live**; only re-paste when the embed code itself changes.
