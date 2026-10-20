@@ -96,6 +96,8 @@ html, body { overflow-x: clip; }
 }
 /* Light top bar for logos built for white backgrounds (CONFIG.topBar = "light") */
 #fcl.topbar-light .topbar { background: #FFFFFF; border-bottom-color: rgba(0,0,0,.08); }
+/* Optional brand stripe across the top of the top bar (CONFIG.topBarStripe) */
+#fcl .topbar::before { content: ""; position: absolute; left: 0; right: 0; top: 0; height: 5px; background: var(--topbar-stripe, transparent); }
 #fcl .topbar .wrap { display: flex; align-items: center; justify-content: space-between; gap: 12px; height: 62px; }
 #fcl .brand-logo {
   display: block;
@@ -275,7 +277,7 @@ html, body { overflow-x: clip; }
   background: var(--dark);
   color: var(--white);
   text-align: center;
-  padding: 72px 0 96px;
+  padding: 64px 0 72px;
   position: relative;
   overflow: hidden;
 }
@@ -432,6 +434,8 @@ var CONFIG = {
   privacyUrl: "",
   /* Top bar: "dark" or "light" (light = white bar, for logos made for white). */
   topBar:   "dark",
+  /* Thin color stripe across the top of the top bar: a color or CSS gradient. "" = none. */
+  topBarStripe: "",
   /* Google Fonts. Leave names "" for the fast system font. */
   fonts: {
     display: "", displayWeights: "700;800;900",
@@ -515,6 +519,7 @@ var CONFIG = {
     document.head.appendChild(link);
   }
   if (C.topBar === "light") document.getElementById("fcl").classList.add("topbar-light");
+  if (C.topBarStripe) root.setProperty("--topbar-stripe", C.topBarStripe);
   if (f.headingWeight) root.setProperty("--display-weight", f.headingWeight);
   if (C.logoHeight) document.getElementById("logo").style.height = C.logoHeight + "px";
   function esc(s) {

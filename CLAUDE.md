@@ -62,6 +62,7 @@ Change a gym's words/colors/offer in its `gym.json`, then rebuild that gym.
      Heavy display faces (Kanit) look best with headingWeight "800", not 900.
    - `topBar`: "light" for logos made for white backgrounds (keeps the dark hero).
    - `logoHeight`: px, for wide logos (RAW = 52).
+   - `topBarStripe`: color or CSS gradient for a 5px stripe across the top bar (RAW: green to blue).
    Thank-you page hides "Where To Find Us" when `address` is "".
 5. `python3 build.py gyms/<gym>`, render-check it (see Testing), then publish
    `gyms/<gym>/copy-page.html` with the Artifact tool (new artifact per gym) and save the
@@ -123,4 +124,4 @@ Nothing goes in GHL's Custom CSS box; the block carries its own CSS.
 | Gym | Folder | Domain | Copy page |
 |---|---|---|---|
 | CrossFit East Coast (Braintree, MA) | gyms/crossfit-east-coast | crossfit-eastcoast.com/free-crossfit-class | https://claude.ai/artifact/1pCLeFwRrKSbY543f9pq9C |
-| RAW Fitness (Washington Township, MI) | gyms/raw-fitness | madeatrawfitness.com (draft, no form yet) | https://claude.ai/artifact/CQhQzEn3KVdLURxpw7Uvf7 |
+| RAW Fitness (Washington Township, MI) | gyms/raw-fitness | info.rawfitlife.com/free-consultation | https://claude.ai/artifact/CQhQzEn3KVdLURxpw7Uvf7 |

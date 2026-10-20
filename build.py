@@ -67,6 +67,8 @@ var CONFIG = {{
   privacyUrl: {js(g.get("privacyUrl", ""))},
   /* Top bar: "dark" or "light" (light = white bar, for logos made for white). */
   topBar:   {js(g.get("topBar", "dark"))},
+  /* Thin color stripe across the top of the top bar: a color or CSS gradient. "" = none. */
+  topBarStripe: {js(g.get("topBarStripe", ""))},
   /* Google Fonts. Leave names "" for the fast system font. */
   fonts: {{
     display: {js(g.get("fonts", {}).get("display", ""))}, displayWeights: {js(g.get("fonts", {}).get("displayWeights", "700;800;900"))},
@@ -139,6 +141,8 @@ var CONFIG = {{
   phone:    {js(g.get("phone", ""))},
   /* Top bar: "dark" or "light" (light = white bar, for logos made for white). */
   topBar:   {js(g.get("topBar", "dark"))},
+  /* Thin color stripe across the top of the top bar: a color or CSS gradient. "" = none. */
+  topBarStripe: {js(g.get("topBarStripe", ""))},
   /* Google Fonts. Leave names "" for the fast system font. */
   fonts: {{
     display: {js(g.get("fonts", {}).get("display", ""))}, displayWeights: {js(g.get("fonts", {}).get("displayWeights", "700;800;900"))},

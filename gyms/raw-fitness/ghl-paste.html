@@ -96,6 +96,8 @@ html, body { overflow-x: clip; }
 }
 /* Light top bar for logos built for white backgrounds (CONFIG.topBar = "light") */
 #fcl.topbar-light .topbar { background: #FFFFFF; border-bottom-color: rgba(0,0,0,.08); }
+/* Optional brand stripe across the top of the top bar (CONFIG.topBarStripe) */
+#fcl .topbar::before { content: ""; position: absolute; left: 0; right: 0; top: 0; height: 5px; background: var(--topbar-stripe, transparent); }
 #fcl .topbar .wrap { display: flex; align-items: center; justify-content: space-between; gap: 12px; height: 62px; }
 #fcl .brand-logo {
   display: block;
@@ -188,7 +190,7 @@ html, body { overflow-x: clip; }
   padding: 20px;
 }
 #fcl #GHL-FORM-EMBED:has(iframe) .ghl-placeholder { display: none; }
-#fcl #GHL-FORM-EMBED iframe { width: 100%; border: 0; min-height: 560px; }
+#fcl #GHL-FORM-EMBED iframe { width: 100%; border: 0; min-height: 420px; }
 
 /* ---------- Light sections ---------- */
 #fcl section.block { padding: 64px 0; background: var(--band); }
@@ -275,7 +277,7 @@ html, body { overflow-x: clip; }
   background: var(--dark);
   color: var(--white);
   text-align: center;
-  padding: 72px 0 96px;
+  padding: 64px 0 72px;
   position: relative;
   overflow: hidden;
 }
@@ -430,9 +432,11 @@ var CONFIG = {
   logoUrl:  "",
   /* Privacy policy link at the bottom of the page (opens in a new tab).
      Use the page's path or full URL. Leave "" to hide it. */
-  privacyUrl: "/privacy-policy",
+  privacyUrl: "",
   /* Top bar: "dark" or "light" (light = white bar, for logos made for white). */
   topBar:   "light",
+  /* Thin color stripe across the top of the top bar: a color or CSS gradient. "" = none. */
+  topBarStripe: "linear-gradient(90deg, #3FB24B, #00AFEE)",
   /* Google Fonts. Leave names "" for the fast system font. */
   fonts: {
     display: "Kanit", displayWeights: "700;800",
@@ -455,7 +459,7 @@ var CONFIG = {
   },
 
   /* ---------- Buttons ---------- */
-  ctaText:      "Book My Free Consult",
+  ctaText:      "Book My Free Consultation",
   topBarCta:    "Free Consultation",
 
   /* ---------- Hero (match the Google ad's headline) ---------- */
@@ -475,14 +479,14 @@ var CONFIG = {
   /* ---------- How it works ---------- */
   stepsHeading: "How It Works",
   steps: [
-    { title: "Request your consult", text: "Fill out the quick form. It takes less than a minute." },
+    { title: "Request your consultation", text: "Fill out the quick form. It takes less than a minute." },
     { title: "We text you to schedule", text: "A coach texts you to find a time that works for you." },
     { title: "Meet your coach", text: "Spend 20 minutes on your goals and find out exactly how we can help you reach them." }
   ],
 
   /* ---------- Final CTA ---------- */
-  finalHeadline: "Your *Free Consult* Is Waiting",
-  finalSubtext:  "Take the first step. Request your free 20-minute consult and we'll text you to set a time."
+  finalHeadline: "Your *Free Consultation* Is Waiting",
+  finalSubtext:  "Take the first step. Request your free 20-minute consultation and we'll text you to set a time."
 };
 /* ===================== END GYM CONFIG ===================== */
 
@@ -516,6 +520,7 @@ var CONFIG = {
     document.head.appendChild(link);
   }
   if (C.topBar === "light") document.getElementById("fcl").classList.add("topbar-light");
+  if (C.topBarStripe) root.setProperty("--topbar-stripe", C.topBarStripe);
   if (f.headingWeight) root.setProperty("--display-weight", f.headingWeight);
   if (C.logoHeight) document.getElementById("logo").style.height = C.logoHeight + "px";
   function esc(s) {

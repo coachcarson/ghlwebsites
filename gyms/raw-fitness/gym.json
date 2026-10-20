@@ -3,13 +3,14 @@
   "city": "Washington Township, MI",
   "address": "58928 Van Dyke Rd, Washington Township, MI 48094",
   "phone": "",
-  "domain": "madeatrawfitness.com",
+  "domain": "info.rawfitlife.com",
   "pagePath": "free-consultation",
   "thankYouPath": "free-consultation-thank-you",
-  "privacyUrl": "/privacy-policy",
+  "privacyUrl": "",
   "logoFile": "logo.png",
   "logoUrl": "",
   "topBar": "light",
+  "topBarStripe": "linear-gradient(90deg, #3FB24B, #00AFEE)",
   "logoHeight": 52,
   "fonts": {
     "display": "Kanit",
@@ -30,7 +31,7 @@
     "light": "#FFFFFF",
     "ink": "#000000"
   },
-  "ctaText": "Book My Free Consult",
+  "ctaText": "Book My Free Consultation",
   "topBarCta": "Free Consultation",
   "eyebrow": "{city}",
   "headline": "Book Your *Free* 20-Minute Consultation",
@@ -42,11 +43,10 @@
   ],
   "formHeading": "Claim Your Free Consultation",
   "formSubtext": "Takes 30 seconds. A coach will text you to set a time.",
-  "formHeight": 560,
   "stepsHeading": "How It Works",
   "steps": [
     {
-      "title": "Request your consult",
+      "title": "Request your consultation",
       "text": "Fill out the quick form. It takes less than a minute."
     },
     {
@@ -58,10 +58,10 @@
       "text": "Spend 20 minutes on your goals and find out exactly how we can help you reach them."
     }
   ],
-  "finalHeadline": "Your *Free Consult* Is Waiting",
-  "finalSubtext": "Take the first step. Request your free 20-minute consult and we'll text you to set a time.",
+  "finalHeadline": "Your *Free Consultation* Is Waiting",
+  "finalSubtext": "Take the first step. Request your free 20-minute consultation and we'll text you to set a time.",
   "thankYou": {
-    "headline": "Your *Free Consult* Is Requested",
+    "headline": "Your *Free Consultation* Is Requested",
     "subhead": "Keep an eye on your phone. A coach from {gym} will text you shortly to set up your 20-minute consultation.",
     "steps": [
       {
@@ -70,7 +70,7 @@
       },
       {
         "title": "Pick your time",
-        "text": "Reply with the day and time that work best. That locks in your consult."
+        "text": "Reply with the day and time that work best. That locks in your consultation."
       },
       {
         "title": "Bring your goals",
@@ -79,5 +79,5 @@
     ]
   },
   "copyPageUrl": "https://claude.ai/artifact/CQhQzEn3KVdLURxpw7Uvf7",
-  "notes": "Draft built from the logo, brand colors (green #3fb24b, blue #00afee, white), fonts (Kanit/Ubuntu) and offer (free 20-min consultation). Site facts from search (site blocked from sandbox): strength training + nutrition coaching, weight loss, Macomb adults 30+. GHL form \"Google Opt-In\" (first, last, email, phone, consent; no heading, page shows it). Embed came with data-height=\"undefined\", so formHeight 560 is set by estimate. Waiting on: confirm page path, privacy URL, phone (site shows 3 different numbers). Logo has a white background, so topBar is light. Brand: green #3fb24b (buttons), blue #00afee (highlights + How It Works band), black, white. Ryan wanted lots of blue. Black text on green/blue because white on those is too low contrast."
+  "notes": "Brand: green #3fb24b (buttons), blue #00afee (highlights + How It Works band), black, white; Kanit/Ubuntu. Ryan wanted lots of blue and color in the white top bar (green-blue stripe). Says 'Consultation', never 'Consult'. Pages live on info.rawfitlife.com (GHL), main site madeatrawfitness.com. GHL form 'Google Opt-In': first, last, email, phone, consent (Last Name required by owner); no heading in form, page shows it. Embed data-height is undefined, GHL script sizes it. Privacy link hidden: GHL footer has it. Site facts from search: strength training + nutrition coaching, weight loss, Macomb adults 30+. Phone unconfirmed (site shows 3)."
 }
