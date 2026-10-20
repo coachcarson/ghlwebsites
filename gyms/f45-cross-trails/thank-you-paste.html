@@ -532,7 +532,11 @@ var CONFIG = {
   if (f.condensed) document.getElementById("fcl").classList.add("condensed");
   if (C.topBarStripe) root.setProperty("--topbar-stripe", C.topBarStripe);
   if (f.headingWeight) root.setProperty("--display-weight", f.headingWeight);
-  if (C.logoHeight) document.getElementById("logo").style.height = C.logoHeight + "px";
+  if (C.logoHeight) {
+    document.getElementById("logo").style.height = C.logoHeight + "px";
+    // Tall logos: grow the bar so the logo (and the optional stripe) are never clipped
+    document.querySelector("#fcl .topbar .wrap").style.height = (C.logoHeight + 18) + "px";
+  }
   function esc(s) {
     return String(s).replace(/[&<>"']/g, function (ch) {
       return { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[ch];

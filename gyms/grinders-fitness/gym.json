@@ -1,0 +1,62 @@
+{
+  "gymName": "Grinders Fitness",
+  "city": "Northglenn, CO",
+  "address": "455 W 115th Ave Unit 4, Northglenn, CO 80234",
+  "phone": "",
+  "domain": "grindersfitnessgym.com",
+  "pagePath": "northglenn-free-class",
+  "thankYouPath": "northglenn-free-class-thank-you",
+  "privacyUrl": "",
+  "logoFile": "logo.png",
+  "logoUrl": "",
+  "topBar": "light",
+  "topBarStripe": "#FE0000",
+  "logoHeight": 64,
+  "fonts": {
+    "display": "Poppins",
+    "displayWeights": "700;800;900",
+    "body": "Montserrat",
+    "bodyWeights": "400;500;700",
+    "headingWeight": "800"
+  },
+  "seoTitle": "Free Boxing, Kickboxing & MMA Class in Northglenn, CO | Grinders Fitness",
+  "seoDescription": "Claim your free class at Grinders Fitness in Northglenn, CO. Boxing, kickboxing, BJJ and MMA. First class free, no credit card required.",
+  "colors": {
+    "accent": "#FE0000",
+    "accentText": "#FFFFFF",
+    "dark": "#000000",
+    "light": "#F5F5F5",
+    "ink": "#000000"
+  },
+  "ctaText": "Claim My Free Class",
+  "topBarCta": "Claim Free Class",
+  "eyebrow": "{city}",
+  "headline": "Claim Your *Free* Class",
+  "subhead": "Boxing, kickboxing, BJJ and MMA in {city}. Your first class is free, no credit card required.",
+  "trustBullets": [
+    "Boxing, kickboxing, BJJ and MMA",
+    "First class free, no credit card",
+    "No pressure, no obligation"
+  ],
+  "formHeading": "Claim Your Free Class",
+  "formSubtext": "Takes 30 seconds. We'll text you to pick a time.",
+  "stepsHeading": "How It Works",
+  "steps": [
+    {
+      "title": "Claim your spot",
+      "text": "Fill out the quick form. It takes less than a minute."
+    },
+    {
+      "title": "We text you to book",
+      "text": "Someone from our team texts you to find a class time that fits your schedule."
+    },
+    {
+      "title": "Come train",
+      "text": "Show up, meet the coaches, and get your first class in."
+    }
+  ],
+  "finalHeadline": "Your *Free Class* Is Waiting",
+  "finalSubtext": "Claim yours now and we'll text you to pick a time. No credit card required.",
+  "copyPageUrl": "https://claude.ai/artifact/7kxYGvdxAHUabRGiwtVPs5",
+  "notes": "Boxing/kickboxing/BJJ/MMA gym, Northglenn CO (address + free first class, no credit card, from search: their site and Yelp; site blocked from sandbox). Brand: red #fe0000, black, white; Poppins/Montserrat. Logo has a white background, so light top bar with a red stripe; tagline line cropped off the logo for the top bar. Form '2026 Google Opt-In', data-height 556. Phone on site (720) 749-4779 left off (unconfirmed it takes texts). Waiting on: page domain/paths confirmation, privacy policy location, Google ad headline."
+}

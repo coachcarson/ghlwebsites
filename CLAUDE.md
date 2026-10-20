@@ -64,7 +64,8 @@ Change a gym's words/colors/offer in its `gym.json`, then rebuild that gym.
      Paid fonts (Gotham, etc.) are not on Google Fonts: use the closest free match
      (Gotham -> Montserrat, Gotham Condensed -> Barlow Condensed) and tell Ryan.
    - `topBar`: "light" for logos made for white backgrounds (keeps the dark hero).
-   - `logoHeight`: px, for wide logos (RAW = 52).
+   - `logoHeight`: px, for wide or badge logos (RAW = 52, Grinders = 64). The top bar grows to
+     logoHeight + 18 so the logo and stripe never clip. Crop tiny taglines off badge logos.
    - `topBarStripe`: color or CSS gradient for a 5px stripe across the top bar (RAW: green to blue).
    Thank-you page hides "Where To Find Us" when `address` is "".
    Phones (<720px) use tighter type/spacing so the form shows above the fold (Ryan's ask).
@@ -140,3 +141,4 @@ Nothing goes in GHL's Custom CSS box; the block carries its own CSS.
 | CrossFit East Coast (Braintree, MA) | gyms/crossfit-east-coast | crossfit-eastcoast.com/free-crossfit-class | https://claude.ai/artifact/1pCLeFwRrKSbY543f9pq9C |
 | RAW Fitness (Washington Township, MI) | gyms/raw-fitness | info.rawfitlife.com/free-consultation | https://claude.ai/artifact/CQhQzEn3KVdLURxpw7Uvf7 |
 | F45 Cross Trails (Round Rock, TX) | gyms/f45-cross-trails | schedule.f45-crosstrails.com/get-started (placeholder logo) | https://claude.ai/artifact/QL6VDztrjsP7C7d628qwxQ |
+| Grinders Fitness (Northglenn, CO) | gyms/grinders-fitness | grindersfitnessgym.com/northglenn-free-class (paths unconfirmed) | https://claude.ai/artifact/7kxYGvdxAHUabRGiwtVPs5 |
