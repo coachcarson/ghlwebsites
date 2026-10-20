@@ -80,6 +80,8 @@ var CONFIG = {{
   colors: {{
     accent:     {js(c["accent"])},  // buttons, check marks, form card edge
     accent2:    {js(c.get("accent2", ""))},  // highlight words, eyebrow, step numbers, stripes ("" = same as accent)
+    band:       {js(c.get("band", ""))},  // How It Works background ("" = light)
+    bandInk:    {js(c.get("bandInk", ""))},  // heading + underline color on the band
     accentText: {js(c["accentText"])},  // text that sits on top of the accent color
     dark:       {js(c["dark"])},  // hero + top bar background
     light:      {js(c["light"])},  // light section background
@@ -150,6 +152,8 @@ var CONFIG = {{
   colors: {{
     accent:     {js(c["accent"])},
     accent2:    {js(c.get("accent2", ""))},
+    band:       {js(c.get("band", ""))},
+    bandInk:    {js(c.get("bandInk", ""))},
     accentText: {js(c["accentText"])},
     dark:       {js(c["dark"])},
     light:      {js(c["light"])},

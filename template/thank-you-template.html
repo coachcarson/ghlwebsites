@@ -89,6 +89,11 @@
   root.setProperty("--light", k.light);
   root.setProperty("--ink", k.ink);
   if (k.accent2) root.setProperty("--accent2", k.accent2);
+  if (k.band) {
+    root.setProperty("--band", k.band);
+    root.setProperty("--band-ink", k.bandInk || k.ink);
+    root.setProperty("--band-bar", k.bandInk || k.ink);
+  }
 
   // Fonts (Google Fonts) and top bar style
   var f = C.fonts || {};

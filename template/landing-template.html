@@ -28,6 +28,9 @@ html, body { overflow-x: clip; }
   --radius: 10px;
   --max: 1120px;
   --accent2: var(--accent);          /* highlights; CONFIG.colors.accent2 overrides */
+  --band: var(--light);              /* How It Works background; CONFIG.colors.band overrides */
+  --band-ink: var(--ink);            /* heading on the band */
+  --band-bar: var(--accent2);        /* underline under that heading */
   --font-base: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
   --font: var(--font-base);          /* body text; CONFIG.fonts.body overrides */
   --font-display: var(--font);       /* headings, buttons, numbers; CONFIG.fonts.display overrides */
@@ -152,7 +155,7 @@ html, body { overflow-x: clip; }
   content: "";
   flex: 0 0 22px; height: 22px;
   border-radius: 50%;
-  background: var(--accent) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='white' stroke-width='3.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M5 12.5l4.5 4.5L19 7.5'/%3E%3C/svg%3E") center/14px no-repeat;
+  background: var(--accent2) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='white' stroke-width='3.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M5 12.5l4.5 4.5L19 7.5'/%3E%3C/svg%3E") center/14px no-repeat;
 }
 
 /* ---------- Form card ---------- */
@@ -188,11 +191,11 @@ html, body { overflow-x: clip; }
 #fcl #GHL-FORM-EMBED iframe { width: 100%; border: 0; min-height: {{FORM_HEIGHT}}px; }
 
 /* ---------- Light sections ---------- */
-#fcl section.block { padding: 64px 0; background: var(--light); }
+#fcl section.block { padding: 64px 0; background: var(--band); }
 #fcl section.block.alt { background: var(--white); }
 #fcl .section-head { text-align: center; margin-bottom: 36px; }
-#fcl .section-head h2 { font-size: clamp(30px, 6vw, 46px); text-transform: uppercase; color: var(--ink); }
-#fcl .section-head .bar { width: 56px; height: 5px; background: var(--accent2); margin: 16px auto 0; border-radius: 3px; }
+#fcl .section-head h2 { font-size: clamp(30px, 6vw, 46px); text-transform: uppercase; color: var(--band-ink); }
+#fcl .section-head .bar { width: 56px; height: 5px; background: var(--band-bar); margin: 16px auto 0; border-radius: 3px; }
 
 /* Steps */
 #fcl .steps { display: grid; gap: 16px; }
@@ -406,6 +409,11 @@ html, body { overflow-x: clip; }
   root.setProperty("--light", k.light);
   root.setProperty("--ink", k.ink);
   if (k.accent2) root.setProperty("--accent2", k.accent2);
+  if (k.band) {
+    root.setProperty("--band", k.band);
+    root.setProperty("--band-ink", k.bandInk || k.ink);
+    root.setProperty("--band-bar", k.bandInk || k.ink);
+  }
 
   // Fonts (Google Fonts) and top bar style
   var f = C.fonts || {};
