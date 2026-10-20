@@ -251,7 +251,9 @@ def build(gym_dir):
     (gym_dir / "thank-you-paste.html").write_text(thanks)
 
     payload = json.dumps({"all": page, "thanks": thanks}).replace("</", "<\\/")
-    copy = COPY_TEMPLATE.read_text().replace("{{GYM_NAME}}", g["gymName"]).replace("{{PAYLOAD}}", payload)
+    copy = (COPY_TEMPLATE.read_text().replace("{{GYM_NAME}}", g["gymName"])
+            .replace("{{THANKS_PATH}}", g.get("thankYouPath", "free-class-thank-you"))
+            .replace("{{PAYLOAD}}", payload))
     (gym_dir / "copy-page.html").write_text(copy)
     print(f"built {gym_dir.name}: ghl-paste.html ({len(page):,} chars), "
           f"thank-you-paste.html ({len(thanks):,} chars), copy-page.html")
