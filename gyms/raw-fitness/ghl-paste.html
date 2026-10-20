@@ -191,6 +191,15 @@ html, body { overflow-x: clip; }
 }
 #fcl #GHL-FORM-EMBED:has(iframe) .ghl-placeholder { display: none; }
 #fcl #GHL-FORM-EMBED iframe { width: 100%; border: 0; min-height: 420px; }
+/* Optional trim of the GHL form's own dead space (CONFIG.formCrop). The frame is
+   cropped, not restyled: nothing inside the form changes. */
+#fcl.form-crop #GHL-FORM-EMBED { overflow: hidden; min-height: 0; }
+#fcl.form-crop #GHL-FORM-EMBED iframe {
+  display: block;
+  width: calc(100% + 2 * var(--crop-x, 0px)) !important;
+  max-width: none;
+  margin: calc(-1 * var(--crop-top, 0px)) 0 calc(-1 * var(--crop-bottom, 0px)) calc(-1 * var(--crop-x, 0px));
+}
 
 /* ---------- Light sections ---------- */
 #fcl section.block { padding: 64px 0; background: var(--band); }
@@ -475,6 +484,9 @@ var CONFIG = {
      (use this when the GHL form has its own heading). */
   formHeading: "Claim Your Free Consultation",
   formSubtext: "Takes 30 seconds. A coach will text you to set a time.",
+  /* Trim the GHL form's own padding, in px: { top, bottom, sides }. 0 = no trim.
+     Raise slowly; too much cuts off the form. */
+  formCrop: { top: 40, bottom: 80, sides: 30 },
 
   /* ---------- How it works ---------- */
   stepsHeading: "How It Works",
@@ -521,6 +533,13 @@ var CONFIG = {
   }
   if (C.topBar === "light") document.getElementById("fcl").classList.add("topbar-light");
   if (C.topBarStripe) root.setProperty("--topbar-stripe", C.topBarStripe);
+  var fc = C.formCrop || {};
+  if (fc.top || fc.bottom || fc.sides) {
+    document.getElementById("fcl").classList.add("form-crop");
+    root.setProperty("--crop-top", (fc.top || 0) + "px");
+    root.setProperty("--crop-bottom", (fc.bottom || 0) + "px");
+    root.setProperty("--crop-x", (fc.sides || 0) + "px");
+  }
   if (f.headingWeight) root.setProperty("--display-weight", f.headingWeight);
   if (C.logoHeight) document.getElementById("logo").style.height = C.logoHeight + "px";
   function esc(s) {

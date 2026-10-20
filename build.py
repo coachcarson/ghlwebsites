@@ -105,6 +105,9 @@ var CONFIG = {{
      (use this when the GHL form has its own heading). */
   formHeading: {js(g.get("formHeading", ""))},
   formSubtext: {js(g.get("formSubtext", ""))},
+  /* Trim the GHL form's own padding, in px: {{ top, bottom, sides }}. 0 = no trim.
+     Raise slowly; too much cuts off the form. */
+  formCrop: {{ top: {g.get("formCrop", {}).get("top", 0)}, bottom: {g.get("formCrop", {}).get("bottom", 0)}, sides: {g.get("formCrop", {}).get("sides", 0)} }},
 
   /* ---------- How it works ---------- */
   stepsHeading: {js(g["stepsHeading"])},
