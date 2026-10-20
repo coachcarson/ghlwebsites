@@ -13,7 +13,6 @@
    values below are just fallbacks so there's no color flash on load.
    ===================================================================== */
 
-html { scroll-behavior: smooth; }
 html, body { overflow-x: clip; }
 
 #fcl {
@@ -368,7 +367,6 @@ html, body { overflow-x: clip; }
   #fcl.condensed .step .num { font-size: 52px; }
 }
 @media (prefers-reduced-motion: reduce) {
-  html { scroll-behavior: auto; }
   #fcl .btn, #fcl .faq summary::after { transition: none; }
 }
 
@@ -501,6 +499,19 @@ html, body { overflow-x: clip; }
   }
   function accent(s) {
     return fill(s).replace(/\*(.+?)\*/g, '<span class="accent">$1</span>');
+  }
+
+  // CTA buttons: scroll to the form card ourselves. A plain #claim link gets
+  // grabbed by GHL's page router and the scroll stalls or jumps.
+  var card = document.getElementById("claim");
+  var smooth = !(window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches);
+  var ctas = document.querySelectorAll('#fcl a[href="#claim"]');
+  for (var b = 0; b < ctas.length; b++) {
+    ctas[b].addEventListener("click", function (e) {
+      e.preventDefault();
+      e.stopPropagation();
+      card.scrollIntoView({ behavior: smooth ? "smooth" : "auto", block: "start" });
+    });
   }
 
   // Logo

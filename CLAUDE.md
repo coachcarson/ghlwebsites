@@ -117,6 +117,8 @@ Nothing goes in GHL's Custom CSS box; the block carries its own CSS.
   any third parties." Form needs an SMS consent checkbox. Link lives at `privacyUrl`.
 - The pasted block scopes all CSS under `#fcl` and breaks out to full width (100vw), so GHL theme
   styles do not leak in. If the top bar will not stick, a parent section has overflow hidden.
+- **CTA buttons scroll with JS (scrollIntoView), not a plain #claim jump.** GHL's page router
+  grabbed the hash link on F45 and the scroll stalled with a big gap. No global smooth-scroll CSS.
 - Earlier attempt with separate Custom CSS box + HTML element failed (CSS did not apply).
   One all-in-one block is the method.
 
