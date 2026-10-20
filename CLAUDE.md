@@ -117,8 +117,11 @@ Nothing goes in GHL's Custom CSS box; the block carries its own CSS.
   any third parties." Form needs an SMS consent checkbox. Link lives at `privacyUrl`.
 - The pasted block scopes all CSS under `#fcl` and breaks out to full width (100vw), so GHL theme
   styles do not leak in. If the top bar will not stick, a parent section has overflow hidden.
-- **CTA buttons scroll with JS (scrollIntoView), not a plain #claim jump.** GHL's page router
-  grabbed the hash link on F45 and the scroll stalled with a big gap. No global smooth-scroll CSS.
+- **Jump-to-form bug (fixed):** the hero's diagonal stripe overflows the hero, so the hero was
+  a hidden scroll box. Any jump to the form (#claim link or scrollIntoView) scrolled the hero
+  itself ~250px, leaving a gap the user could not scroll back. Fix: sections use
+  `overflow: clip` (cannot be scrolled), and CTAs call scrollToCard() which scrolls only the
+  window (or a real GHL scroll wrapper). Never use scrollIntoView / #anchor jumps here.
 - Earlier attempt with separate Custom CSS box + HTML element failed (CSS did not apply).
   One all-in-one block is the method.
 
