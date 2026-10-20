@@ -27,6 +27,7 @@ html, body { overflow-x: clip; }
   --line: #E3E3E3;
   --radius: 10px;
   --max: 1120px;
+  --accent2: var(--accent);          /* highlights; CONFIG.colors.accent2 overrides */
   --font-base: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
   --font: var(--font-base);          /* body text; CONFIG.fonts.body overrides */
   --font-display: var(--font);       /* headings, buttons, numbers; CONFIG.fonts.display overrides */
@@ -59,7 +60,7 @@ html, body { overflow-x: clip; }
 }
 #fcl p, #fcl ul, #fcl figure, #fcl blockquote { margin: 0; padding: 0; }
 #fcl .wrap { width: 100%; max-width: var(--max); margin: 0 auto; padding: 0 20px; }
-#fcl .accent { color: var(--accent); }
+#fcl .accent { color: var(--accent2); }
 
 /* ---------- Buttons ---------- */
 #fcl .btn {
@@ -114,7 +115,7 @@ html, body { overflow-x: clip; }
   position: absolute;
   right: -20%; top: -30%;
   width: 70%; height: 160%;
-  background: linear-gradient(115deg, transparent 0 46%, var(--accent) 46% 49%, transparent 49% 55%, rgba(255,255,255,.04) 55% 100%);
+  background: linear-gradient(115deg, transparent 0 46%, var(--accent2) 46% 49%, transparent 49% 55%, rgba(255,255,255,.04) 55% 100%);
   pointer-events: none;
 }
 #fcl .hero .wrap { position: relative; display: grid; gap: 36px; }
@@ -125,7 +126,7 @@ html, body { overflow-x: clip; }
   font-weight: 800;
   text-transform: uppercase;
   letter-spacing: 0.14em;
-  color: var(--accent);
+  color: var(--accent2);
   margin-bottom: 14px;
 }
 #fcl .hero h1 {
@@ -191,7 +192,7 @@ html, body { overflow-x: clip; }
 #fcl section.block.alt { background: var(--white); }
 #fcl .section-head { text-align: center; margin-bottom: 36px; }
 #fcl .section-head h2 { font-size: clamp(30px, 6vw, 46px); text-transform: uppercase; color: var(--ink); }
-#fcl .section-head .bar { width: 56px; height: 5px; background: var(--accent); margin: 16px auto 0; border-radius: 3px; }
+#fcl .section-head .bar { width: 56px; height: 5px; background: var(--accent2); margin: 16px auto 0; border-radius: 3px; }
 
 /* Steps */
 #fcl .steps { display: grid; gap: 16px; }
@@ -207,7 +208,7 @@ html, body { overflow-x: clip; }
   font-size: 56px;
   font-weight: var(--display-weight, 900);
   line-height: 1;
-  color: var(--accent);
+  color: var(--accent2);
   letter-spacing: -0.04em;
 }
 #fcl .step h3 { font-size: 22px; text-transform: uppercase; margin-top: 10px; }
@@ -278,7 +279,7 @@ html, body { overflow-x: clip; }
 #fcl .final::before {
   content: "";
   position: absolute; left: 0; right: 0; top: 0;
-  height: 6px; background: var(--accent);
+  height: 6px; background: var(--accent2);
 }
 #fcl .final h2 { font-size: clamp(34px, 8vw, 60px); text-transform: uppercase; color: var(--white); }
 #fcl .final p { color: rgba(255,255,255,.75); margin: 16px auto 28px; max-width: 560px; font-size: 18px; }
@@ -419,7 +420,8 @@ var CONFIG = {
 
   /* ---------- Colors (one accent only) ---------- */
   colors: {
-    accent:     "#3FB24B",  // buttons, highlights, step numbers
+    accent:     "#3FB24B",  // buttons, check marks, form card edge
+    accent2:    "#00AFEE",  // highlight words, eyebrow, step numbers, stripes ("" = same as accent)
     accentText: "#0B1E2B",  // text that sits on top of the accent color
     dark:       "#0B1E2B",  // hero + top bar background
     light:      "#F3F7F9",  // light section background
@@ -469,6 +471,7 @@ var CONFIG = {
   root.setProperty("--dark", k.dark);
   root.setProperty("--light", k.light);
   root.setProperty("--ink", k.ink);
+  if (k.accent2) root.setProperty("--accent2", k.accent2);
 
   // Fonts (Google Fonts) and top bar style
   var f = C.fonts || {};

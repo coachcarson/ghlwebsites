@@ -50,7 +50,9 @@ Change a gym's words/colors/offer in its `gym.json`, then rebuild that gym.
    `*word*` turns a word accent-colored. `{city}` / `{gym}` tokens work in any text.
    Short subhead (1 line). Bullets under ~40 chars. Never invent testimonials, stats or claims;
    only use what Ryan gives. Offer limits ("first 20") only if real.
-4. Colors: one accent. accentText must be readable on accent (white on bright green/blue fails;
+4. Colors: `accent` = anything clickable (buttons, checks, form card edge). Optional `accent2` =
+   highlight words, eyebrow, step numbers, stripes; use it when the brand has two colors
+   (RAW: green accent + blue accent2). Blank accent2 = one-color look. accentText must be readable on accent (white on bright green/blue fails;
    use the dark color instead). dark = hero/top bar, light = section bg.
    Per-gym look options in gym.json (all optional, defaults = CrossFit East Coast look):
    - `fonts`: {display, displayWeights, body, bodyWeights, headingWeight} Google Fonts names.

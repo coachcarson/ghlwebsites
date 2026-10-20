@@ -78,7 +78,8 @@ var CONFIG = {{
 
   /* ---------- Colors (one accent only) ---------- */
   colors: {{
-    accent:     {js(c["accent"])},  // buttons, highlights, step numbers
+    accent:     {js(c["accent"])},  // buttons, check marks, form card edge
+    accent2:    {js(c.get("accent2", ""))},  // highlight words, eyebrow, step numbers, stripes ("" = same as accent)
     accentText: {js(c["accentText"])},  // text that sits on top of the accent color
     dark:       {js(c["dark"])},  // hero + top bar background
     light:      {js(c["light"])},  // light section background
@@ -148,6 +149,7 @@ var CONFIG = {{
   /* ---------- Colors (match the landing page) ---------- */
   colors: {{
     accent:     {js(c["accent"])},
+    accent2:    {js(c.get("accent2", ""))},
     accentText: {js(c["accentText"])},
     dark:       {js(c["dark"])},
     light:      {js(c["light"])},
