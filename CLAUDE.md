@@ -89,6 +89,13 @@ Change a gym's words/colors/offer in its `gym.json`, then rebuild that gym.
    submit the form and confirm it lands on the thank-you page.
 Nothing goes in GHL's Custom CSS box; the block carries its own CSS.
 
+**Second page for the same gym** (different offer): its own folder (`<gym>-<offer>`), copy the
+logo + brand from the main folder. It needs its own GHL form, because a form redirects to only
+one thank-you page.
+Consultation copy rules (CrossFit East Coast): a fit check plus a plan they keep whether they
+join or not. Not "1-on-1" (others may be there). Not medical-sounding (no "assessment",
+"evaluation", "intake"). No session length unless Ryan gives one.
+
 ## GHL lessons learned (do not relearn these)
 
 - **Embedded forms stack one field per row.** The inline embed renders in an iframe and uses its
@@ -143,6 +150,7 @@ Nothing goes in GHL's Custom CSS box; the block carries its own CSS.
 | Gym | Folder | Domain | Copy page |
 |---|---|---|---|
 | CrossFit East Coast (Braintree, MA) | gyms/crossfit-east-coast | crossfit-eastcoast.com/free-crossfit-class | https://claude.ai/artifact/1pCLeFwRrKSbY543f9pq9C |
+| CrossFit East Coast, consultation page | gyms/crossfit-east-coast-consult | crossfit-eastcoast.com/braintree-free-consultation (needs its own form) | https://claude.ai/artifact/Q1H9y7jqotV3V2uW7j6L6a |
 | RAW Fitness (Washington Township, MI) | gyms/raw-fitness | info.rawfitlife.com/free-consultation | https://claude.ai/artifact/CQhQzEn3KVdLURxpw7Uvf7 |
 | F45 Cross Trails (Round Rock, TX) | gyms/f45-cross-trails | schedule.f45-crosstrails.com/get-started | https://claude.ai/artifact/QL6VDztrjsP7C7d628qwxQ |
 | Grinders Fitness (Northglenn, CO) | gyms/grinders-fitness | grindersfitnessgym.com/northglenn-free-class (paths unconfirmed) | https://claude.ai/artifact/7kxYGvdxAHUabRGiwtVPs5 |

@@ -1,0 +1,70 @@
+{
+  "gymName": "CrossFit East Coast",
+  "city": "Braintree, MA",
+  "address": "160 Granite Street, Braintree, MA 02184",
+  "phone": "",
+  "domain": "crossfit-eastcoast.com",
+  "pagePath": "braintree-free-consultation",
+  "thankYouPath": "braintree-free-consultation-thank-you",
+  "privacyUrl": "",
+  "logoFile": "logo.jpg",
+  "logoUrl": "",
+  "seoTitle": "Free Fitness Consultation in Braintree | CrossFit East Coast",
+  "seoDescription": "Book a free consultation at CrossFit East Coast in Braintree, MA. Talk with a coach, see if we're the right fit, and leave with a plan for your goals.",
+  "colors": {
+    "accent": "#DF3224",
+    "accentText": "#F7F7F7",
+    "dark": "#000000",
+    "light": "#F7F7F7",
+    "ink": "#000000"
+  },
+  "ctaText": "Book My Free Consultation",
+  "topBarCta": "Free Consultation",
+  "eyebrow": "Not sure where to start?",
+  "headline": "Book Your *Free* Consultation",
+  "subhead": "Sit down with a coach in {city}, see if we're the right fit, and leave with a plan built for your goals. Yours to keep, whether you join or not.",
+  "trustBullets": [
+    "Talk through your goals with a coach",
+    "Leave with a plan, join or not",
+    "Zero pressure, nothing to pay"
+  ],
+  "formHeading": "Claim Your Free Consultation",
+  "formSubtext": "Takes 30 seconds. A coach will text you to set a time.",
+  "stepsHeading": "How It Works",
+  "steps": [
+    {
+      "title": "Claim your spot",
+      "text": "Fill out the quick form. It takes less than a minute."
+    },
+    {
+      "title": "We text you to schedule",
+      "text": "A coach texts you to find a time that works for you."
+    },
+    {
+      "title": "Get your plan",
+      "text": "Talk through your goals, see if we're a good fit, and leave with a plan you can use either way."
+    }
+  ],
+  "finalHeadline": "Your *Free Consultation* Is Waiting",
+  "finalSubtext": "Find out if we're the right fit and walk away with a plan built for your goals. Claim yours now and we'll text you to set a time.",
+  "copyPageUrl": "https://claude.ai/artifact/Q1H9y7jqotV3V2uW7j6L6a",
+  "notes": "Second CrossFit East Coast page: free consultation offer (Ryan: it is a fit check plus a detailed plan whether they join or not; not 1-on-1, others may be there; keep it from sounding medical; no length given). Same brand as gyms/crossfit-east-coast. form-embed.html is a COPY of the free class form (FCWeb) until a separate consult form exists, because one GHL form can only redirect to one thank-you page.",
+  "thankYou": {
+    "headline": "Your *Free Consultation* Is Claimed",
+    "subhead": "Keep an eye on your phone. A coach from {gym} will text you shortly to set up your consultation.",
+    "steps": [
+      {
+        "title": "Watch for our text",
+        "text": "A coach will text you to find a time that fits your schedule."
+      },
+      {
+        "title": "Pick your time",
+        "text": "Reply with the day and time that work best. That locks in your consultation."
+      },
+      {
+        "title": "Bring your goals",
+        "text": "Come ready to talk about where you are now and where you want to be. You'll leave with a plan either way."
+      }
+    ]
+  }
+}
