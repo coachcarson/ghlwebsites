@@ -3,9 +3,9 @@
   "city": "North Vancouver, BC",
   "address": "1400 Marine Dr, North Vancouver, BC V7P 1T6",
   "phone": "",
-  "domain": "andreaklasfitness.com",
-  "pagePath": "discovery-call",
-  "thankYouPath": "discovery-call-thank-you",
+  "domain": "info.andreaklasfitness.com",
+  "pagePath": "complimentary-consultation",
+  "thankYouPath": "complimentary-consultation-thank-you",
   "privacyUrl": "",
   "logoFile": "logo.png",
   "logoUrl": "",
@@ -84,5 +84,5 @@
     ]
   },
   "copyPageUrl": "https://claude.ai/artifact/PmF6eUaUFBsQGeSFontN8A",
-  "notes": "Andrea Klas Fitness: personal training studio, North Vancouver + Lions Bay, BC (Canada). Program pairs each client with a personal training coach, registered dietitian and mindset coach (from search; site blocked from sandbox). Brand-sensitive, premium client: only their colors, calm copy ('complimentary', no hype). Offer: complimentary 15-minute discovery call. Brand: blue #adbec5 (highlight marker, stripes, check circles, How It Works band), brown grey #3e3a31 (text, buttons with off-white text, step numbers), off-white #efefed (hero + final band). Light theme: Ryan felt the brown hero/final band was too much brown. Title font Helvetica Neue is not on Google Fonts: displayFirst uses the real Helvetica Neue on Apple devices, Inter elsewhere. Body Work Sans. Wide wordmark logo on a light top bar. Location confirmed: North Vancouver, 1400 Marine Dr (Ryan). Ad: complimentary discovery call; 15 minutes kept on the page as a low-commitment signal. Waiting on: domain/paths, privacy policy."
+  "notes": "Andrea Klas Fitness: personal training studio, North Vancouver + Lions Bay, BC (Canada). Program pairs each client with a personal training coach, registered dietitian and mindset coach (from search; site blocked from sandbox). Brand-sensitive, premium client: only their colors, calm copy ('complimentary', no hype). Offer: complimentary 15-minute discovery call. Brand: blue #adbec5 (highlight marker, stripes, check circles, How It Works band), brown grey #3e3a31 (text, buttons with off-white text, step numbers), off-white #efefed (hero + final band). Light theme: Ryan felt the brown hero/final band was too much brown. Title font Helvetica Neue is not on Google Fonts: displayFirst uses the real Helvetica Neue on Apple devices, Inter elsewhere. Body Work Sans. Wide wordmark logo on a light top bar. Location confirmed: North Vancouver, 1400 Marine Dr (Ryan). Ad: complimentary discovery call; 15 minutes kept on the page as a low-commitment signal. Page live at info.andreaklasfitness.com/complimentary-consultation (Ryan's path). Waiting on: privacy policy."
 }
