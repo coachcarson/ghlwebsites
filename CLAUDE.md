@@ -157,4 +157,4 @@ join or not. Not "1-on-1" (others may be there). Not medical-sounding (no "asses
 | F45 Cross Trails (Round Rock, TX) | gyms/f45-cross-trails | schedule.f45-crosstrails.com/get-started | https://claude.ai/artifact/QL6VDztrjsP7C7d628qwxQ |
 | Grinders Fitness (Northglenn, CO) | gyms/grinders-fitness | grindersfitnessgym.com/northglenn-free-class (paths unconfirmed) | https://claude.ai/artifact/7kxYGvdxAHUabRGiwtVPs5 |
 | Wallace Fitness (Mount Dora, FL) | gyms/wallace-fitness | wallacefitness.com/mount-dora-free-consultation (paths unconfirmed) | https://claude.ai/artifact/QJ8kTcqTqu41FrzA5xTCf2 |
-| Southside Knockout (Orland Park, IL) | gyms/southside-knockout-orland-park | orlandpark.southsideknockout.com/free-consultation (placeholder logo, address to confirm) | https://claude.ai/artifact/Wqu1ftX8qFRwzeFYPw1Z9z |
+| Southside Knockout (Orland Park, IL) | gyms/southside-knockout-orland-park | orlandpark.southsideknockout.com/free-consultation (address to confirm) | https://claude.ai/artifact/Wqu1ftX8qFRwzeFYPw1Z9z |

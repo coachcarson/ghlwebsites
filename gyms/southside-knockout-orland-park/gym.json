@@ -7,10 +7,11 @@
   "pagePath": "free-consultation",
   "thankYouPath": "free-consultation-thank-you",
   "privacyUrl": "",
-  "logoFile": "logo-placeholder.png",
+  "logoFile": "logo.jpg",
   "logoUrl": "",
   "topBar": "dark",
   "topBarStripe": "linear-gradient(90deg, #36CA36, #FF6A0F)",
+  "logoHeight": 58,
   "fonts": {
     "display": "Montserrat",
     "displayWeights": "800;900",
@@ -76,5 +77,5 @@
     ]
   },
   "copyPageUrl": "https://claude.ai/artifact/Wqu1ftX8qFRwzeFYPw1Z9z",
-  "notes": "Southside Knockout Training, Orland Park IL: coach-led group fat loss training (boxing, kickboxing, bootcamp, circuit). Facts from search (site blocked from sandbox). Address 15545 71st Ct (MapQuest/Fresha); one directory says 15100 S 94th Ave, so confirm. Offer: free consultation, no length. Brand: orange #ff6a0f (buttons, black text), green #36ca36 (highlights), grey #f7f7f7 (section bg); near-black #111111 added as the dark base. Montserrat for both. Waiting on: logo (placeholder now), address confirmation, privacy policy location, Google ad headline."
+  "notes": "Southside Knockout Training, Orland Park IL: coach-led group fat loss training (boxing, kickboxing, bootcamp, circuit). Facts from search (site blocked from sandbox). Address 15545 71st Ct (MapQuest/Fresha); one directory says 15100 S 94th Ave, so confirm. Offer: free consultation, no length. Brand: orange #ff6a0f (buttons, black text), green #36ca36 (highlights), grey #f7f7f7 (section bg); near-black #111111 added as the dark base. Montserrat for both. Logo: sticker-style on a textured gray background, cropped to SOUTHSIDE/shamrock/KNOCKOUT and used as a badge (Orland Park script dropped). Waiting on: address confirmation, privacy policy location, Google ad headline."
 }
