@@ -67,6 +67,8 @@ var CONFIG = {{
   privacyUrl: {js(g.get("privacyUrl", ""))},
   /* Top bar: "dark" or "light" (light = white bar, for logos made for white). */
   topBar:   {js(g.get("topBar", "dark"))},
+  /* Page theme: "dark" (dark hero + final band) or "light" (light hero + final band, dark text). */
+  theme:    {js(g.get("theme", "dark"))},
   /* Thin color stripe across the top of the top bar: a color or CSS gradient. "" = none. */
   topBarStripe: {js(g.get("topBarStripe", ""))},
   /* Google Fonts. Leave names "" for the fast system font. */
@@ -150,6 +152,8 @@ var CONFIG = {{
   phone:    {js(g.get("phone", ""))},
   /* Top bar: "dark" or "light" (light = white bar, for logos made for white). */
   topBar:   {js(g.get("topBar", "dark"))},
+  /* Page theme: "dark" (dark hero + final band) or "light" (light hero + final band, dark text). */
+  theme:    {js(g.get("theme", "dark"))},
   /* Thin color stripe across the top of the top bar: a color or CSS gradient. "" = none. */
   topBarStripe: {js(g.get("topBarStripe", ""))},
   /* Google Fonts. Leave names "" for the fast system font. */

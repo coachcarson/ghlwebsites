@@ -30,6 +30,8 @@
 #fcl .final .contact { margin: 10px auto 0; font-size: 17px; }
 #fcl .final .contact a { color: var(--white); text-decoration: underline; }
 #fcl .final p:empty { display: none; }
+#fcl.light-theme .ty-check { background-color: var(--accent2); box-shadow: none; }
+#fcl.light-theme .final .address, #fcl.light-theme .final .contact a { color: var(--ink); }
 @media (min-width: 960px) {
   #fcl .ty-hero { padding: 88px 0 96px; }
 }
@@ -111,6 +113,7 @@
     document.head.appendChild(link);
   }
   if (C.topBar === "light") document.getElementById("fcl").classList.add("topbar-light");
+  if (C.theme === "light") document.getElementById("fcl").classList.add("light-theme");
   if (f.condensed) document.getElementById("fcl").classList.add("condensed");
   if (C.topBarStripe) root.setProperty("--topbar-stripe", C.topBarStripe);
   if (f.headingWeight) {

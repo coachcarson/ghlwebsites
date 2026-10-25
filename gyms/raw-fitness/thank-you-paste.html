@@ -309,6 +309,25 @@ html, body { overflow-x: clip; }
 #fcl .final .legal a:hover { color: rgba(255,255,255,.9); }
 #fcl .final .legal[hidden] { display: none; }
 
+/* ---------- Light theme (CONFIG.theme = "light") ----------
+   Hero and final band on the light color with dark text, for brands where a big
+   dark hero feels heavy (Andrea Klas). Highlight words get an accent2 underline
+   instead of colored text, so pale brand colors still read. */
+#fcl.light-theme .hero, #fcl.light-theme .final { background: var(--light); color: var(--ink); }
+#fcl.light-theme .hero h1, #fcl.light-theme .final h2, #fcl.light-theme .trust li { color: var(--ink); }
+#fcl.light-theme .hero .sub, #fcl.light-theme .final p { color: var(--ink); opacity: .8; }
+#fcl.light-theme .eyebrow { color: var(--ink); opacity: .7; }
+#fcl.light-theme .hero .accent, #fcl.light-theme .final .accent {
+  color: inherit;
+  text-decoration: underline;
+  text-decoration-color: var(--accent2);
+  text-decoration-thickness: .14em;
+  text-underline-offset: .1em;
+  text-decoration-skip-ink: none;
+}
+#fcl.light-theme .form-card { box-shadow: 0 18px 50px rgba(0,0,0,.10); border-top-color: var(--accent2); }
+#fcl.light-theme .final .legal, #fcl.light-theme .final .legal a { color: var(--ink); opacity: .7; }
+
 /* ---------- Tablet / desktop ---------- */
 @media (min-width: 720px) {
   #fcl .brand-logo { height: 48px; }
@@ -402,6 +421,8 @@ html, body { overflow-x: clip; }
 #fcl .final .contact { margin: 10px auto 0; font-size: 17px; }
 #fcl .final .contact a { color: var(--white); text-decoration: underline; }
 #fcl .final p:empty { display: none; }
+#fcl.light-theme .ty-check { background-color: var(--accent2); box-shadow: none; }
+#fcl.light-theme .final .address, #fcl.light-theme .final .contact a { color: var(--ink); }
 @media (min-width: 960px) {
   #fcl .ty-hero { padding: 88px 0 96px; }
 }
@@ -464,6 +485,8 @@ var CONFIG = {
   phone:    "",
   /* Top bar: "dark" or "light" (light = white bar, for logos made for white). */
   topBar:   "light",
+  /* Page theme: "dark" (dark hero + final band) or "light" (light hero + final band, dark text). */
+  theme:    "dark",
   /* Thin color stripe across the top of the top bar: a color or CSS gradient. "" = none. */
   topBarStripe: "linear-gradient(90deg, #3FB24B, #00AFEE)",
   /* Google Fonts. Leave names "" for the fast system font. */
@@ -541,6 +564,7 @@ var CONFIG = {
     document.head.appendChild(link);
   }
   if (C.topBar === "light") document.getElementById("fcl").classList.add("topbar-light");
+  if (C.theme === "light") document.getElementById("fcl").classList.add("light-theme");
   if (f.condensed) document.getElementById("fcl").classList.add("condensed");
   if (C.topBarStripe) root.setProperty("--topbar-stripe", C.topBarStripe);
   if (f.headingWeight) {

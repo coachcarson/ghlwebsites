@@ -75,6 +75,9 @@ Change a gym's words/colors/offer in its `gym.json`, then rebuild that gym.
    - `colors.checkInk` / `colors.stepNum`: dark check marks / step numbers when the accent is a light
      color (Andrea Klas pale blue: white checks and blue numbers on white cards were unreadable).
    - Very wide wordmark logos shrink to 56% of the screen width on phones automatically.
+   - `theme`: "light" puts the hero and final band on the light color with dark text, dark buttons,
+     and accent2 underlines on highlight words (Andrea Klas: Ryan said the brown hero was too much).
+     Pair with a `band` so How It Works still carries brand color.
    Thank-you page hides "Where To Find Us" when `address` is "".
    Phones (<720px) use tighter type/spacing so the form shows above the fold (Ryan's ask).
    Keep "20-minute" style words together with word joiners: "20\u2060-\u2060minute".
