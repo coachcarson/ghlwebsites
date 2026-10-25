@@ -1,0 +1,83 @@
+{
+  "gymName": "Wallace Fitness",
+  "city": "Mount Dora, FL",
+  "address": "4820 N Hwy 19A, Mount Dora, FL",
+  "phone": "",
+  "domain": "wallacefitness.com",
+  "pagePath": "mount-dora-free-consultation",
+  "thankYouPath": "mount-dora-free-consultation-thank-you",
+  "privacyUrl": "",
+  "logoFile": "logo-placeholder.png",
+  "logoUrl": "",
+  "topBar": "dark",
+  "topBarStripe": "linear-gradient(90deg, #9BBA43, #32A4DA)",
+  "fonts": {
+    "display": "Anton",
+    "displayWeights": "400",
+    "body": "Open Sans",
+    "bodyWeights": "400;600;700",
+    "headingWeight": "400",
+    "condensed": true
+  },
+  "seoTitle": "Free Personal Training Consultation in Mount Dora, FL | Wallace Fitness",
+  "seoDescription": "Book a free consultation at Wallace Fitness in Mount Dora, FL. Private, appointment-only personal training focused on injury recovery and prevention.",
+  "colors": {
+    "accent": "#9BBA43",
+    "accent2": "#32A4DA",
+    "band": "#32A4DA",
+    "bandInk": "#0E1E2B",
+    "accentText": "#0E1E2B",
+    "dark": "#0E1E2B",
+    "light": "#F4F7F9",
+    "ink": "#0E1E2B"
+  },
+  "ctaText": "Book My Free Consultation",
+  "topBarCta": "Free Consultation",
+  "eyebrow": "{city}",
+  "headline": "Book Your *Free* Consultation",
+  "subhead": "Private, appointment-only personal training in {city}. Tell us your goals and we'll show you how we can help.",
+  "trustBullets": [
+    "Private, appointment-only studio",
+    "Injury recovery and prevention",
+    "Zero pressure, nothing to pay"
+  ],
+  "formHeading": "Claim Your Free Consultation",
+  "formSubtext": "Takes 30 seconds. We'll text you to set a time.",
+  "stepsHeading": "How It Works",
+  "steps": [
+    {
+      "title": "Request your consultation",
+      "text": "Fill out the quick form. It takes less than a minute."
+    },
+    {
+      "title": "We text you to schedule",
+      "text": "Someone from our team texts you to find a time that works for you."
+    },
+    {
+      "title": "Meet your trainer",
+      "text": "Talk through your goals, any injuries or limits, and how we can help you move and feel better."
+    }
+  ],
+  "finalHeadline": "Your *Free Consultation* Is Waiting",
+  "finalSubtext": "Request yours now and we'll text you to set a time.",
+  "thankYou": {
+    "headline": "Your *Free Consultation* Is Claimed",
+    "subhead": "Keep an eye on your phone. Someone from {gym} will text you shortly to set up your consultation.",
+    "steps": [
+      {
+        "title": "Watch for our text",
+        "text": "We'll text you to find a time that fits your schedule."
+      },
+      {
+        "title": "Pick your time",
+        "text": "Reply with the day and time that work best. That locks in your consultation."
+      },
+      {
+        "title": "Bring your goals",
+        "text": "Come ready to talk about your goals and anything that has been holding you back. We'll take it from there."
+      }
+    ]
+  },
+  "copyPageUrl": "https://claude.ai/artifact/QJ8kTcqTqu41FrzA5xTCf2",
+  "notes": "Private, appointment-only personal training studio in Mount Dora, FL, focused on injury recovery and prevention (strength, weight loss, assisted stretching, balance, seniors). Facts from search (site blocked from sandbox); a different 'Wallace Fitness Center' exists in Delmont, PA, not this one. Offer: free consultation, NO length mentioned (Ryan). Brand: green #9bba43 (buttons, dark text), blue #32a4da (highlights + How It Works band), white; dark navy #0E1E2B added for contrast. Anton (single weight 400, condensed) + Open Sans. Waiting on: logo (placeholder now), confirm domain/paths, privacy policy location, Google ad headline, dark brand color if they have one."
+}

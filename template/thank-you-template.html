@@ -110,7 +110,10 @@
   if (C.topBar === "light") document.getElementById("fcl").classList.add("topbar-light");
   if (f.condensed) document.getElementById("fcl").classList.add("condensed");
   if (C.topBarStripe) root.setProperty("--topbar-stripe", C.topBarStripe);
-  if (f.headingWeight) root.setProperty("--display-weight", f.headingWeight);
+  if (f.headingWeight) {
+    root.setProperty("--display-weight", f.headingWeight);
+    root.setProperty("--btn-weight", f.headingWeight);
+  }
   if (C.logoHeight) {
     document.getElementById("logo").style.height = C.logoHeight + "px";
     // Tall logos: grow the bar so the logo (and the optional stripe) are never clipped

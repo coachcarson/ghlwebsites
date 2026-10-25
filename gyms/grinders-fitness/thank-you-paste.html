@@ -73,7 +73,7 @@ html, body { overflow-x: clip; }
   background: var(--accent);
   color: var(--accent-text);
   font-family: var(--font-display);
-  font-weight: 800;
+  font-weight: var(--btn-weight, 800);
   text-transform: uppercase;
   letter-spacing: 0.04em;
   text-decoration: none;
@@ -131,7 +131,7 @@ html, body { overflow-x: clip; }
   font-family: var(--font-display);
   display: inline-block;
   font-size: 13px;
-  font-weight: 800;
+  font-weight: var(--btn-weight, 800);
   text-transform: uppercase;
   letter-spacing: 0.14em;
   color: var(--accent2);
@@ -534,7 +534,10 @@ var CONFIG = {
   if (C.topBar === "light") document.getElementById("fcl").classList.add("topbar-light");
   if (f.condensed) document.getElementById("fcl").classList.add("condensed");
   if (C.topBarStripe) root.setProperty("--topbar-stripe", C.topBarStripe);
-  if (f.headingWeight) root.setProperty("--display-weight", f.headingWeight);
+  if (f.headingWeight) {
+    root.setProperty("--display-weight", f.headingWeight);
+    root.setProperty("--btn-weight", f.headingWeight);
+  }
   if (C.logoHeight) {
     document.getElementById("logo").style.height = C.logoHeight + "px";
     // Tall logos: grow the bar so the logo (and the optional stripe) are never clipped

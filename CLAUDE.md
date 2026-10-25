@@ -61,6 +61,8 @@ Change a gym's words/colors/offer in its `gym.json`, then rebuild that gym.
    - `fonts`: {display, displayWeights, body, bodyWeights, headingWeight} Google Fonts names.
      Heavy display faces (Kanit) look best with headingWeight "800", not 900.
      Condensed display faces (Barlow Condensed): add `"condensed": true` for bigger headings.
+     Single-weight faces (Anton): displayWeights "400" and headingWeight "400"; buttons and the
+     eyebrow follow headingWeight so nothing gets fake-bolded.
      Paid fonts (Gotham, etc.) are not on Google Fonts: use the closest free match
      (Gotham -> Montserrat, Gotham Condensed -> Barlow Condensed) and tell Ryan.
    - `topBar`: "light" for logos made for white backgrounds (keeps the dark hero).
@@ -154,3 +156,4 @@ join or not. Not "1-on-1" (others may be there). Not medical-sounding (no "asses
 | RAW Fitness (Washington Township, MI) | gyms/raw-fitness | info.rawfitlife.com/free-consultation | https://claude.ai/artifact/CQhQzEn3KVdLURxpw7Uvf7 |
 | F45 Cross Trails (Round Rock, TX) | gyms/f45-cross-trails | schedule.f45-crosstrails.com/get-started | https://claude.ai/artifact/QL6VDztrjsP7C7d628qwxQ |
 | Grinders Fitness (Northglenn, CO) | gyms/grinders-fitness | grindersfitnessgym.com/northglenn-free-class (paths unconfirmed) | https://claude.ai/artifact/7kxYGvdxAHUabRGiwtVPs5 |
+| Wallace Fitness (Mount Dora, FL) | gyms/wallace-fitness | wallacefitness.com/mount-dora-free-consultation (placeholder logo, paths unconfirmed) | https://claude.ai/artifact/QJ8kTcqTqu41FrzA5xTCf2 |
