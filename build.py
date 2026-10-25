@@ -71,6 +71,7 @@ var CONFIG = {{
   topBarStripe: {js(g.get("topBarStripe", ""))},
   /* Google Fonts. Leave names "" for the fast system font. */
   fonts: {{
+    displayFirst: {js(g.get("fonts", {}).get("displayFirst", ""))},  /* device font tried before display, no download (e.g. Helvetica Neue on Apple) */
     display: {js(g.get("fonts", {}).get("display", ""))}, displayWeights: {js(g.get("fonts", {}).get("displayWeights", "700;800;900"))},
     body:    {js(g.get("fonts", {}).get("body", ""))}, bodyWeights:    {js(g.get("fonts", {}).get("bodyWeights", "400;700"))},
     headingWeight: {js(g.get("fonts", {}).get("headingWeight", ""))},  /* "" = 900 */
@@ -78,6 +79,8 @@ var CONFIG = {{
   }},
   /* Logo height in px in the top bar. "" = default (44 mobile, 48 desktop). */
   logoHeight: {js(g.get("logoHeight", ""))},
+  /* Desktop headline size in px, for long words that run into the form. "" = default. */
+  headlineSize: {js(g.get("headlineSize", ""))},
 
   /* ---------- Colors (one accent only) ---------- */
   colors: {{
@@ -88,7 +91,9 @@ var CONFIG = {{
     accentText: {js(c["accentText"])},  // text that sits on top of the accent color
     dark:       {js(c["dark"])},  // hero + top bar background
     light:      {js(c["light"])},  // light section background
-    ink:        {js(c["ink"])}   // main text on light sections
+    ink:        {js(c["ink"])},  // main text on light sections
+    checkInk:   {js(c.get("checkInk", ""))},  // check mark color ("" = white; use dark when the accent is light)
+    stepNum:    {js(c.get("stepNum", ""))}   // step number color ("" = accent2)
   }},
 
   /* ---------- Buttons ---------- */
@@ -149,6 +154,7 @@ var CONFIG = {{
   topBarStripe: {js(g.get("topBarStripe", ""))},
   /* Google Fonts. Leave names "" for the fast system font. */
   fonts: {{
+    displayFirst: {js(g.get("fonts", {}).get("displayFirst", ""))},  /* device font tried before display, no download (e.g. Helvetica Neue on Apple) */
     display: {js(g.get("fonts", {}).get("display", ""))}, displayWeights: {js(g.get("fonts", {}).get("displayWeights", "700;800;900"))},
     body:    {js(g.get("fonts", {}).get("body", ""))}, bodyWeights:    {js(g.get("fonts", {}).get("bodyWeights", "400;700"))},
     headingWeight: {js(g.get("fonts", {}).get("headingWeight", ""))},  /* "" = 900 */
@@ -166,7 +172,9 @@ var CONFIG = {{
     accentText: {js(c["accentText"])},
     dark:       {js(c["dark"])},
     light:      {js(c["light"])},
-    ink:        {js(c["ink"])}
+    ink:        {js(c["ink"])},
+    checkInk:   {js(c.get("checkInk", ""))},
+    stepNum:    {js(c.get("stepNum", ""))}
   }},
 
   /* ---------- Confirmation ---------- */

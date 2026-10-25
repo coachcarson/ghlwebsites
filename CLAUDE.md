@@ -69,6 +69,12 @@ Change a gym's words/colors/offer in its `gym.json`, then rebuild that gym.
    - `logoHeight`: px, for wide or badge logos (RAW = 52, Grinders = 64). The top bar grows to
      logoHeight + 18 so the logo and stripe never clip. Crop tiny taglines off badge logos.
    - `topBarStripe`: color or CSS gradient for a 5px stripe across the top bar (RAW: green to blue).
+   - `fonts.displayFirst`: a device font tried before `display` (no download). Use for Helvetica Neue:
+     real Helvetica Neue on Apple devices, the Google `display` (Inter) everywhere else (Andrea Klas).
+   - `headlineSize`: desktop headline px when a long word runs into the form (Andrea Klas = 50).
+   - `colors.checkInk` / `colors.stepNum`: dark check marks / step numbers when the accent is a light
+     color (Andrea Klas pale blue: white checks and blue numbers on white cards were unreadable).
+   - Very wide wordmark logos shrink to 56% of the screen width on phones automatically.
    Thank-you page hides "Where To Find Us" when `address` is "".
    Phones (<720px) use tighter type/spacing so the form shows above the fold (Ryan's ask).
    Keep "20-minute" style words together with word joiners: "20\u2060-\u2060minute".
@@ -158,3 +164,4 @@ join or not. Not "1-on-1" (others may be there). Not medical-sounding (no "asses
 | Grinders Fitness (Northglenn, CO) | gyms/grinders-fitness | grindersfitnessgym.com/northglenn-free-class (paths unconfirmed) | https://claude.ai/artifact/7kxYGvdxAHUabRGiwtVPs5 |
 | Wallace Fitness (Mount Dora, FL) | gyms/wallace-fitness | wallacefitness.com/mount-dora-free-consultation (paths unconfirmed) | https://claude.ai/artifact/QJ8kTcqTqu41FrzA5xTCf2 |
 | Southside Knockout (Orland Park, IL) | gyms/southside-knockout-orland-park | orlandpark.southsideknockout.com/free-consultation (address to confirm) | https://claude.ai/artifact/Wqu1ftX8qFRwzeFYPw1Z9z |
+| Andrea Klas Fitness (North Vancouver, BC) | gyms/andrea-klas-fitness | domain/paths unconfirmed (discovery-call). Brand-sensitive premium client | https://claude.ai/artifact/PmF6eUaUFBsQGeSFontN8A |

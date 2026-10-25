@@ -105,7 +105,9 @@ html, body { overflow-x: clip; }
   display: block;
   height: 44px;
   width: auto;
-  max-width: none;
+  max-width: 56vw;           /* very wide logos shrink on phones instead of crowding the button */
+  object-fit: contain;
+  object-position: left center;
   border-radius: 6px;
 }
 
@@ -161,6 +163,7 @@ html, body { overflow-x: clip; }
   flex: 0 0 22px; height: 22px;
   border-radius: 50%;
   background: var(--accent2) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='white' stroke-width='3.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M5 12.5l4.5 4.5L19 7.5'/%3E%3C/svg%3E") center/14px no-repeat;
+  background-image: var(--check-img, url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='white' stroke-width='3.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M5 12.5l4.5 4.5L19 7.5'/%3E%3C/svg%3E"));
 }
 
 /* ---------- Form card ---------- */
@@ -225,7 +228,7 @@ html, body { overflow-x: clip; }
   font-size: 56px;
   font-weight: var(--display-weight, 900);
   line-height: 1;
-  color: var(--accent2);
+  color: var(--step-num, var(--accent2));
   letter-spacing: -0.04em;
 }
 #fcl .step h3 { font-size: 22px; text-transform: uppercase; margin-top: 10px; }
@@ -322,7 +325,7 @@ html, body { overflow-x: clip; }
    which makes the form twice as tall. */
 @media (min-width: 1100px) {
   #fcl .hero .wrap { grid-template-columns: minmax(0, 1fr) 580px; align-items: center; gap: 48px; }
-  #fcl .hero h1 { font-size: 60px; }
+  #fcl .hero h1 { font-size: var(--h1-desk, 60px); }
   #fcl .form-card { padding: 30px 24px; }
 }
 /* Stacked hero on tablets: keep the form card a sensible width */
@@ -363,7 +366,7 @@ html, body { overflow-x: clip; }
 #fcl.condensed .btn-sm { font-size: 15px; }
 #fcl.condensed .btn-lg { font-size: 22px; }
 @media (min-width: 1100px) {
-  #fcl.condensed .hero h1 { font-size: 62px; }
+  #fcl.condensed .hero h1 { font-size: var(--h1-desk, 62px); }
 }
 @media (max-width: 719px) {
   #fcl.condensed .eyebrow { font-size: 16px; }
@@ -387,6 +390,7 @@ html, body { overflow-x: clip; }
 #fcl .ty-check {
   width: 76px; height: 76px; border-radius: 50%;
   background: var(--accent) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='white' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M5 12.5l4.5 4.5L19 7.5'/%3E%3C/svg%3E") center/38px no-repeat;
+  background-image: var(--check-img, url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='white' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M5 12.5l4.5 4.5L19 7.5'/%3E%3C/svg%3E"));
   margin-bottom: 22px;
   box-shadow: 0 0 0 10px rgba(255,255,255,.06);
 }
@@ -464,6 +468,7 @@ var CONFIG = {
   topBarStripe: "#FE0000",
   /* Google Fonts. Leave names "" for the fast system font. */
   fonts: {
+    displayFirst: "",  /* device font tried before display, no download (e.g. Helvetica Neue on Apple) */
     display: "Poppins", displayWeights: "700;800;900",
     body:    "Montserrat", bodyWeights:    "400;500;700",
     headingWeight: "800",  /* "" = 900 */
@@ -481,7 +486,9 @@ var CONFIG = {
     accentText: "#FFFFFF",
     dark:       "#000000",
     light:      "#F5F5F5",
-    ink:        "#000000"
+    ink:        "#000000",
+    checkInk:   "",
+    stepNum:    ""
   },
 
   /* ---------- Confirmation ---------- */
@@ -514,6 +521,8 @@ var CONFIG = {
   root.setProperty("--light", k.light);
   root.setProperty("--ink", k.ink);
   if (k.accent2) root.setProperty("--accent2", k.accent2);
+  if (k.stepNum) root.setProperty("--step-num", k.stepNum);
+  if (k.checkInk) root.setProperty("--check-img", 'url("data:image/svg+xml,' + encodeURIComponent('<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="' + k.checkInk + '" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>') + '")');
   if (k.band) {
     root.setProperty("--band", k.band);
     root.setProperty("--band-ink", k.bandInk || k.ink);
@@ -523,7 +532,7 @@ var CONFIG = {
   // Fonts (Google Fonts) and top bar style
   var f = C.fonts || {};
   var fams = [];
-  if (f.display) { fams.push("family=" + f.display.replace(/ /g, "+") + ":wght@" + (f.displayWeights || "700;800;900")); root.setProperty("--font-display", '"' + f.display + '", var(--font-base)'); }
+  if (f.display) { fams.push("family=" + f.display.replace(/ /g, "+") + ":wght@" + (f.displayWeights || "700;800;900")); root.setProperty("--font-display", (f.displayFirst ? '"' + f.displayFirst + '", ' : "") + '"' + f.display + '", var(--font-base)'); }
   if (f.body) { fams.push("family=" + f.body.replace(/ /g, "+") + ":wght@" + (f.bodyWeights || "400;700")); root.setProperty("--font", '"' + f.body + '", var(--font-base)'); }
   if (fams.length) {
     var link = document.createElement("link");

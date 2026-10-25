@@ -1,0 +1,87 @@
+{
+  "gymName": "Andrea Klas Fitness",
+  "city": "North Vancouver, BC",
+  "address": "",
+  "phone": "",
+  "domain": "andreaklasfitness.com",
+  "pagePath": "discovery-call",
+  "thankYouPath": "discovery-call-thank-you",
+  "privacyUrl": "",
+  "logoFile": "logo.png",
+  "logoUrl": "",
+  "topBar": "light",
+  "topBarStripe": "#ADBEC5",
+  "logoHeight": 34,
+  "headlineSize": 50,
+  "fonts": {
+    "displayFirst": "Helvetica Neue",
+    "display": "Inter",
+    "displayWeights": "700",
+    "body": "Work Sans",
+    "bodyWeights": "400;500;700",
+    "headingWeight": "700"
+  },
+  "seoTitle": "Complimentary Discovery Call | Andrea Klas Fitness, North Vancouver",
+  "seoDescription": "Book a complimentary 15-minute discovery call with Andrea Klas Fitness in North Vancouver, BC. Personal training, nutrition and mindset coaching.",
+  "colors": {
+    "accent": "#ADBEC5",
+    "accent2": "#ADBEC5",
+    "accentText": "#3E3A31",
+    "checkInk": "#3E3A31",
+    "band": "#ADBEC5",
+    "bandInk": "#3E3A31",
+    "stepNum": "#3E3A31",
+    "dark": "#3E3A31",
+    "light": "#EFEFED",
+    "ink": "#3E3A31"
+  },
+  "ctaText": "Book My Discovery Call",
+  "topBarCta": "Book a Call",
+  "eyebrow": "{city}",
+  "headline": "Book Your *Complimentary* Discovery Call",
+  "subhead": "A 15⁠-⁠minute call with our team to talk through your goals and see if our program is the right fit.",
+  "trustBullets": [
+    "15⁠-⁠minute call, no obligation",
+    "Training, nutrition and mindset",
+    "Certified coaches and dietitians"
+  ],
+  "formHeading": "Book Your Discovery Call",
+  "formSubtext": "Takes 30 seconds. Our team will reach out to set a time.",
+  "stepsHeading": "How It Works",
+  "steps": [
+    {
+      "title": "Request your call",
+      "text": "Fill out the quick form. It takes less than a minute."
+    },
+    {
+      "title": "We reach out to schedule",
+      "text": "Someone from our team contacts you to find a time that works for you."
+    },
+    {
+      "title": "Talk with our team",
+      "text": "A 15⁠-⁠minute call about your goals and whether our program is the right fit for you."
+    }
+  ],
+  "finalHeadline": "Book Your *Discovery Call*",
+  "finalSubtext": "Complimentary, 15 minutes, no obligation.",
+  "thankYou": {
+    "headline": "Your *Discovery Call* Is Claimed",
+    "subhead": "Keep an eye on your phone. Someone from {gym} will reach out shortly to set up your call.",
+    "steps": [
+      {
+        "title": "Watch your phone",
+        "text": "Our team will reach out to find a time that fits your schedule."
+      },
+      {
+        "title": "Pick your time",
+        "text": "Let us know the day and time that work best. That locks in your call."
+      },
+      {
+        "title": "Bring your goals",
+        "text": "Come ready to talk about where you are now and where you want to be. We'll take it from there."
+      }
+    ]
+  },
+  "copyPageUrl": "https://claude.ai/artifact/PmF6eUaUFBsQGeSFontN8A",
+  "notes": "Andrea Klas Fitness: personal training studio, North Vancouver + Lions Bay, BC (Canada). Program pairs each client with a personal training coach, registered dietitian and mindset coach (from search; site blocked from sandbox). Brand-sensitive, premium client: only their colors, calm copy ('complimentary', no hype). Offer: complimentary 15-minute discovery call. Brand: blue #adbec5 (buttons with brown text, highlights, How It Works band), brown grey #3e3a31 (hero, text, step numbers, check marks), off-white #efefed. Title font Helvetica Neue is not on Google Fonts: displayFirst uses the real Helvetica Neue on Apple devices, Inter elsewhere. Body Work Sans. Wide wordmark logo on a light top bar. Waiting on: which location the ads target (eyebrow says North Vancouver), address, domain/paths, privacy policy, Google ad headline."
+}
