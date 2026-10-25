@@ -193,7 +193,7 @@ html, body { overflow-x: clip; }
   padding: 20px;
 }
 #fcl #GHL-FORM-EMBED:has(iframe) .ghl-placeholder { display: none; }
-#fcl #GHL-FORM-EMBED iframe { width: 100%; border: 0; min-height: 572px; }
+#fcl #GHL-FORM-EMBED iframe { width: 100%; border: 0; min-height: 400px; }
 /* Optional trim of the GHL form's own dead space (CONFIG.formCrop). The frame is
    cropped, not restyled: nothing inside the form changes. */
 #fcl.form-crop #GHL-FORM-EMBED { overflow: hidden; overflow: clip; min-height: 0; }
@@ -505,8 +505,8 @@ var CONFIG = {
   colors: {
     accent:     "#FF6A0F",  // buttons, check marks, form card edge
     accent2:    "#36CA36",  // highlight words, eyebrow, step numbers, stripes ("" = same as accent)
-    band:       "",  // How It Works background ("" = light)
-    bandInk:    "",  // heading + underline color on the band
+    band:       "#36CA36",  // How It Works background ("" = light)
+    bandInk:    "#111111",  // heading + underline color on the band
     accentText: "#111111",  // text that sits on top of the accent color
     dark:       "#111111",  // hero + top bar background
     light:      "#F7F7F7",  // light section background
