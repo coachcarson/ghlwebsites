@@ -7,10 +7,11 @@
   "pagePath": "mount-dora-free-consultation",
   "thankYouPath": "mount-dora-free-consultation-thank-you",
   "privacyUrl": "",
-  "logoFile": "logo-placeholder.png",
+  "logoFile": "logo.png",
   "logoUrl": "",
-  "topBar": "dark",
+  "topBar": "light",
   "topBarStripe": "linear-gradient(90deg, #9BBA43, #32A4DA)",
+  "logoHeight": 58,
   "fonts": {
     "display": "Anton",
     "displayWeights": "400",
@@ -79,5 +80,5 @@
     ]
   },
   "copyPageUrl": "https://claude.ai/artifact/QJ8kTcqTqu41FrzA5xTCf2",
-  "notes": "Private, appointment-only personal training studio in Mount Dora, FL, focused on injury recovery and prevention (strength, weight loss, assisted stretching, balance, seniors). Facts from search (site blocked from sandbox); a different 'Wallace Fitness Center' exists in Delmont, PA, not this one. Offer: free consultation, NO length mentioned (Ryan). Brand: green #9bba43 (buttons, dark text), blue #32a4da (highlights + How It Works band), white; dark navy #0E1E2B added for contrast. Anton (single weight 400, condensed) + Open Sans. Waiting on: logo (placeholder now), confirm domain/paths, privacy policy location, Google ad headline, dark brand color if they have one."
+  "notes": "Private, appointment-only personal training studio in Mount Dora, FL, focused on injury recovery and prevention (strength, weight loss, assisted stretching, balance, seniors). Facts from search (site blocked from sandbox); a different 'Wallace Fitness Center' exists in Delmont, PA, not this one. Offer: free consultation, NO length mentioned (Ryan). Brand: green #9bba43 (buttons, dark text), blue #32a4da (highlights + How It Works band), white; dark navy #0E1E2B added for contrast. Anton (single weight 400, condensed) + Open Sans. Logo is blue/green on white, so light top bar with the green-blue stripe. Waiting on: confirm domain/paths, privacy policy location, Google ad headline, dark brand color if they have one."
 }
