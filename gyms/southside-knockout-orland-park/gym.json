@@ -1,0 +1,80 @@
+{
+  "gymName": "Southside Knockout",
+  "city": "Orland Park, IL",
+  "address": "15545 71st Ct, Orland Park, IL 60462",
+  "phone": "",
+  "domain": "orlandpark.southsideknockout.com",
+  "pagePath": "free-consultation",
+  "thankYouPath": "free-consultation-thank-you",
+  "privacyUrl": "",
+  "logoFile": "logo-placeholder.png",
+  "logoUrl": "",
+  "topBar": "dark",
+  "topBarStripe": "linear-gradient(90deg, #36CA36, #FF6A0F)",
+  "fonts": {
+    "display": "Montserrat",
+    "displayWeights": "800;900",
+    "body": "Montserrat",
+    "bodyWeights": "400;500;700",
+    "headingWeight": "800"
+  },
+  "seoTitle": "Free Fitness Consultation in Orland Park, IL | Southside Knockout",
+  "seoDescription": "Book a free consultation at Southside Knockout in Orland Park, IL. Coach-led boxing, kickboxing and bootcamp workouts built for fat loss.",
+  "colors": {
+    "accent": "#FF6A0F",
+    "accent2": "#36CA36",
+    "accentText": "#111111",
+    "dark": "#111111",
+    "light": "#F7F7F7",
+    "ink": "#111111"
+  },
+  "ctaText": "Book My Free Consultation",
+  "topBarCta": "Free Consultation",
+  "eyebrow": "{city}",
+  "headline": "Book Your *Free* Consultation",
+  "subhead": "Boxing and kickboxing bootcamps built for fat loss in {city}. Talk with a coach and see if we're the right fit.",
+  "trustBullets": [
+    "Boxing, kickboxing and bootcamp",
+    "Coach-led group training",
+    "Zero pressure, nothing to pay"
+  ],
+  "formHeading": "Claim Your Free Consultation",
+  "formSubtext": "Takes 30 seconds. A coach will text you to set a time.",
+  "stepsHeading": "How It Works",
+  "steps": [
+    {
+      "title": "Request your consultation",
+      "text": "Fill out the quick form. It takes less than a minute."
+    },
+    {
+      "title": "We text you to schedule",
+      "text": "A coach texts you to find a time that works for you."
+    },
+    {
+      "title": "Meet your coach",
+      "text": "Talk through your goals, see how our workouts fit, and find out if we're the right fit for you."
+    }
+  ],
+  "finalHeadline": "Your *Free Consultation* Is Waiting",
+  "finalSubtext": "Request yours now and a coach will text you to set a time.",
+  "thankYou": {
+    "headline": "Your *Free Consultation* Is Claimed",
+    "subhead": "Keep an eye on your phone. A coach from {gym} will text you shortly to set up your consultation.",
+    "steps": [
+      {
+        "title": "Watch for our text",
+        "text": "A coach will text you to find a time that fits your schedule."
+      },
+      {
+        "title": "Pick your time",
+        "text": "Reply with the day and time that work best. That locks in your consultation."
+      },
+      {
+        "title": "Bring your goals",
+        "text": "Come ready to talk about where you are now and where you want to be. We'll take it from there."
+      }
+    ]
+  },
+  "copyPageUrl": "https://claude.ai/artifact/Wqu1ftX8qFRwzeFYPw1Z9z",
+  "notes": "Southside Knockout Training, Orland Park IL: coach-led group fat loss training (boxing, kickboxing, bootcamp, circuit). Facts from search (site blocked from sandbox). Address 15545 71st Ct (MapQuest/Fresha); one directory says 15100 S 94th Ave, so confirm. Offer: free consultation, no length. Brand: orange #ff6a0f (buttons, black text), green #36ca36 (highlights), grey #f7f7f7 (section bg); near-black #111111 added as the dark base. Montserrat for both. Waiting on: logo (placeholder now), address confirmation, privacy policy location, Google ad headline."
+}
