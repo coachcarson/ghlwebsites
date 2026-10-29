@@ -84,6 +84,8 @@ Change a gym's words/colors/offer in its `gym.json`, then rebuild that gym.
 5. `python3 build.py gyms/<gym>`, render-check it (see Testing), then publish
    `gyms/<gym>/copy-page.html` with the Artifact tool (new artifact per gym) and save the
    URL to `copyPageUrl` in gym.json. Commit + push.
+   Republishing an existing gym: pass its `copyPageUrl` as `url`. A bare file_path publish in a new
+   session makes a duplicate artifact with a new link.
 6. Send Ryan the copy page link + the GHL steps below + the gym's SEO title/description.
 
 ## GHL paste steps (what Ryan does)
@@ -147,12 +149,29 @@ join or not. Not "1-on-1" (others may be there). Not medical-sounding (no "asses
   transparent background (F45). Keep accent colors (red lines) as-is.
 - Earlier attempt with separate Custom CSS box + HTML element failed (CSS did not apply).
   One all-in-one block is the method.
+- **Pages are pre-rendered (no CONFIG in the paste).** build.py writes every word, color and font
+  link into the HTML and strips all comments; the only script left is the CTA scroll. Why: an SEO
+  scanner (no JavaScript) saw an empty H1 plus our setup notes, and PageSpeed flagged late fonts
+  and layout shift. Our block went from Lighthouse 90 to 99, layout shift 0.179 to 0.019.
+  To change anything, edit gym.json and rebuild; never hand-edit the paste.
+- **PageSpeed on live GHL pages is mostly GHL's own code** (RAW mobile: 44, 3.4 MB, 625 KB unused
+  JS, 1.2 s blocking). SEO already scores 100; for ad pages the target is Google Ads "landing page
+  experience". Cleanup in GHL per page: delete (not hide) unused/hidden template sections (Layers
+  panel), chat widget off, page tracking code and Custom CSS box cleared except the Ads tag/GTM,
+  template SEO placeholders ("CITY, STATE", "GYM NAME") replaced. Leftover template text (e.g. a
+  kickboxing snapshot) lives in those GHL sections/settings, not in our block. Next step only if
+  Ads shows Below average landing page experience: host outside GHL with the form embedded.
 
 ## Testing
 
 - `python3 build.py gyms/<gym>` asserts every template token is filled.
 - Render with Playwright: `NODE_PATH=$(npm root -g) node script.js`, wrap ghl-paste.html in a
   basic page, check no page errors, no horizontal scroll at 390px and 1280px, screenshot.
+- Template or build changes: save the old pastes first, rebuild, then screenshot old vs new for
+  every gym (both pages, 390 and 1280) and require pixel-identical unless the change is visual.
+- Speed: Lighthouse via `npm i --prefix <scratch>/lh lighthouse`, CHROME_PATH=/opt/pw-browsers/
+  chromium-*/chrome-linux/chrome, serve the wrapped page on localhost. pagespeed.web.dev and the
+  live gym sites are blocked from this sandbox; ask Ryan for PageSpeed screenshots.
 - GHL form URLs are blocked from this sandbox, so the form card renders empty in tests.
   Ryan's GHL Preview is the real check for the form.
 

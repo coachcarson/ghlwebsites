@@ -14,6 +14,7 @@ import io
 import json
 import re
 import sys
+from urllib.parse import quote
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent
@@ -39,163 +40,120 @@ DEFAULT_THANK_YOU = {
 }
 
 
-def js(value):
-    return json.dumps(value, ensure_ascii=False)
+def esc(s):
+    return (str(s).replace("&", "&amp;").replace("<", "&lt;").replace(">", "&gt;")
+            .replace('"', "&quot;").replace("'", "&#39;"))
 
 
-def config_block(g):
-    """The GYM CONFIG block, with comments, as it appears in the pasted code."""
-    c = g["colors"]
-    bullets = ",\n".join(f"    {js(b)}" for b in g["trustBullets"])
-    steps = ",\n".join(
-        f"    {{ title: {js(s['title'])}, text: {js(s['text'])} }}" for s in g["steps"]
-    )
-    return f"""/* ===================================================================
-   GYM CONFIG  >>>  EDIT THIS BLOCK FOR EACH GYM  <<<
-   =================================================================== */
-var CONFIG = {{
-
-  /* ---------- Basics ---------- */
-  gymName:  {js(g["gymName"])},
-  city:     {js(g["city"])},
-  /* Logo shown in the top bar instead of the gym name.
-     Leave "" to use the logo embedded in this file.
-     Or paste an image URL here (e.g. from the GHL media library). */
-  logoUrl:  {js(g.get("logoUrl", ""))},
-  /* Privacy policy link at the bottom of the page (opens in a new tab).
-     Use the page's path or full URL. Leave "" to hide it. */
-  privacyUrl: {js(g.get("privacyUrl", ""))},
-  /* Top bar: "dark" or "light" (light = white bar, for logos made for white). */
-  topBar:   {js(g.get("topBar", "dark"))},
-  /* Page theme: "dark" (dark hero + final band) or "light" (light hero + final band, dark text). */
-  theme:    {js(g.get("theme", "dark"))},
-  /* Thin color stripe across the top of the top bar: a color or CSS gradient. "" = none. */
-  topBarStripe: {js(g.get("topBarStripe", ""))},
-  /* Google Fonts. Leave names "" for the fast system font. */
-  fonts: {{
-    displayFirst: {js(g.get("fonts", {}).get("displayFirst", ""))},  /* device font tried before display, no download (e.g. Helvetica Neue on Apple) */
-    display: {js(g.get("fonts", {}).get("display", ""))}, displayWeights: {js(g.get("fonts", {}).get("displayWeights", "700;800;900"))},
-    body:    {js(g.get("fonts", {}).get("body", ""))}, bodyWeights:    {js(g.get("fonts", {}).get("bodyWeights", "400;700"))},
-    headingWeight: {js(g.get("fonts", {}).get("headingWeight", ""))},  /* "" = 900 */
-    condensed: {js(bool(g.get("fonts", {}).get("condensed", False)))}  /* true for condensed display fonts: bigger headings */
-  }},
-  /* Logo height in px in the top bar. "" = default (44 mobile, 48 desktop). */
-  logoHeight: {js(g.get("logoHeight", ""))},
-  /* Desktop headline size in px, for long words that run into the form. "" = default. */
-  headlineSize: {js(g.get("headlineSize", ""))},
-
-  /* ---------- Colors (one accent only) ---------- */
-  colors: {{
-    accent:     {js(c["accent"])},  // buttons, check marks, form card edge
-    accent2:    {js(c.get("accent2", ""))},  // highlight words, eyebrow, step numbers, stripes ("" = same as accent)
-    band:       {js(c.get("band", ""))},  // How It Works background ("" = light)
-    bandInk:    {js(c.get("bandInk", ""))},  // heading + underline color on the band
-    accentText: {js(c["accentText"])},  // text that sits on top of the accent color
-    dark:       {js(c["dark"])},  // hero + top bar background
-    light:      {js(c["light"])},  // light section background
-    ink:        {js(c["ink"])},  // main text on light sections
-    checkInk:   {js(c.get("checkInk", ""))},  // check mark color ("" = white; use dark when the accent is light)
-    stepNum:    {js(c.get("stepNum", ""))}   // step number color ("" = accent2)
-  }},
-
-  /* ---------- Buttons ---------- */
-  ctaText:      {js(g["ctaText"])},
-  topBarCta:    {js(g["topBarCta"])},
-
-  /* ---------- Hero (match the Google ad's headline) ---------- */
-  eyebrow:   {js(g["eyebrow"])},
-  headline:  {js(g["headline"])},
-  subhead:   {js(g["subhead"])},
-  trustBullets: [
-{bullets}
-  ],
-  /* Heading above the form. Leave both "" to hide them
-     (use this when the GHL form has its own heading). */
-  formHeading: {js(g.get("formHeading", ""))},
-  formSubtext: {js(g.get("formSubtext", ""))},
-  /* Trim the GHL form's own padding, in px: {{ top, bottom, sides }}. 0 = no trim.
-     Raise slowly; too much cuts off the form. */
-  formCrop: {{ top: {g.get("formCrop", {}).get("top", 0)}, bottom: {g.get("formCrop", {}).get("bottom", 0)}, sides: {g.get("formCrop", {}).get("sides", 0)} }},
-
-  /* ---------- How it works ---------- */
-  stepsHeading: {js(g["stepsHeading"])},
-  steps: [
-{steps}
-  ],
-
-  /* ---------- Final CTA ---------- */
-  finalHeadline: {js(g["finalHeadline"])},
-  finalSubtext:  {js(g["finalSubtext"])}
-}};
-/* ===================== END GYM CONFIG ===================== */"""
+def text(s, g):
+    """Escape, then swap {gym} / {city} for the gym's name and city."""
+    return esc(s).replace("{gym}", esc(g["gymName"])).replace("{city}", esc(g["city"]))
 
 
-def thank_you_config_block(g):
-    """The thank-you page's config block."""
-    t = {**DEFAULT_THANK_YOU, **g.get("thankYou", {})}
-    c = g["colors"]
-    steps = ",\n".join(
-        f"    {{ title: {js(s['title'])}, text: {js(s['text'])} }}" for s in t["steps"]
-    )
-    return f"""/* ===================================================================
-   GYM CONFIG  >>>  EDIT THIS BLOCK FOR EACH GYM  <<<
-   =================================================================== */
-var CONFIG = {{
+def accent(s, g):
+    """Like text(), plus *word* -> accent-colored span."""
+    return re.sub(r"\*(.+?)\*", r'<span class="accent">\1</span>', text(s, g))
 
-  /* ---------- Basics ---------- */
-  gymName:  {js(g["gymName"])},
-  city:     {js(g["city"])},
-  logoUrl:  {js(g.get("logoUrl", ""))},
-  privacyUrl: {js(g.get("privacyUrl", ""))},
-  /* Shown at the bottom. Leave "" to hide. */
-  address:  {js(g.get("address", ""))},
-  phone:    {js(g.get("phone", ""))},
-  /* Top bar: "dark" or "light" (light = white bar, for logos made for white). */
-  topBar:   {js(g.get("topBar", "dark"))},
-  /* Page theme: "dark" (dark hero + final band) or "light" (light hero + final band, dark text). */
-  theme:    {js(g.get("theme", "dark"))},
-  /* Thin color stripe across the top of the top bar: a color or CSS gradient. "" = none. */
-  topBarStripe: {js(g.get("topBarStripe", ""))},
-  /* Google Fonts. Leave names "" for the fast system font. */
-  fonts: {{
-    displayFirst: {js(g.get("fonts", {}).get("displayFirst", ""))},  /* device font tried before display, no download (e.g. Helvetica Neue on Apple) */
-    display: {js(g.get("fonts", {}).get("display", ""))}, displayWeights: {js(g.get("fonts", {}).get("displayWeights", "700;800;900"))},
-    body:    {js(g.get("fonts", {}).get("body", ""))}, bodyWeights:    {js(g.get("fonts", {}).get("bodyWeights", "400;700"))},
-    headingWeight: {js(g.get("fonts", {}).get("headingWeight", ""))},  /* "" = 900 */
-    condensed: {js(bool(g.get("fonts", {}).get("condensed", False)))}  /* true for condensed display fonts: bigger headings */
-  }},
-  /* Logo height in px in the top bar. "" = default (44 mobile, 48 desktop). */
-  logoHeight: {js(g.get("logoHeight", ""))},
 
-  /* ---------- Colors (match the landing page) ---------- */
-  colors: {{
-    accent:     {js(c["accent"])},
-    accent2:    {js(c.get("accent2", ""))},
-    band:       {js(c.get("band", ""))},
-    bandInk:    {js(c.get("bandInk", ""))},
-    accentText: {js(c["accentText"])},
-    dark:       {js(c["dark"])},
-    light:      {js(c["light"])},
-    ink:        {js(c["ink"])},
-    checkInk:   {js(c.get("checkInk", ""))},
-    stepNum:    {js(c.get("stepNum", ""))}
-  }},
+def font_link(g):
+    """Google Fonts stylesheet, in the HTML so it starts loading right away."""
+    f = g.get("fonts", {})
+    fams = []
+    if f.get("display"):
+        fams.append(f"family={f['display'].replace(' ', '+')}:wght@{f.get('displayWeights', '700;800;900')}")
+    if f.get("body"):
+        fams.append(f"family={f['body'].replace(' ', '+')}:wght@{f.get('bodyWeights', '400;700')}")
+    if not fams:
+        return ""
+    return f'<link rel="stylesheet" href="https://fonts.googleapis.com/css2?{"&amp;".join(fams)}&amp;display=swap">'
 
-  /* ---------- Confirmation ---------- */
-  eyebrow:   {js(t["eyebrow"])},
-  headline:  {js(t["headline"])},
-  subhead:   {js(t["subhead"])},
 
-  /* ---------- What happens next ---------- */
-  stepsHeading: {js(t["stepsHeading"])},
-  steps: [
-{steps}
-  ],
+def gym_css(g):
+    """This gym's colors, fonts and sizes as CSS, appended to the stylesheet."""
+    c, f = g["colors"], g.get("fonts", {})
+    v = {
+        "--accent": c["accent"], "--accent-text": c["accentText"],
+        "--dark": c["dark"], "--light": c["light"], "--ink": c["ink"],
+    }
+    if c.get("accent2"):
+        v["--accent2"] = c["accent2"]
+    if g.get("headlineSize"):
+        v["--h1-desk"] = f"{g['headlineSize']}px"
+    if c.get("stepNum"):
+        v["--step-num"] = c["stepNum"]
+    if c.get("checkInk"):
+        svg = (f'<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="{c["checkInk"]}" '
+               'stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>')
+        v["--check-img"] = f'url("data:image/svg+xml,{quote(svg, safe="")}")'
+    if c.get("band"):
+        v["--band"] = c["band"]
+        v["--band-ink"] = v["--band-bar"] = c.get("bandInk") or c["ink"]
+    if f.get("display"):
+        first = f'"{f["displayFirst"]}", ' if f.get("displayFirst") else ""
+        v["--font-display"] = f'{first}"{f["display"]}", var(--font-base)'
+    if f.get("body"):
+        v["--font"] = f'"{f["body"]}", var(--font-base)'
+    if g.get("topBarStripe"):
+        v["--topbar-stripe"] = g["topBarStripe"]
+    crop = g.get("formCrop", {})
+    if any(crop.get(k) for k in ("top", "bottom", "sides")):
+        v["--crop-top"] = f"{crop.get('top', 0)}px"
+        v["--crop-bottom"] = f"{crop.get('bottom', 0)}px"
+        v["--crop-x"] = f"{crop.get('sides', 0)}px"
+    if f.get("headingWeight"):
+        v["--display-weight"] = v["--btn-weight"] = f["headingWeight"]
+    css = "#fcl {\n" + "".join(f"  {k}: {val};\n" for k, val in v.items()) + "}"
+    if g.get("logoHeight"):
+        # Tall logos: grow the bar so the logo (and the optional stripe) never clip
+        css += (f"\n#fcl .brand-logo {{ height: {g['logoHeight']}px; }}"
+                f"\n#fcl .topbar .wrap {{ height: {g['logoHeight'] + 18}px; }}")
+    return css
 
-  /* ---------- Location ---------- */
-  locationHeading: {js(t["locationHeading"])}
-}};
-/* ===================== END GYM CONFIG ===================== */"""
+
+def fcl_classes(g):
+    f = g.get("fonts", {})
+    return " ".join(cls for cls, on in [
+        ("topbar-light", g.get("topBar") == "light"),
+        ("light-theme", g.get("theme") == "light"),
+        ("condensed", f.get("condensed")),
+        ("form-crop", any(g.get("formCrop", {}).get(k) for k in ("top", "bottom", "sides"))),
+    ] if on)
+
+
+def steps_html(steps, g):
+    return "".join(f'<div class="step"><div class="num">0{n}</div><h3>{text(s["title"], g)}</h3>'
+                   f'<p>{text(s["text"], g)}</p></div>' for n, s in enumerate(steps, 1))
+
+
+def render(page, g, slots, lists):
+    """Write every text slot into the HTML, so the page arrives complete (no script needed)."""
+    def slot(m):
+        tag, attrs, key, acc = m.groups()
+        val = slots[key]
+        return f"<{tag}{attrs}>{accent(val, g) if acc else text(val, g)}</{tag}>"
+    page = re.sub(r'<(\w+)([^>]*?) data-c="(\w+)"( data-accent)?></\1>', slot, page)
+    assert "data-c=" not in page, "unfilled text slot"
+    for el_id, html in lists.items():
+        page = re.sub(rf'(id="{el_id}"[^>]*>)(</)', lambda m: m.group(1) + html + m.group(2), page, count=1)
+    page = page.replace('<div id="fcl">', f'<div id="fcl" class="{fcl_classes(g)}">' if fcl_classes(g) else '<div id="fcl">', 1)
+    page = page.replace('alt=""', f'alt="{esc(g["gymName"])} logo"', 1)
+    if g.get("logoUrl"):
+        page = re.sub(r'(id="logo"[^>]*?src=")[^"]*', lambda m: m.group(1) + esc(g["logoUrl"]), page, count=1)
+    if g.get("privacyUrl"):
+        page = page.replace('href="/privacy-policy"', f'href="{esc(g["privacyUrl"])}"', 1)
+    else:
+        page = page.replace('<p class="legal"><a id="privacy-link"', '<p class="legal" hidden><a id="privacy-link"', 1)
+    return page
+
+
+def strip_comments(page):
+    """Drop HTML and CSS comments: shorter paste, and nothing for scanners to flag."""
+    page = re.sub(r"<!--.*?-->", "", page, flags=re.S)
+    page = re.sub(r"(<style>)(.*?)(</style>)",
+                  lambda m: m.group(1) + re.sub(r"/\*.*?\*/", "", m.group(2), flags=re.S) + m.group(3),
+                  page, flags=re.S)
+    page = re.sub(r"[ \t]+\n", "\n", page)
+    return re.sub(r"\n{2,}", "\n", page).strip() + "\n"
 
 
 def fill_tokens(page, pairs):
@@ -244,24 +202,44 @@ def build(gym_dir):
     embed, height = form_embed(gym_dir)
     height = g.get("formHeight") or height  # override when the embed has no usable data-height
     logo = logo_src(gym_dir, g)
-    landing = TEMPLATE.read_text()
-    page = fill_tokens(landing, [
-        ("{{GYM_NAME}}", g["gymName"]),
-        ("{{CONFIG}}", config_block(g)),
-        ("{{LOGO_SRC}}", logo),
-        ("{{FORM_EMBED}}", embed),
+    fonts, css = font_link(g), gym_css(g)
+    landing = fill_tokens(TEMPLATE.read_text(), [
+        ("{{FONT_LINK}}", fonts),
         ("{{FORM_HEIGHT}}", str(height)),
+        ("{{LOGO_SRC}}", logo),
     ])
+    # Thank-you page reuses the landing page's stylesheet so the two always match
+    style = re.search(r"<style>\n(.*?)\n\{\{GYM_CSS\}\}", landing, re.S).group(1)
+    landing = fill_tokens(landing, [("{{GYM_CSS}}", css)])
+    keys = ["topBarCta", "eyebrow", "headline", "subhead", "formHeading", "formSubtext",
+            "stepsHeading", "finalHeadline", "finalSubtext", "ctaText"]
+    page = render(landing, g, {k: g.get(k, "") for k in keys}, {
+        "trust": "".join(f"<li>{text(b, g)}</li>" for b in g["trustBullets"]),
+        "steps": steps_html(g["steps"], g),
+    })
+    # The form embed goes in last, untouched (it is GHL's code, not ours)
+    page = fill_tokens(strip_comments(page), [("{{FORM_EMBED}}", embed)])
     (gym_dir / "ghl-paste.html").write_text(page)
 
-    # Thank-you page reuses the landing page's stylesheet so the two always match
-    style = re.search(r"<style>\n(.*?)\n</style>", landing, re.S).group(1)
+    t = {**DEFAULT_THANK_YOU, **g.get("thankYou", {})}
     thanks = fill_tokens(THANKS_TEMPLATE.read_text(), [
-        ("{{GYM_NAME}}", g["gymName"]),
+        ("{{FONT_LINK}}", fonts),
         ("{{STYLE}}", style),
-        ("{{CONFIG}}", thank_you_config_block(g)),
+        ("{{GYM_CSS}}", css),
         ("{{LOGO_SRC}}", logo),
     ])
+    slots = {k: t[k] for k in ["eyebrow", "headline", "subhead", "stepsHeading", "locationHeading"]}
+    slots["address"] = g.get("address", "")
+    contact = ""
+    if g.get("phone"):
+        # Plain number, tap to call on phones
+        contact = (f'Questions? Call or text <a href="tel:{esc(re.sub(r"[^0-9+]", "", g["phone"]))}">'
+                   f'{esc(g["phone"])}</a>')
+    thanks = render(thanks, g, slots, {"steps": steps_html(t["steps"], g), "contact": contact})
+    if not g.get("address"):
+        thanks = thanks.replace('<section class="final">', '<section class="final" hidden>', 1)  # no location band
+    thanks = strip_comments(thanks)
+    assert "{{" not in page.replace(embed, "") and "{{" not in thanks, "unfilled template token"
     (gym_dir / "thank-you-paste.html").write_text(thanks)
 
     payload = json.dumps({"all": page, "thanks": thanks}).replace("</", "<\\/")
