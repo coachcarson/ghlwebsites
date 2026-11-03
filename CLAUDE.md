@@ -86,6 +86,9 @@ Change a gym's words/colors/offer in its `gym.json`, then rebuild that gym.
      Order: How It Works, services, reviews, location, final. `thankYou.phoneLabel` overrides
      "Questions? Call or text" (use "Questions? Call" unless the number takes texts).
      The minimal layout above stays the default for every other gym.
+   - `compact`: true = tighter phone spacing for long pages (RAW, ~20% shorter). Shipped only to
+     gyms that set it. A white strip between our block and the GHL footer is GHL section/footer
+     padding (fix in GHL, phone view), not our code.
    Thank-you page hides "Where To Find Us" when `address` is "".
    Phones (<720px) use tighter type/spacing so the form shows above the fold (Ryan's ask).
    Keep "20-minute" style words together with word joiners: "20\u2060-\u2060minute".

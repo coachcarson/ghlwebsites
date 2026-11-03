@@ -90,6 +90,33 @@ EXTRAS_CSS = """
 @media (min-width: 720px) { #fcl .svcs { grid-template-columns: repeat(3, 1fr); } }
 """
 
+# Tighter phone spacing for long pages (gym.json "compact": true). Only shipped to gyms that use it.
+COMPACT_CSS = """
+@media (max-width: 719px) {
+  #fcl .hero { padding-bottom: 22px; }
+  #fcl section.block { padding: 30px 0; }
+  #fcl .section-head { margin-bottom: 16px; }
+  #fcl .section-head h2 { font-size: 27px; }
+  #fcl .section-head .bar { margin-top: 10px; height: 4px; }
+  #fcl .section-head .lead { margin-top: 10px; font-size: 15px; }
+  #fcl .steps, #fcl .quotes, #fcl .svcs { gap: 10px; }
+  #fcl .step { padding: 16px 16px; }
+  #fcl .step .num { font-size: 34px; }
+  #fcl .step h3 { font-size: 18px; margin-top: 6px; }
+  #fcl .step p, #fcl .svc p { margin-top: 4px; font-size: 15px; line-height: 1.45; }
+  #fcl .svc { padding: 16px 16px; }
+  #fcl .svc h3 { font-size: 17px; }
+  #fcl .quote { padding: 16px 16px; }
+  #fcl .quote blockquote { margin: 8px 0 10px; font-size: 15px; line-height: 1.45; }
+  #fcl .stars { font-size: 15px; }
+  #fcl .find .addr { font-size: 16px; }
+  #fcl .hours { margin-top: 14px; gap: 4px 20px; font-size: 15px; }
+  #fcl .final { padding: 34px 0 36px; }
+  #fcl .final p { margin: 10px auto 18px; font-size: 16px; }
+  #fcl .call-line { margin-top: 10px; }
+}
+"""
+
 EXTRA_KEYS = ("topBarCall", "heroCall", "services", "reviews", "location")
 
 
@@ -143,6 +170,8 @@ def gym_css(g):
     css = "#fcl {\n" + "".join(f"  {k}: {val};\n" for k, val in v.items()) + "}"
     if any(g.get(k) for k in EXTRA_KEYS):
         css += "\n" + EXTRAS_CSS.strip()
+    if g.get("compact"):
+        css += "\n" + COMPACT_CSS.strip()
     if g.get("logoHeight"):
         # Tall logos: grow the bar so the logo (and the optional stripe) never clip
         css += (f"\n#fcl .brand-logo {{ height: {g['logoHeight']}px; }}"

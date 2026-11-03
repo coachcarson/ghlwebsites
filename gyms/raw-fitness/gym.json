@@ -144,5 +144,6 @@
       ]
     ]
   },
-  "headlineSize": 44
+  "headlineSize": 44,
+  "compact": true
 }
