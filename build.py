@@ -142,7 +142,8 @@ def render(page, g, slots, lists):
     if g.get("privacyUrl"):
         page = page.replace('href="/privacy-policy"', f'href="{esc(g["privacyUrl"])}"', 1)
     else:
-        page = page.replace('<p class="legal"><a id="privacy-link"', '<p class="legal" hidden><a id="privacy-link"', 1)
+        # No link at all, not a hidden one: Google still reads hidden links (RAW had a stale /privacy-policy)
+        page = re.sub(r'<p class="legal"><a id="privacy-link".*?</p>', "", page, count=1)
     return page
 
 
