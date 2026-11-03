@@ -374,6 +374,7 @@ html, body { overflow-x: clip; }
   --light: #FFFFFF;
   --ink: #000000;
   --accent2: #00AFEE;
+  --h1-desk: 44px;
   --band: #00AFEE;
   --band-ink: #000000;
   --band-bar: #000000;
@@ -383,6 +384,36 @@ html, body { overflow-x: clip; }
   --display-weight: 800;
   --btn-weight: 800;
 }
+#fcl .top-call {
+  margin-left: auto;
+  display: inline-flex; align-items: center; gap: 6px;
+  font-weight: 700; font-size: 14px; text-decoration: none; color: var(--white);
+  white-space: nowrap;
+}
+#fcl.topbar-light .top-call { color: var(--ink); }
+#fcl .top-call svg { width: 16px; height: 16px; flex: 0 0 16px; }
+#fcl .call-line { margin: 14px 0 0; text-align: center; font-size: 15px; color: var(--muted); }
+#fcl .call-line a { color: var(--ink); font-weight: 700; text-decoration: underline; white-space: nowrap; }
+#fcl .section-head .lead { margin: 14px auto 0; font-weight: 700; color: var(--band-ink); }
+#fcl section.block.alt .section-head .lead { color: var(--ink); }
+#fcl .svc {
+  padding: 24px 22px;
+  background: var(--white);
+  border: 1px solid var(--line);
+  border-left: 5px solid var(--accent);
+  border-radius: 0 var(--radius) var(--radius) 0;
+}
+#fcl .svc h3 { font-size: 20px; text-transform: uppercase; }
+#fcl .svc p { color: var(--muted); margin-top: 8px; }
+#fcl .find { max-width: 520px; margin: 0 auto; text-align: center; }
+#fcl .find .addr { font-size: 19px; font-weight: 700; margin: 0; }
+#fcl .find .call { margin: 8px 0 0; }
+#fcl .find .call a { color: var(--ink); font-weight: 700; }
+#fcl .hours { display: grid; grid-template-columns: auto auto; justify-content: center; gap: 6px 24px; margin: 22px 0 0; text-align: left; }
+#fcl .hours dt { font-weight: 700; margin: 0; }
+#fcl .hours dd { margin: 0; color: var(--muted); }
+#fcl .svcs { display: grid; gap: 16px; }
+@media (min-width: 720px) { #fcl .svcs { grid-template-columns: repeat(3, 1fr); } }
 #fcl .brand-logo { height: 52px; }
 #fcl .topbar .wrap { height: 70px; }
 </style>
@@ -411,7 +442,7 @@ html, body { overflow-x: clip; }
   <div class="wrap">
     <h2>Where To Find Us</h2>
     <p class="address">58928 Van Dyke Rd, Washington Township, MI 48094</p>
-    <p class="contact" id="contact"></p>
+    <p class="contact" id="contact">Questions? Call <a href="tel:5863716549">(586) 371-6549</a></p>
   </div>
 </section>
 </main>

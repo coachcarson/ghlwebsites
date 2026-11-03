@@ -78,6 +78,14 @@ Change a gym's words/colors/offer in its `gym.json`, then rebuild that gym.
    - `theme`: "light" puts the hero and final band on the light color with dark text, dark buttons,
      and accent2 underlines on highlight words (Andrea Klas: Ryan said the brown hero was too much).
      Pair with a `band` so How It Works still carries brand color.
+   - Optional extra sections (RAW, Nov 2026, from Brittany's doc; omit = not in the page at all):
+     `phone` + `topBarCall` ("Call", top-bar tap-to-call) + `heroCall` ("Prefer to talk? Call",
+     line under the form); `services` {heading, items[{title,text}]} = one card per ad group;
+     `reviews` {heading, lead, items[{name,text}]} = real Google reviews only, first names, trim
+     at sentence ends; `location` {heading, hours[[day,time]]} uses `address` + `phone`.
+     Order: How It Works, services, reviews, location, final. `thankYou.phoneLabel` overrides
+     "Questions? Call or text" (use "Questions? Call" unless the number takes texts).
+     The minimal layout above stays the default for every other gym.
    Thank-you page hides "Where To Find Us" when `address` is "".
    Phones (<720px) use tighter type/spacing so the form shows above the fold (Ryan's ask).
    Keep "20-minute" style words together with word joiners: "20\u2060-\u2060minute".

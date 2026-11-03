@@ -2,7 +2,7 @@
   "gymName": "RAW Fitness",
   "city": "Washington Township, MI",
   "address": "58928 Van Dyke Rd, Washington Township, MI 48094",
-  "phone": "",
+  "phone": "(586) 371-6549",
   "domain": "info.rawfitlife.com",
   "pagePath": "free-consultation",
   "thankYouPath": "free-consultation-thank-you",
@@ -19,8 +19,8 @@
     "bodyWeights": "400;500;700",
     "headingWeight": "800"
   },
-  "seoTitle": "Free Fitness Consultation in Washington Township | RAW Fitness",
-  "seoDescription": "Book a free 20-minute consultation at RAW Fitness in Washington Township, MI. Strength training and nutrition coaching built around you. No pressure, no obligation.",
+  "seoTitle": "Free Personal Training Consultation | RAW Fitness, Washington Township MI",
+  "seoDescription": "Personal training, small-group strength and nutrition coaching in Washington Township, MI. Book your free 20-minute consultation with a RAW coach.",
   "colors": {
     "accent": "#3FB24B",
     "accent2": "#00AFEE",
@@ -33,15 +33,15 @@
   },
   "ctaText": "Book My Free Consultation",
   "topBarCta": "Free Consultation",
-  "eyebrow": "{city}",
-  "headline": "Book Your *Free* 20⁠-⁠Minute Consultation",
-  "subhead": "Strength training and nutrition coaching built around you. No pressure, no obligation.",
+  "eyebrow": "Free Consultation · {city}",
+  "headline": "Personal Training in Washington Township. Start With a *Free* Consultation.",
+  "subhead": "Strength and nutrition coaching built around you. No pressure, no obligation.",
   "trustBullets": [
     "Free 20⁠-⁠minute 1-on-1 with a coach",
-    "Strength and nutrition coaching in one place",
-    "Zero pressure, no obligation"
+    "Training + nutrition coaching in one place",
+    "No gym experience needed"
   ],
-  "formHeading": "Claim Your Free Consultation",
+  "formHeading": "Book Your Free Consultation",
   "formSubtext": "Takes 30 seconds. A coach will text you to set a time.",
   "formCrop": {
     "top": 0,
@@ -81,8 +81,68 @@
         "title": "Bring your goals",
         "text": "Come ready to talk about where you are now and where you want to be. We'll take it from there."
       }
-    ]
+    ],
+    "phoneLabel": "Questions? Call"
   },
   "copyPageUrl": "https://claude.ai/artifact/CQhQzEn3KVdLURxpw7Uvf7",
-  "notes": "Brand: green #3fb24b (buttons), blue #00afee (highlights + How It Works band), black, white; Kanit/Ubuntu. Ryan wanted lots of blue and color in the white top bar (green-blue stripe). Says 'Consultation', never 'Consult'. Pages live on info.rawfitlife.com (GHL), main site madeatrawfitness.com. GHL form 'Google Opt-In': first, last, email, phone, consent (Last Name required by owner); no heading in form, page shows it. Embed data-height is undefined, GHL script sizes it. Privacy link hidden: GHL footer has it. Site facts from search: strength training + nutrition coaching, weight loss, Macomb adults 30+. Phone unconfirmed (site shows 3)."
+  "notes": "Brand: green #3fb24b (buttons), blue #00afee (highlights + How It Works band), black, white; Kanit/Ubuntu. Ryan wanted lots of blue and color in the white top bar (green-blue stripe). Says 'Consultation', never 'Consult'. Pages live on info.rawfitlife.com (GHL), main site madeatrawfitness.com. GHL form 'Google Opt-In': first, last, email, phone, consent (Last Name required by owner); no heading in form, page shows it. Embed data-height is undefined, GHL script sizes it. Privacy link hidden: GHL footer has it. Site facts from search: strength training + nutrition coaching, weight loss, Macomb adults 30+. Phone unconfirmed (site shows 3). Nov 2026 rebuild from Brittany's doc (RAW_Fitness_-_November_Landing_Page_Updates.pdf): headline matches pinned ad 'Personal Training, Macomb Co.'; added top-bar Call, hero call line, services cards (one per ad group), 3 real Google reviews (first names, lightly trimmed: truncated text cut at a sentence end, '!!!!' to '!'), location + hours. Phone (586) 371-6549 from Ryan (calls; texting unconfirmed, so 'Call' not 'Call or text'). Last Name stays on the form (Ryan). GHL footer already shows 'Fitness | Nutrition | Accountability' + privacy link, so no footer in our block.",
+  "topBarCall": "Call",
+  "heroCall": "Prefer to talk? Call",
+  "services": {
+    "heading": "Coaching, Not a Drop⁠-⁠In Gym",
+    "items": [
+      {
+        "title": "Personal Training",
+        "text": "One-on-one coaching built around your goals, your schedule and your starting point."
+      },
+      {
+        "title": "Small-Group and Strength",
+        "text": "Small groups with a coach's full attention. Get stronger alongside people like you."
+      },
+      {
+        "title": "Weight Loss and Nutrition",
+        "text": "Training and nutrition coaching together, with real accountability. No crash diets."
+      }
+    ]
+  },
+  "reviews": {
+    "heading": "Real Members. Real Progress.",
+    "lead": "5.0 stars from 162 Google reviews",
+    "items": [
+      {
+        "name": "Jessica",
+        "text": "Honestly I wasn't sure what to think at first, but after chatting with the team for all of 15 mins and then doing my first workout, I fell in love!"
+      },
+      {
+        "name": "Tara",
+        "text": "I recently joined Raw Fitness and have had a great experience so far. The atmosphere is welcoming and supportive."
+      },
+      {
+        "name": "Michele",
+        "text": "Fantastic coaches, great environment and fantastic clients! It's a gym family and staff that support you on your journey."
+      }
+    ]
+  },
+  "location": {
+    "heading": "Find Us in Washington Township",
+    "hours": [
+      [
+        "Mon–Thu",
+        "5 AM–7 PM"
+      ],
+      [
+        "Friday",
+        "5 AM–6 PM"
+      ],
+      [
+        "Saturday",
+        "8 AM–12 PM"
+      ],
+      [
+        "Sunday",
+        "8–10 AM"
+      ]
+    ]
+  },
+  "headlineSize": 44
 }

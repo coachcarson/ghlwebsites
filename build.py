@@ -55,6 +55,44 @@ def accent(s, g):
     return re.sub(r"\*(.+?)\*", r'<span class="accent">\1</span>', text(s, g))
 
 
+# Styles for the optional extras (topBarCall, heroCall, services, reviews, location).
+# Added only for gyms that use them, so every other gym's paste stays unchanged.
+EXTRAS_CSS = """
+#fcl .top-call {
+  margin-left: auto;
+  display: inline-flex; align-items: center; gap: 6px;
+  font-weight: 700; font-size: 14px; text-decoration: none; color: var(--white);
+  white-space: nowrap;
+}
+#fcl.topbar-light .top-call { color: var(--ink); }
+#fcl .top-call svg { width: 16px; height: 16px; flex: 0 0 16px; }
+#fcl .call-line { margin: 14px 0 0; text-align: center; font-size: 15px; color: var(--muted); }
+#fcl .call-line a { color: var(--ink); font-weight: 700; text-decoration: underline; white-space: nowrap; }
+#fcl .section-head .lead { margin: 14px auto 0; font-weight: 700; color: var(--band-ink); }
+#fcl section.block.alt .section-head .lead { color: var(--ink); }
+#fcl .svc {
+  padding: 24px 22px;
+  background: var(--white);
+  border: 1px solid var(--line);
+  border-left: 5px solid var(--accent);
+  border-radius: 0 var(--radius) var(--radius) 0;
+}
+#fcl .svc h3 { font-size: 20px; text-transform: uppercase; }
+#fcl .svc p { color: var(--muted); margin-top: 8px; }
+#fcl .find { max-width: 520px; margin: 0 auto; text-align: center; }
+#fcl .find .addr { font-size: 19px; font-weight: 700; margin: 0; }
+#fcl .find .call { margin: 8px 0 0; }
+#fcl .find .call a { color: var(--ink); font-weight: 700; }
+#fcl .hours { display: grid; grid-template-columns: auto auto; justify-content: center; gap: 6px 24px; margin: 22px 0 0; text-align: left; }
+#fcl .hours dt { font-weight: 700; margin: 0; }
+#fcl .hours dd { margin: 0; color: var(--muted); }
+#fcl .svcs { display: grid; gap: 16px; }
+@media (min-width: 720px) { #fcl .svcs { grid-template-columns: repeat(3, 1fr); } }
+"""
+
+EXTRA_KEYS = ("topBarCall", "heroCall", "services", "reviews", "location")
+
+
 def font_link(g):
     """Google Fonts stylesheet, in the HTML so it starts loading right away."""
     f = g.get("fonts", {})
@@ -103,6 +141,8 @@ def gym_css(g):
     if f.get("headingWeight"):
         v["--display-weight"] = v["--btn-weight"] = f["headingWeight"]
     css = "#fcl {\n" + "".join(f"  {k}: {val};\n" for k, val in v.items()) + "}"
+    if any(g.get(k) for k in EXTRA_KEYS):
+        css += "\n" + EXTRAS_CSS.strip()
     if g.get("logoHeight"):
         # Tall logos: grow the bar so the logo (and the optional stripe) never clip
         css += (f"\n#fcl .brand-logo {{ height: {g['logoHeight']}px; }}"
@@ -145,6 +185,55 @@ def render(page, g, slots, lists):
         # No link at all, not a hidden one: Google still reads hidden links (RAW had a stale /privacy-policy)
         page = re.sub(r'<p class="legal"><a id="privacy-link".*?</p>', "", page, count=1)
     return page
+
+
+PHONE_SVG = ('<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" '
+             'stroke-linejoin="round" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 '
+             '19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 '
+             '2.1L8 9.8a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2z"/></svg>')
+
+
+def tel_link(g, label=None):
+    """Tap-to-call link for the gym's phone."""
+    return f'<a href="tel:{esc(re.sub(r"[^0-9+]", "", g["phone"]))}">{label or esc(g["phone"])}</a>'
+
+
+def section_head(heading, g, lead=""):
+    lead_html = f'<p class="lead">{text(lead, g)}</p>' if lead else ""
+    return f'<div class="section-head"><h2>{text(heading, g)}</h2><div class="bar"></div>{lead_html}</div>'
+
+
+def extras(g):
+    """Optional per-gym pieces (RAW asked for these). Absent in gym.json = not in the page at all."""
+    top_call = hero_call = ""
+    if g.get("topBarCall"):
+        top_call = (f'    <a class="top-call" href="tel:{esc(re.sub(r"[^0-9+]", "", g["phone"]))}">'
+                    f'{PHONE_SVG}{text(g["topBarCall"], g)}</a>\n')
+    if g.get("heroCall"):
+        hero_call = f'      <p class="call-line">{text(g["heroCall"], g)} {tel_link(g)}</p>'
+    sections = []
+    if g.get("services"):
+        s = g["services"]
+        cards = "".join(f'<div class="svc"><h3>{text(i["title"], g)}</h3><p>{text(i["text"], g)}</p></div>'
+                        for i in s["items"])
+        sections.append(f'<section class="block alt"><div class="wrap">{section_head(s["heading"], g)}'
+                        f'<div class="svcs">{cards}</div></div></section>')
+    if g.get("reviews"):
+        r = g["reviews"]
+        cards = "".join(f'<figure class="quote"><div class="stars" aria-label="5 stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>'
+                        f'<blockquote>{text(i["text"], g)}</blockquote>'
+                        f'<figcaption class="who">{text(i["name"], g)}<span>{text(r.get("source", "Google review"), g)}</span></figcaption></figure>'
+                        for i in r["items"])
+        sections.append(f'<section class="block"><div class="wrap">{section_head(r["heading"], g, r.get("lead", ""))}'
+                        f'<div class="quotes">{cards}</div></div></section>')
+    if g.get("location"):
+        loc = g["location"]
+        hours = "".join(f"<dt>{text(d, g)}</dt><dd>{text(h, g)}</dd>" for d, h in loc.get("hours", []))
+        call = f'<p class="call">{tel_link(g)}</p>' if g.get("phone") else ""
+        sections.append(f'<section class="block alt"><div class="wrap">{section_head(loc["heading"], g)}'
+                        f'<div class="find"><p class="addr">{text(g["address"], g)}</p>{call}'
+                        f'{f"<dl class=hours>{hours}</dl>" if hours else ""}</div></div></section>')
+    return top_call, hero_call, "\n".join(sections)
 
 
 def strip_comments(page):
@@ -208,6 +297,7 @@ def build(gym_dir):
         ("{{FONT_LINK}}", fonts),
         ("{{FORM_HEIGHT}}", str(height)),
         ("{{LOGO_SRC}}", logo),
+        *zip(("{{TOP_CALL}}", "{{HERO_CALL}}", "{{EXTRA_SECTIONS}}"), extras(g)),
     ])
     # Thank-you page reuses the landing page's stylesheet so the two always match
     style = re.search(r"<style>\n(.*?)\n\{\{GYM_CSS\}\}", landing, re.S).group(1)
@@ -234,8 +324,7 @@ def build(gym_dir):
     contact = ""
     if g.get("phone"):
         # Plain number, tap to call on phones
-        contact = (f'Questions? Call or text <a href="tel:{esc(re.sub(r"[^0-9+]", "", g["phone"]))}">'
-                   f'{esc(g["phone"])}</a>')
+        contact = f'{esc(t.get("phoneLabel", "Questions? Call or text"))} {tel_link(g)}'
     thanks = render(thanks, g, slots, {"steps": steps_html(t["steps"], g), "contact": contact})
     if not g.get("address"):
         thanks = thanks.replace('<section class="final">', '<section class="final" hidden>', 1)  # no location band
