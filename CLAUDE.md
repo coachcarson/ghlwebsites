@@ -85,6 +85,10 @@ Change a gym's words/colors/offer in its `gym.json`, then rebuild that gym.
      at sentence ends; `location` {heading, hours[[day,time]]} uses `address` + `phone`.
      Order: How It Works, services, reviews, location, final. `thankYou.phoneLabel` overrides
      "Questions? Call or text" (use "Questions? Call" unless the number takes texts).
+     More (CrossFit East Coast consult, Nov 2026): `topBarCta` "" removes the top-bar button and
+     the Call link becomes an outlined button; `topBarCallNumber` true adds the number on desktop
+     only; `heroNote` = small print above the call line (e.g. "ages 18+"); `location.mapLink` true
+     makes the address open Google Maps (no embedded map, too heavy). `location.hours` optional.
      The minimal layout above stays the default for every other gym.
    - `compact`: true = tighter phone spacing for long pages (RAW, ~20% shorter). Shipped only to
      gyms that set it. A white strip between our block and the GHL footer is GHL section/footer

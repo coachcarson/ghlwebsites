@@ -172,6 +172,8 @@ def gym_css(g):
         css += "\n" + EXTRAS_CSS.strip()
     if g.get("compact"):
         css += "\n" + COMPACT_CSS.strip()
+    if uses_call_btn_css(g):
+        css += "\n" + CALL_BTN_CSS.strip()
     if g.get("logoHeight"):
         # Tall logos: grow the bar so the logo (and the optional stripe) never clip
         css += (f"\n#fcl .brand-logo {{ height: {g['logoHeight']}px; }}"
@@ -200,6 +202,7 @@ def render(page, g, slots, lists):
         tag, attrs, key, acc = m.groups()
         val = slots[key]
         return f"<{tag}{attrs}>{accent(val, g) if acc else text(val, g)}</{tag}>"
+    page = re.sub(r'\s*<a class="btn btn-sm" href="#claim" data-c="topBarCta"></a>' if not slots.get("topBarCta", "x") else "^$", "", page)
     page = re.sub(r'<(\w+)([^>]*?) data-c="(\w+)"( data-accent)?></\1>', slot, page)
     assert "data-c=" not in page, "unfilled text slot"
     for el_id, html in lists.items():
@@ -236,10 +239,16 @@ def extras(g):
     """Optional per-gym pieces (RAW asked for these). Absent in gym.json = not in the page at all."""
     top_call = hero_call = ""
     if g.get("topBarCall"):
-        top_call = (f'    <a class="top-call" href="tel:{esc(re.sub(r"[^0-9+]", "", g["phone"]))}">'
-                    f'{PHONE_SVG}{text(g["topBarCall"], g)}</a>\n')
+        # No top-bar CTA (topBarCta "") = the call link becomes the button. topBarCallNumber adds the
+        # number on desktop ("Call (781) 404-3663"); phones keep just "Call".
+        cls = "top-call" if g.get("topBarCta") else "top-call as-btn"
+        num = f'<span class="tc-num"> {esc(g["phone"])}</span>' if g.get("topBarCallNumber") else ""
+        top_call = (f'    <a class="{cls}" href="tel:{esc(re.sub(r"[^0-9+]", "", g["phone"]))}">'
+                    f'{PHONE_SVG}{text(g["topBarCall"], g)}{num}</a>\n')
+    if g.get("heroNote"):
+        hero_call = f'      <p class="call-line hero-note">{text(g["heroNote"], g)}</p>\n'
     if g.get("heroCall"):
-        hero_call = f'      <p class="call-line">{text(g["heroCall"], g)} {tel_link(g)}</p>'
+        hero_call += f'      <p class="call-line">{text(g["heroCall"], g)} {tel_link(g)}</p>'
     sections = []
     if g.get("services"):
         s = g["services"]
@@ -259,10 +268,36 @@ def extras(g):
         loc = g["location"]
         hours = "".join(f"<dt>{text(d, g)}</dt><dd>{text(h, g)}</dd>" for d, h in loc.get("hours", []))
         call = f'<p class="call">{tel_link(g)}</p>' if g.get("phone") else ""
+        addr = text(g["address"], g)
+        if loc.get("mapLink"):
+            # Tap the address for directions (no embedded map: it is heavy)
+            addr = (f'<a href="https://www.google.com/maps/search/?api=1&amp;query={quote(g["address"])}" '
+                    f'target="_blank" rel="noopener">{addr}</a>')
         sections.append(f'<section class="block alt"><div class="wrap">{section_head(loc["heading"], g)}'
-                        f'<div class="find"><p class="addr">{text(g["address"], g)}</p>{call}'
+                        f'<div class="find"><p class="addr">{addr}</p>{call}'
                         f'{f"<dl class=hours>{hours}</dl>" if hours else ""}</div></div></section>')
     return top_call, hero_call, "\n".join(sections)
+
+
+# Styles for the call-button header, hero small print and map link (CrossFit East Coast, Nov 2026).
+# Only shipped to gyms that use them.
+CALL_BTN_CSS = """
+#fcl .top-call.as-btn {
+  border: 2px solid var(--accent); border-radius: var(--radius);
+  padding: 8px 14px; font-family: var(--font-display); font-weight: var(--btn-weight, 800);
+  text-transform: uppercase; letter-spacing: .04em; font-size: 13px;
+}
+#fcl .top-call.as-btn:hover { background: var(--accent); color: var(--accent-text); }
+#fcl .hero-note { font-size: 13px; }
+#fcl .hero-note + .call-line { margin-top: 4px; }
+#fcl .find .addr a { color: inherit; text-decoration: underline; }
+@media (max-width: 719px) { #fcl .tc-num { display: none; } }
+"""
+
+
+def uses_call_btn_css(g):
+    return (g.get("topBarCall") and not g.get("topBarCta")) or g.get("topBarCallNumber") \
+        or g.get("heroNote") or g.get("location", {}).get("mapLink")
 
 
 def strip_comments(page):
