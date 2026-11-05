@@ -213,7 +213,7 @@ join or not. Not "1-on-1" (others may be there). Not medical-sounding (no "asses
 | CrossFit East Coast (Braintree, MA) | gyms/crossfit-east-coast | crossfit-eastcoast.com/free-crossfit-class | https://claude.ai/artifact/1pCLeFwRrKSbY543f9pq9C |
 | CrossFit East Coast, consultation page | gyms/crossfit-east-coast-consult | crossfit-eastcoast.com/free-consultation, thank-you /free-consult-thank-you (funnel "Google Lander Free Consult (Live)"; needs its own form) | https://claude.ai/artifact/Q1H9y7jqotV3V2uW7j6L6a |
 | RAW Fitness (Washington Township, MI) | gyms/raw-fitness | info.rawfitlife.com/free-consultation | https://claude.ai/artifact/CQhQzEn3KVdLURxpw7Uvf7 |
-| F45 Cross Trails (Round Rock, TX) | gyms/f45-cross-trails | schedule.f45-crosstrails.com/get-started (Free Goal Session offer since Nov 2026) | https://claude.ai/artifact/QL6VDztrjsP7C7d628qwxQ |
+| F45 Cross Trails (Round Rock, TX) | gyms/f45-cross-trails | schedule.f45-crosstrails.com/get-started-now, thank-you /thank-you-lets-get-started (funnel "Google Landing Page (2026) [WITH GOOGLE TAG]", tag AW-18521021092 funnel-wide; Free Goal Session offer since Nov 2026) | https://claude.ai/artifact/QL6VDztrjsP7C7d628qwxQ |
 | Grinders Fitness (Northglenn, CO) | gyms/grinders-fitness | grindersfitnessgym.com/northglenn-free-class (paths unconfirmed) | https://claude.ai/artifact/7kxYGvdxAHUabRGiwtVPs5 |
 | Wallace Fitness (Mount Dora, FL) | gyms/wallace-fitness | wallacefitness.com/mount-dora-free-consultation (paths unconfirmed) | https://claude.ai/artifact/QJ8kTcqTqu41FrzA5xTCf2 |
 | Southside Knockout (Orland Park, IL) | gyms/southside-knockout-orland-park | orlandpark.southsideknockout.com/free-consultation (address to confirm) | https://claude.ai/artifact/Wqu1ftX8qFRwzeFYPw1Z9z |
