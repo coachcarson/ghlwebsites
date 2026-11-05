@@ -438,12 +438,17 @@ html, body { overflow-x: clip; }
 #fcl .find .addr a { color: inherit; text-decoration: underline; }
 @media (max-width: 719px) { #fcl .tc-num { display: none; } }
 #fcl .top-name {
-  margin-right: auto; font-family: var(--font-display); font-weight: var(--display-weight, 900);
+  flex: 1; text-align: center; font-family: var(--font-display); font-weight: var(--display-weight, 900);
   text-transform: uppercase; letter-spacing: .02em; font-size: 18px; line-height: 1.1;
   color: var(--white); white-space: nowrap;
 }
 #fcl.topbar-light .top-name { color: var(--ink); }
 #fcl .top-name + .top-call { margin-left: 0; }
+@media (min-width: 720px) {
+  #fcl .topbar .wrap { position: relative; }
+  #fcl .top-name { position: absolute; left: 50%; transform: translateX(-50%); }
+  #fcl .top-name + .top-call { margin-left: auto; }
+}
 @media (max-width: 719px) { #fcl .top-name { font-size: 14px; } }
 @media (max-width: 370px) { #fcl .top-name { font-size: 12px; } }
 </style>
