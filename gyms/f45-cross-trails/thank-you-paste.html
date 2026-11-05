@@ -378,6 +378,69 @@ html, body { overflow-x: clip; }
   --display-weight: 800;
   --btn-weight: 800;
 }
+#fcl .top-call {
+  margin-left: auto;
+  display: inline-flex; align-items: center; gap: 6px;
+  font-weight: 700; font-size: 14px; text-decoration: none; color: var(--white);
+  white-space: nowrap;
+}
+#fcl.topbar-light .top-call { color: var(--ink); }
+#fcl .top-call svg { width: 16px; height: 16px; flex: 0 0 16px; }
+#fcl .call-line { margin: 14px 0 0; text-align: center; font-size: 15px; color: var(--muted); }
+#fcl .call-line a { color: var(--ink); font-weight: 700; text-decoration: underline; white-space: nowrap; }
+#fcl .section-head .lead { margin: 14px auto 0; font-weight: 700; color: var(--band-ink); }
+#fcl section.block.alt .section-head .lead { color: var(--ink); }
+#fcl .svc {
+  padding: 24px 22px;
+  background: var(--white);
+  border: 1px solid var(--line);
+  border-left: 5px solid var(--accent);
+  border-radius: 0 var(--radius) var(--radius) 0;
+}
+#fcl .svc h3 { font-size: 20px; text-transform: uppercase; }
+#fcl .svc p { color: var(--muted); margin-top: 8px; }
+#fcl .find { max-width: 520px; margin: 0 auto; text-align: center; }
+#fcl .find .addr { font-size: 19px; font-weight: 700; margin: 0; }
+#fcl .find .call { margin: 8px 0 0; }
+#fcl .find .call a { color: var(--ink); font-weight: 700; }
+#fcl .hours { display: grid; grid-template-columns: auto auto; justify-content: center; gap: 6px 24px; margin: 22px 0 0; text-align: left; }
+#fcl .hours dt { font-weight: 700; margin: 0; }
+#fcl .hours dd { margin: 0; color: var(--muted); }
+#fcl .svcs { display: grid; gap: 16px; }
+@media (min-width: 720px) { #fcl .svcs { grid-template-columns: repeat(3, 1fr); } }
+@media (max-width: 719px) {
+  #fcl .hero { padding-bottom: 22px; }
+  #fcl section.block { padding: 30px 0; }
+  #fcl .section-head { margin-bottom: 16px; }
+  #fcl .section-head h2 { font-size: 27px; }
+  #fcl .section-head .bar { margin-top: 10px; height: 4px; }
+  #fcl .section-head .lead { margin-top: 10px; font-size: 15px; }
+  #fcl .steps, #fcl .quotes, #fcl .svcs { gap: 10px; }
+  #fcl .step { padding: 16px 16px; }
+  #fcl .step .num { font-size: 34px; }
+  #fcl .step h3 { font-size: 18px; margin-top: 6px; }
+  #fcl .step p, #fcl .svc p { margin-top: 4px; font-size: 15px; line-height: 1.45; }
+  #fcl .svc { padding: 16px 16px; }
+  #fcl .svc h3 { font-size: 17px; }
+  #fcl .quote { padding: 16px 16px; }
+  #fcl .quote blockquote { margin: 8px 0 10px; font-size: 15px; line-height: 1.45; }
+  #fcl .stars { font-size: 15px; }
+  #fcl .find .addr { font-size: 16px; }
+  #fcl .hours { margin-top: 14px; gap: 4px 20px; font-size: 15px; }
+  #fcl .final { padding: 34px 0 36px; }
+  #fcl .final p { margin: 10px auto 18px; font-size: 16px; }
+  #fcl .call-line { margin-top: 10px; }
+}
+#fcl .top-call.as-btn {
+  border: 2px solid var(--accent); border-radius: var(--radius);
+  padding: 8px 14px; font-family: var(--font-display); font-weight: var(--btn-weight, 800);
+  text-transform: uppercase; letter-spacing: .04em; font-size: 13px;
+}
+#fcl .top-call.as-btn:hover { background: var(--accent); color: var(--accent-text); }
+#fcl .hero-note { font-size: 13px; }
+#fcl .hero-note + .call-line { margin-top: 4px; }
+#fcl .find .addr a { color: inherit; text-decoration: underline; }
+@media (max-width: 719px) { #fcl .tc-num { display: none; } }
 #fcl .brand-logo { height: 48px; }
 #fcl .topbar .wrap { height: 66px; }
 </style>
@@ -392,21 +455,21 @@ html, body { overflow-x: clip; }
   <div class="wrap">
     <div class="ty-check" aria-hidden="true"></div>
     <span class="eyebrow">You&#39;re in</span>
-    <h1>We&#39;ll Be In <span class="accent">Touch Soon</span></h1>
-    <p class="sub">Keep an eye on your phone. Someone from the F45 Cross Trails team will reach out shortly to get you started.</p>
+    <h1>Your <span class="accent">Free Goal Session</span> Is Claimed</h1>
+    <p class="sub">Keep an eye on your phone. A coach from F45 Cross Trails will call or text you within minutes to set up your goal session.</p>
   </div>
 </section>
 <section class="block">
   <div class="wrap">
     <div class="section-head"><h2>What Happens Next</h2><div class="bar"></div></div>
-    <div class="steps" id="steps"><div class="step"><div class="num">01</div><h3>Watch for our text</h3><p>Our team will text you to answer questions and find a start time that fits your schedule.</p></div><div class="step"><div class="num">02</div><h3>Pick your start</h3><p>Reply with the day and time that work best and we&#39;ll get you on the schedule.</p></div><div class="step"><div class="num">03</div><h3>Show up ready</h3><p>Wear comfortable workout clothes and sneakers, bring water, and get there a few minutes early.</p></div></div>
+    <div class="steps" id="steps"><div class="step"><div class="num">01</div><h3>Watch your phone</h3><p>A coach will call or text you within minutes to find a time that fits your schedule.</p></div><div class="step"><div class="num">02</div><h3>Pick your time</h3><p>Let us know the day and time that work best. That locks in your goal session.</p></div><div class="step"><div class="num">03</div><h3>Show up ready</h3><p>Wear comfortable workout clothes and sneakers, bring water, and get there a few minutes early to meet your coach.</p></div></div>
   </div>
 </section>
-<section class="final" hidden>
+<section class="final">
   <div class="wrap">
     <h2>Where To Find Us</h2>
-    <p class="address"></p>
-    <p class="contact" id="contact"></p>
+    <p class="address">2000 N Mays St, Suite 115, Round Rock, TX 78664</p>
+    <p class="contact" id="contact">Questions? Call <a href="tel:5126218406">(512) 621-8406</a></p>
   </div>
 </section>
 </main>

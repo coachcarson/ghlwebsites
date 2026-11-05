@@ -1,8 +1,8 @@
 {
   "gymName": "F45 Cross Trails",
   "city": "Round Rock, TX",
-  "address": "",
-  "phone": "",
+  "address": "2000 N Mays St, Suite 115, Round Rock, TX 78664",
+  "phone": "(512) 621-8406",
   "domain": "schedule.f45-crosstrails.com",
   "pagePath": "get-started",
   "thankYouPath": "get-started-thank-you",
@@ -19,8 +19,8 @@
     "headingWeight": "800",
     "condensed": true
   },
-  "seoTitle": "Get Started at F45 Cross Trails | Round Rock, TX",
-  "seoDescription": "Get started at F45 Training Cross Trails in Round Rock, TX. 45-minute team workouts. Fill out the form and our team will reach out to get you set up.",
+  "seoTitle": "Free Goal Session | F45 Cross Trails Gym, Round Rock TX",
+  "seoDescription": "Coach-led 45-minute group workouts in Round Rock, TX. Strength, cardio and hybrid training for every level. Book your free goal session with a coach.",
   "colors": {
     "accent": "#DA001A",
     "accentText": "#FFFFFF",
@@ -28,53 +28,93 @@
     "light": "#F4F3F8",
     "ink": "#221452"
   },
-  "ctaText": "Get Started Now",
-  "topBarCta": "Get Started",
-  "eyebrow": "{city}",
-  "headline": "Get Started at *F45 Cross Trails*",
-  "subhead": "Team training in {city}. Fill out the form and our team will reach out to get you set up.",
+  "ctaText": "Book My Free Goal Session",
+  "topBarCta": "",
+  "eyebrow": "Free Goal Session · {city}",
+  "headline": "Your Gym in Round Rock. *Start With a Free Goal Session.*",
+  "subhead": "Coach-led 45⁠-⁠minute group workouts for every fitness level. No pressure, no obligation.",
   "trustBullets": [
-    "45⁠-⁠minute team workouts",
-    "Our team reaches out to you",
-    "No pressure, no obligation"
+    "Meet a coach and leave with your plan",
+    "Strength, cardio and hybrid in one",
+    "Beginners welcome, every move scales"
   ],
-  "formHeading": "Get Started Now",
-  "formSubtext": "Takes 30 seconds. Our team will reach out to get you set up.",
+  "formHeading": "Book Your Free Goal Session",
+  "formSubtext": "Takes 30 seconds. A coach will call or text you within minutes.",
   "stepsHeading": "How It Works",
   "steps": [
     {
       "title": "Fill out the form",
-      "text": "It takes less than a minute."
+      "text": "It takes 30 seconds."
     },
     {
-      "title": "We reach out",
-      "text": "Someone from our team texts you to answer questions and find a start time that works for you."
+      "title": "We call or text you fast",
+      "text": "A coach reaches out within minutes to set up your free goal session."
     },
     {
-      "title": "Start training",
-      "text": "Show up, meet the team, and get your first workout in."
+      "title": "Leave with a plan",
+      "text": "Meet your coach, talk through your goals, and walk out with a clear plan and a start date."
     }
   ],
-  "finalHeadline": "Ready? *Get Started Now*",
-  "finalSubtext": "Fill out the form and our team will reach out to get you set up.",
+  "finalHeadline": "Your Plan Starts *Today.*",
+  "finalSubtext": "Request your free goal session and a coach will reach out within minutes to find a time that works for you.",
   "thankYou": {
-    "headline": "We'll Be In *Touch Soon*",
-    "subhead": "Keep an eye on your phone. Someone from the {gym} team will reach out shortly to get you started.",
+    "headline": "Your *Free Goal Session* Is Claimed",
+    "subhead": "Keep an eye on your phone. A coach from {gym} will call or text you within minutes to set up your goal session.",
     "steps": [
       {
-        "title": "Watch for our text",
-        "text": "Our team will text you to answer questions and find a start time that fits your schedule."
+        "title": "Watch your phone",
+        "text": "A coach will call or text you within minutes to find a time that fits your schedule."
       },
       {
-        "title": "Pick your start",
-        "text": "Reply with the day and time that work best and we'll get you on the schedule."
+        "title": "Pick your time",
+        "text": "Let us know the day and time that work best. That locks in your goal session."
       },
       {
         "title": "Show up ready",
-        "text": "Wear comfortable workout clothes and sneakers, bring water, and get there a few minutes early."
+        "text": "Wear comfortable workout clothes and sneakers, bring water, and get there a few minutes early to meet your coach."
+      }
+    ],
+    "phoneLabel": "Questions? Call"
+  },
+  "copyPageUrl": "https://claude.ai/artifact/QL6VDztrjsP7C7d628qwxQ",
+  "notes": "Offer: Get Started Now (no free class or consult; team reaches out). Brand: navy #221452 (dark), red #da001a (buttons/highlights), white. Brand fonts are Gotham Condensed / Gotham, which are not on Google Fonts, so Barlow Condensed / Montserrat stand in. Round Rock, TX (from search; f45training.com blocked from sandbox). Logo: F45 Training logo reversed to white (red lines kept) for the navy top bar. Waiting on: street address, privacy policy location, Google ad headline. GHL form '2026 Google Opt-In', data-height 400. Nov 2026 rebuild from Brittany's doc (F45_Cross_Trails_-_November_Landing_Page_Updates.pdf): offer is now a Free Goal Session (ad headline 'Gym in Round Rock, TX', CTA 'Book Your Goal Session'); dropped the unverified '1,000+ Transformations' claim; top bar = Call button with number on desktop (no CTA button); services cards; location with class days (Resistance Mon/Wed/Fri, Cardio Tue/Thu, Hybrid Sat/Sun) and maps link; address 2000 N Mays St Suite 115, phone (512) 621-8406 from the doc. Reviews section NOT built yet: needs 2-3 real Google reviews and the confirmed rating/count (doc placeholder 4.7 from 217+). Waiting on: reviews, class times, parking, form changes (goal field, button 'Book My Free Goal Session').",
+  "topBarCall": "Call",
+  "topBarCallNumber": true,
+  "heroCall": "Prefer to talk? Call",
+  "services": {
+    "heading": "Coached Every Session. Not a Do⁠-⁠It⁠-⁠Yourself Gym.",
+    "items": [
+      {
+        "title": "Coaching in Every Session",
+        "text": "45⁠-⁠minute group workouts with coaches guiding every move and a plan built around your goals."
+      },
+      {
+        "title": "Strength, Cardio and Hybrid",
+        "text": "A different full-body workout each day: resistance, cardio and hybrid sessions through the week."
+      },
+      {
+        "title": "Every Level Welcome",
+        "text": "Every movement scales to where you are today, so beginners and regulars train side by side."
       }
     ]
   },
-  "copyPageUrl": "https://claude.ai/artifact/QL6VDztrjsP7C7d628qwxQ",
-  "notes": "Offer: Get Started Now (no free class or consult; team reaches out). Brand: navy #221452 (dark), red #da001a (buttons/highlights), white. Brand fonts are Gotham Condensed / Gotham, which are not on Google Fonts, so Barlow Condensed / Montserrat stand in. Round Rock, TX (from search; f45training.com blocked from sandbox). Logo: F45 Training logo reversed to white (red lines kept) for the navy top bar. Waiting on: street address, privacy policy location, Google ad headline. GHL form '2026 Google Opt-In', data-height 400."
+  "location": {
+    "heading": "Find Us in Round Rock",
+    "mapLink": true,
+    "hours": [
+      [
+        "Resistance",
+        "Mon, Wed, Fri"
+      ],
+      [
+        "Cardio",
+        "Tue, Thu"
+      ],
+      [
+        "Hybrid",
+        "Sat, Sun"
+      ]
+    ]
+  },
+  "compact": true
 }

@@ -255,11 +255,16 @@ def extras(g):
     if g.get("heroCall"):
         hero_call += f'      <p class="call-line">{text(g["heroCall"], g)} {tel_link(g)}</p>'
     sections = []
+
+    def band():
+        # Alternate white / light after How It Works, whichever extras a gym uses
+        return "block alt" if len(sections) % 2 == 0 else "block"
+
     if g.get("services"):
         s = g["services"]
         cards = "".join(f'<div class="svc"><h3>{text(i["title"], g)}</h3><p>{text(i["text"], g)}</p></div>'
                         for i in s["items"])
-        sections.append(f'<section class="block alt"><div class="wrap">{section_head(s["heading"], g)}'
+        sections.append(f'<section class="{band()}"><div class="wrap">{section_head(s["heading"], g)}'
                         f'<div class="svcs">{cards}</div></div></section>')
     if g.get("reviews"):
         r = g["reviews"]
@@ -267,7 +272,7 @@ def extras(g):
                         f'<blockquote>{text(i["text"], g)}</blockquote>'
                         f'<figcaption class="who">{text(i["name"], g)}<span>{text(r.get("source", "Google review"), g)}</span></figcaption></figure>'
                         for i in r["items"])
-        sections.append(f'<section class="block"><div class="wrap">{section_head(r["heading"], g, r.get("lead", ""))}'
+        sections.append(f'<section class="{band()}"><div class="wrap">{section_head(r["heading"], g, r.get("lead", ""))}'
                         f'<div class="quotes">{cards}</div></div></section>')
     if g.get("location"):
         loc = g["location"]
@@ -278,7 +283,7 @@ def extras(g):
             # Tap the address for directions (no embedded map: it is heavy)
             addr = (f'<a href="https://www.google.com/maps/search/?api=1&amp;query={quote(g["address"])}" '
                     f'target="_blank" rel="noopener">{addr}</a>')
-        sections.append(f'<section class="block alt"><div class="wrap">{section_head(loc["heading"], g)}'
+        sections.append(f'<section class="{band()}"><div class="wrap">{section_head(loc["heading"], g)}'
                         f'<div class="find"><p class="addr">{addr}</p>{call}'
                         f'{f"<dl class=hours>{hours}</dl>" if hours else ""}</div></div></section>')
     return top_call, hero_call, "\n".join(sections)
