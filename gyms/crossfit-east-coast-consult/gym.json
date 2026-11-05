@@ -111,5 +111,6 @@
     "mapLink": true
   },
   "compact": true,
-  "headlineSize": 48
+  "headlineSize": 48,
+  "topBarName": true
 }

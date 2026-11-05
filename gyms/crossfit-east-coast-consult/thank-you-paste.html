@@ -437,6 +437,15 @@ html, body { overflow-x: clip; }
 #fcl .hero-note + .call-line { margin-top: 4px; }
 #fcl .find .addr a { color: inherit; text-decoration: underline; }
 @media (max-width: 719px) { #fcl .tc-num { display: none; } }
+#fcl .top-name {
+  margin-right: auto; font-family: var(--font-display); font-weight: var(--display-weight, 900);
+  text-transform: uppercase; letter-spacing: .02em; font-size: 18px; line-height: 1.1;
+  color: var(--white); white-space: nowrap;
+}
+#fcl.topbar-light .top-name { color: var(--ink); }
+#fcl .top-name + .top-call { margin-left: 0; }
+@media (max-width: 719px) { #fcl .top-name { font-size: 14px; } }
+@media (max-width: 370px) { #fcl .top-name { font-size: 12px; } }
 </style>
 <div id="fcl">
 <header class="topbar">

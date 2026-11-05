@@ -174,6 +174,8 @@ def gym_css(g):
         css += "\n" + COMPACT_CSS.strip()
     if uses_call_btn_css(g):
         css += "\n" + CALL_BTN_CSS.strip()
+    if g.get("topBarName"):
+        css += "\n" + TOP_NAME_CSS.strip()
     if g.get("logoHeight"):
         # Tall logos: grow the bar so the logo (and the optional stripe) never clip
         css += (f"\n#fcl .brand-logo {{ height: {g['logoHeight']}px; }}"
@@ -245,6 +247,9 @@ def extras(g):
         num = f'<span class="tc-num"> {esc(g["phone"])}</span>' if g.get("topBarCallNumber") else ""
         top_call = (f'    <a class="{cls}" href="tel:{esc(re.sub(r"[^0-9+]", "", g["phone"]))}">'
                     f'{PHONE_SVG}{text(g["topBarCall"], g)}{num}</a>\n')
+    if g.get("topBarName"):
+        # Gym name beside the logo (CrossFit East Coast: logo is a monogram only)
+        top_call = f'    <span class="top-name">{text(g["gymName"], g)}</span>\n' + top_call
     if g.get("heroNote"):
         hero_call = f'      <p class="call-line hero-note">{text(g["heroNote"], g)}</p>\n'
     if g.get("heroCall"):
@@ -292,6 +297,19 @@ CALL_BTN_CSS = """
 #fcl .hero-note + .call-line { margin-top: 4px; }
 #fcl .find .addr a { color: inherit; text-decoration: underline; }
 @media (max-width: 719px) { #fcl .tc-num { display: none; } }
+"""
+
+
+TOP_NAME_CSS = """
+#fcl .top-name {
+  margin-right: auto; font-family: var(--font-display); font-weight: var(--display-weight, 900);
+  text-transform: uppercase; letter-spacing: .02em; font-size: 18px; line-height: 1.1;
+  color: var(--white); white-space: nowrap;
+}
+#fcl.topbar-light .top-name { color: var(--ink); }
+#fcl .top-name + .top-call { margin-left: 0; }
+@media (max-width: 719px) { #fcl .top-name { font-size: 14px; } }
+@media (max-width: 370px) { #fcl .top-name { font-size: 12px; } }
 """
 
 
