@@ -5,7 +5,7 @@
   "phone": "(720) 749-4779",
   "domain": "grinders-fitness.com",
   "pagePath": "claim-your-free-class",
-  "thankYouPath": "northglenn-free-class-thank-you",
+  "thankYouPath": "free-class-claimed",
   "privacyUrl": "",
   "logoFile": "logo.png",
   "logoUrl": "",
@@ -109,5 +109,22 @@
   "topBarAddress": [
     "455 W 115th Ave, Unit 4",
     "Northglenn, CO 80234"
-  ]
+  ],
+  "reviews": {
+    "heading": "The Grinders Family",
+    "items": [
+      {
+        "name": "Alyssa",
+        "text": "I signed up for a free class about two months ago and was immediately hooked! The instructors are incredible: they keep you accountable, motivated, and constantly encourage you to push yourself. The community is just as great, with people of all skill levels who are supportive and welcoming from the very beginning."
+      },
+      {
+        "name": "Danielle",
+        "text": "I absolutely love going to Grinders Fitness for kickboxing! Everyone is encouraging, and the coaches are exceptional: they push you, motivate you, and make every class enjoyable. Grinders has made working out something I actually look forward to, and that says a lot!"
+      },
+      {
+        "name": "Arianna",
+        "text": "I've always had a hard time staying consistent with working out because it would start to feel boring and repetitive, but this gym has been a complete game changer for my fitness journey. The workouts keep things exciting, and the support and sense of community make it so much easier to stay motivated."
+      }
+    ]
+  }
 }
