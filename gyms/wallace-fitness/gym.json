@@ -108,5 +108,10 @@
     "mapLink": true,
     "note": "By appointment, Monday to Saturday."
   },
-  "compact": true
+  "compact": true,
+  "topBarAddress": [
+    "4820 N Hwy 19A, Unit 2",
+    "Mount Dora, FL 32757"
+  ],
+  "topBarAddressPhone": false
 }
