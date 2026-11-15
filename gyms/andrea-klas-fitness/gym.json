@@ -5,7 +5,7 @@
   "phone": "604-265-0493",
   "domain": "info.andreaklasfitness.com",
   "pagePath": "discovery-call",
-  "thankYouPath": "complimentary-consultation-thank-you",
+  "thankYouPath": "discovery-call-thank-you",
   "privacyUrl": "",
   "logoFile": "logo.png",
   "logoUrl": "",
@@ -111,5 +111,23 @@
     "mapLink": true,
     "note": "Serving North and West Vancouver, Lions Bay and Squamish."
   },
-  "compact": true
+  "compact": true,
+  "reviews": {
+    "heading": "Real Clients. Measurable Results.",
+    "lead": "500+ client transformations · 5.0 stars from 94 Google reviews · 2024 North Vancouver Chamber of Commerce Service Excellence Award",
+    "items": [
+      {
+        "name": "Ashkan",
+        "text": "I love the team and the coaches at Andrea Klas! They always vary the workout routines so you never get bored of doing the same thing. I've made lots of progress on my fitness objectives, losing 11lbs of body fat, while gaining 1.5lbs of muscle since I started my workouts and nutrition program with Andrea Klas."
+      },
+      {
+        "name": "Catherine",
+        "text": "At Andrea Klas Fitness the highly skilled and trained staff are supportive every step of your individual wellness journey. Whether you are recovering from an injury, starting a new program for the first time, or expanding your current goals, the entire team is on your side."
+      },
+      {
+        "name": "Laura",
+        "text": "Just the boost I needed to get going in my fitness journey! I loved the program and all the trainers."
+      }
+    ]
+  }
 }
