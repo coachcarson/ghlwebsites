@@ -176,6 +176,8 @@ def gym_css(g):
         css += "\n" + CALL_BTN_CSS.strip()
     if g.get("topBarName"):
         css += "\n" + TOP_NAME_CSS.strip()
+    if g.get("topBarAddress"):
+        css += "\n" + TOP_ADDR_CSS.strip()
     if g.get("logoHeight"):
         # Tall logos: grow the bar so the logo (and the optional stripe) never clip
         css += (f"\n#fcl .brand-logo {{ height: {g['logoHeight']}px; }}"
@@ -247,6 +249,12 @@ def extras(g):
         num = f'<span class="tc-num"> {esc(g["phone"])}</span>' if g.get("topBarCallNumber") else ""
         top_call = (f'    <a class="{cls}" href="tel:{esc(re.sub(r"[^0-9+]", "", g["phone"]))}">'
                     f'{PHONE_SVG}{text(g["topBarCall"], g)}{num}</a>\n')
+    if g.get("topBarAddress"):
+        # Address centered in the top bar, street over city (Grinders, Nov 2026)
+        street, _, rest = g["address"].partition(", ")
+        if g["topBarAddress"] is not True:
+            street, rest = g["topBarAddress"]
+        top_call = (f'    <span class="top-addr"><span>{text(street, g)}</span> <span>{text(rest, g)}</span></span>\n' + top_call)
     if g.get("topBarName"):
         # Gym name beside the logo (CrossFit East Coast: logo is a monogram only)
         top_call = f'    <span class="top-name">{text(g["gymName"], g)}</span>\n' + top_call
@@ -306,6 +314,23 @@ CALL_BTN_CSS = """
 #fcl .hero-note + .call-line { margin-top: 4px; }
 #fcl .find .addr a { color: inherit; text-decoration: underline; }
 @media (max-width: 719px) { #fcl .tc-num { display: none; } }
+"""
+
+
+TOP_ADDR_CSS = """
+#fcl .top-addr {
+  flex: 1; text-align: center; font-weight: 700; font-size: 13px; line-height: 1.3;
+  color: var(--white);
+}
+#fcl .top-addr span { display: block; white-space: nowrap; }
+#fcl.topbar-light .top-addr { color: var(--ink); }
+#fcl .top-addr + .top-call { margin-left: 0; }
+@media (min-width: 720px) {
+  #fcl .topbar .wrap { position: relative; }
+  #fcl .top-addr { position: absolute; left: 50%; transform: translateX(-50%); font-size: 15px; white-space: nowrap; }
+  #fcl .top-addr + .top-call { margin-left: auto; }
+}
+@media (max-width: 370px) { #fcl .top-addr { font-size: 11px; } #fcl .topbar .wrap { gap: 8px; } }
 """
 
 

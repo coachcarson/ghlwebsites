@@ -3,7 +3,7 @@
   "city": "Northglenn, CO",
   "address": "455 W 115th Ave, Unit 4, Northglenn, CO 80234",
   "phone": "(720) 749-4779",
-  "domain": "grindersfitnessgym.com",
+  "domain": "grinders-fitness.com",
   "pagePath": "claim-your-free-class",
   "thankYouPath": "northglenn-free-class-thank-you",
   "privacyUrl": "",
@@ -105,5 +105,9 @@
   "thankYou": {
     "phoneLabel": "Questions? Call"
   },
-  "headlineSize": 44
+  "headlineSize": 44,
+  "topBarAddress": [
+    "455 W 115th Ave, Unit 4",
+    "Northglenn, CO 80234"
+  ]
 }

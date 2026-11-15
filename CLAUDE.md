@@ -91,7 +91,8 @@ Change a gym's words/colors/offer in its `gym.json`, then rebuild that gym.
      makes the address open Google Maps (no embedded map, too heavy). `location.hours` optional.
      `location.note` = one line under the address/hours (Andrea Klas service area, Wallace "By appointment").
      Use a note instead of hours when the band color makes the muted hours text hard to read.
-     `topBarName` true shows the gym name beside the logo (monogram-only logos, CrossFit East Coast).
+     `topBarAddress` true (or [street, city line]) centers the address in the top bar, two lines
+     (Grinders). `topBarName` true shows the gym name beside the logo (monogram-only logos, CrossFit East Coast).
      Extra sections alternate white / light automatically, so skipping one (F45 has no reviews yet)
      never puts two same-color sections together.
      The minimal layout above stays the default for every other gym.
@@ -216,7 +217,7 @@ join or not. Not "1-on-1" (others may be there). Not medical-sounding (no "asses
 | CrossFit East Coast, consultation page | gyms/crossfit-east-coast-consult | crossfit-eastcoast.com/free-consultation, thank-you /free-consult-thank-you (funnel "Google Lander Free Consult (Live)"; needs its own form) | https://claude.ai/artifact/Q1H9y7jqotV3V2uW7j6L6a |
 | RAW Fitness (Washington Township, MI) | gyms/raw-fitness | info.rawfitlife.com/free-consultation | https://claude.ai/artifact/CQhQzEn3KVdLURxpw7Uvf7 |
 | F45 Cross Trails (Round Rock, TX) | gyms/f45-cross-trails | schedule.f45-crosstrails.com/get-started-now, thank-you /thank-you-lets-get-started (funnel "Google Landing Page (2026) [WITH GOOGLE TAG]", tag AW-18521021092 funnel-wide; Free Goal Session offer since Nov 2026) | https://claude.ai/artifact/QL6VDztrjsP7C7d628qwxQ |
-| Grinders Fitness (Northglenn, CO) | gyms/grinders-fitness | grindersfitnessgym.com/claim-your-free-class (per Brittany Nov 2026; thank-you path unconfirmed) | https://claude.ai/artifact/7kxYGvdxAHUabRGiwtVPs5 |
+| Grinders Fitness (Northglenn, CO) | gyms/grinders-fitness | grinders-fitness.com/claim-your-free-class (confirmed Nov 2026; thank-you path unconfirmed; old site grindersfitnessgym.com) | https://claude.ai/artifact/7kxYGvdxAHUabRGiwtVPs5 |
 | Wallace Fitness (Mount Dora, FL) | gyms/wallace-fitness | wallacefitness.com/mount-dora-free-consultation (paths unconfirmed) | https://claude.ai/artifact/QJ8kTcqTqu41FrzA5xTCf2 |
 | Southside Knockout (Orland Park, IL) | gyms/southside-knockout-orland-park | orlandpark.southsideknockout.com/free-consultation (address to confirm) | https://claude.ai/artifact/Wqu1ftX8qFRwzeFYPw1Z9z |
 | Andrea Klas Fitness (North Vancouver, BC) | gyms/andrea-klas-fitness | info.andreaklasfitness.com/discovery-call (1400 Marine Dr; thank-you path unconfirmed). Brand-sensitive premium client | https://claude.ai/artifact/PmF6eUaUFBsQGeSFontN8A |
