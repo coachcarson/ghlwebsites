@@ -81,25 +81,7 @@
   },
   "location": {
     "heading": "Right Here in Northglenn",
-    "mapLink": true,
-    "hours": [
-      [
-        "Cardio bag classes",
-        "7 days: AM, lunch, PM"
-      ],
-      [
-        "Spanish-speaking",
-        "Tue & Thu"
-      ],
-      [
-        "No⁠-⁠Gi Jiu⁠-⁠Jitsu",
-        "Mon–Thu evenings"
-      ],
-      [
-        "Technical striking",
-        "Tue & Thu evenings"
-      ]
-    ]
+    "mapLink": true
   },
   "compact": true,
   "thankYou": {
