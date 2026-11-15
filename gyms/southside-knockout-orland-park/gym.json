@@ -2,7 +2,7 @@
   "gymName": "Southside Knockout",
   "city": "Orland Park, IL",
   "address": "15545 71st Ct, Orland Park, IL 60462",
-  "phone": "",
+  "phone": "(708) 468-8943",
   "domain": "orlandpark.southsideknockout.com",
   "pagePath": "free-consultation",
   "thankYouPath": "free-consultation-thank-you",
@@ -32,7 +32,7 @@
     "bandInk": "#111111"
   },
   "ctaText": "Book My Free Consultation",
-  "topBarCta": "Book My Free Consultation",
+  "topBarCta": "",
   "eyebrow": "Free Consultation · {city}",
   "headline": "Kickboxing & Group Fitness in Orland Park. *Book Your Free Consultation.*",
   "subhead": "Meet the Southside team, talk through your goals with a coach, and see if we're the right fit before you commit.",
@@ -43,7 +43,6 @@
   ],
   "formHeading": "Claim Your Free Consultation",
   "formSubtext": "Takes 30 seconds. The Southside team will reach out to set a time.",
-  "formHeight": 400,
   "stepsHeading": "How It Works",
   "steps": [
     {
@@ -77,7 +76,8 @@
         "title": "Bring your goals",
         "text": "Come ready to talk about where you are now and where you want to be. We'll take it from there."
       }
-    ]
+    ],
+    "phoneLabel": "Questions? Call"
   },
   "copyPageUrl": "https://claude.ai/artifact/Wqu1ftX8qFRwzeFYPw1Z9z",
   "notes": "Southside Knockout Training, Orland Park IL: coach-led group fat loss training (boxing, kickboxing, bootcamp, circuit). Facts from search (site blocked from sandbox). Address 15545 71st Ct (MapQuest/Fresha); one directory says 15100 S 94th Ave, so confirm. Offer: free consultation, no length. Brand: orange #ff6a0f (buttons, black text), green #36ca36 (highlights), grey #f7f7f7 (section bg); near-black #111111 added as the dark base. Montserrat for both. Logo: sticker-style on a textured gray background, cropped to SOUTHSIDE/shamrock/KNOCKOUT and used as a badge (Orland Park script dropped). Waiting on: address confirmation, privacy policy location, Google ad headline. formHeight 400 (embed said 572, which left white space under the button on phones). How It Works on a green band (Ryan disliked white cards on light grey).",
@@ -104,5 +104,26 @@
     "mapLink": true
   },
   "compact": true,
-  "headlineSize": 42
+  "headlineSize": 42,
+  "topBarCall": "Call",
+  "topBarCallNumber": true,
+  "heroCall": "Prefer to talk? Call",
+  "topBarAddress": true,
+  "reviews": {
+    "heading": "Real Members. Real Progress.",
+    "items": [
+      {
+        "name": "Danielle",
+        "text": "I joined SKT in June and immediately loved it. I was nervous when I walked in, but shouldn't have been. Everyone makes you feel like family. The coaches are incredible and are always willing to help you. I have found my gym."
+      },
+      {
+        "name": "Janice",
+        "text": "If I miss a class at Southside Knockout, I don't just miss the workout; I miss the camaraderie and the people. It's the perfect mix of fun and hard work. The ownership is fantastic, and the trainers are AMAZING. It's more than a workout. It's a community that keeps you coming back."
+      },
+      {
+        "name": "Monica",
+        "text": "My experience with SKT Orland Park has been beyond wonderful! From the encouraging and welcoming environment to the genuine kindness of the people, this group is truly made up of Supportive Superstars! Everyone creates an atmosphere where you feel valued, uplifted, and encouraged."
+      }
+    ]
+  }
 }
