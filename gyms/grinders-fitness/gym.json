@@ -1,10 +1,10 @@
 {
   "gymName": "Grinders Fitness",
   "city": "Northglenn, CO",
-  "address": "455 W 115th Ave Unit 4, Northglenn, CO 80234",
-  "phone": "",
+  "address": "455 W 115th Ave, Unit 4, Northglenn, CO 80234",
+  "phone": "(720) 749-4779",
   "domain": "grindersfitnessgym.com",
-  "pagePath": "northglenn-free-class",
+  "pagePath": "claim-your-free-class",
   "thankYouPath": "northglenn-free-class-thank-you",
   "privacyUrl": "",
   "logoFile": "logo.png",
@@ -19,8 +19,8 @@
     "bodyWeights": "400;500;700",
     "headingWeight": "800"
   },
-  "seoTitle": "Free Boxing, Kickboxing & MMA Class in Northglenn, CO | Grinders Fitness",
-  "seoDescription": "Claim your free class at Grinders Fitness in Northglenn, CO. Boxing, kickboxing, BJJ and MMA. First class free, no credit card required.",
+  "seoTitle": "Free Boxing Class in Northglenn, CO | Grinders Fitness",
+  "seoDescription": "Coached boxing, kickboxing and No-Gi Jiu-Jitsu for every level in Northglenn, CO. Claim your free first class. No credit card required.",
   "colors": {
     "accent": "#FE0000",
     "accentText": "#FFFFFF",
@@ -29,14 +29,14 @@
     "ink": "#000000"
   },
   "ctaText": "Claim My Free Class",
-  "topBarCta": "Claim Free Class",
-  "eyebrow": "{city}",
-  "headline": "Claim Your *Free* Class",
-  "subhead": "Boxing, kickboxing, BJJ and MMA in {city}. Your first class is free, no credit card required.",
+  "topBarCta": "",
+  "eyebrow": "Free Class · {city}",
+  "headline": "Boxing, Kickboxing & Jiu⁠-⁠Jitsu in Northglenn. *Claim Your Free Class.*",
+  "subhead": "Coached classes for every level, from your first jab to your first roll. Your first class is free, no credit card required.",
   "trustBullets": [
-    "Boxing, kickboxing, BJJ and MMA",
+    "Beginners welcome, no experience needed",
     "First class free, no credit card",
-    "No pressure, no obligation"
+    "Classes 7 days a week"
   ],
   "formHeading": "Claim Your Free Class",
   "formSubtext": "Takes 30 seconds. We'll text you to pick a time.",
@@ -58,5 +58,52 @@
   "finalHeadline": "Your *Free Class* Is Waiting",
   "finalSubtext": "Claim yours now and we'll text you to pick a time. No credit card required.",
   "copyPageUrl": "https://claude.ai/artifact/7kxYGvdxAHUabRGiwtVPs5",
-  "notes": "Boxing/kickboxing/BJJ/MMA gym, Northglenn CO (address + free first class, no credit card, from search: their site and Yelp; site blocked from sandbox). Brand: red #fe0000, black, white; Poppins/Montserrat. Logo has a white background, so light top bar with a red stripe; tagline line cropped off the logo for the top bar. Form '2026 Google Opt-In', data-height 556. Phone on site (720) 749-4779 left off (unconfirmed it takes texts). Waiting on: page domain/paths confirmation, privacy policy location, Google ad headline."
+  "notes": "Boxing/kickboxing/BJJ/MMA gym, Northglenn CO (address + free first class, no credit card, from search: their site and Yelp; site blocked from sandbox). Brand: red #fe0000, black, white; Poppins/Montserrat. Logo has a white background, so light top bar with a red stripe; tagline line cropped off the logo for the top bar. Form '2026 Google Opt-In', data-height 556. Phone on site (720) 749-4779 left off (unconfirmed it takes texts). Waiting on: page domain/paths confirmation, privacy policy location, Google ad headline.",
+  "topBarCall": "Call",
+  "topBarCallNumber": true,
+  "heroCall": "Prefer to talk? Call",
+  "services": {
+    "heading": "A Fight Gym for Everyone. Walk In as You Are.",
+    "items": [
+      {
+        "title": "Boxing & Kickboxing",
+        "text": "Coached bag classes that build your fitness at your own pace. No fighting experience needed."
+      },
+      {
+        "title": "No⁠-⁠Gi Jiu⁠-⁠Jitsu",
+        "text": "Learn real grappling technique step by step, with beginners and regulars on the mat together."
+      },
+      {
+        "title": "Fitness, Nutrition & Accountability",
+        "text": "Simple nutrition guidance and coaches who know your name and check in on you."
+      }
+    ]
+  },
+  "location": {
+    "heading": "Right Here in Northglenn",
+    "mapLink": true,
+    "hours": [
+      [
+        "Cardio bag classes",
+        "7 days: AM, lunch, PM"
+      ],
+      [
+        "Spanish-speaking",
+        "Tue & Thu"
+      ],
+      [
+        "No⁠-⁠Gi Jiu⁠-⁠Jitsu",
+        "Mon–Thu evenings"
+      ],
+      [
+        "Technical striking",
+        "Tue & Thu evenings"
+      ]
+    ]
+  },
+  "compact": true,
+  "thankYou": {
+    "phoneLabel": "Questions? Call"
+  },
+  "headlineSize": 44
 }

@@ -1,8 +1,8 @@
 {
   "gymName": "Wallace Fitness",
   "city": "Mount Dora, FL",
-  "address": "4820 N Hwy 19A, Mount Dora, FL",
-  "phone": "",
+  "address": "4820 North Highway 19A, Unit 2, Mount Dora, FL 32757",
+  "phone": "352-735-4881",
   "domain": "wallacefitness.com",
   "pagePath": "mount-dora-free-consultation",
   "thankYouPath": "mount-dora-free-consultation-thank-you",
@@ -20,8 +20,8 @@
     "headingWeight": "400",
     "condensed": true
   },
-  "seoTitle": "Free Personal Training Consultation in Mount Dora, FL | Wallace Fitness",
-  "seoDescription": "Book a free consultation at Wallace Fitness in Mount Dora, FL. Private, appointment-only personal training focused on injury recovery and prevention.",
+  "seoTitle": "Free Personal Training Consultation | Wallace Fitness, Mount Dora",
+  "seoDescription": "Private, appointment-only personal training in Mount Dora, FL for strength, mobility, healthy aging and injury recovery. Book your free consultation.",
   "colors": {
     "accent": "#9BBA43",
     "accent2": "#32A4DA",
@@ -33,14 +33,14 @@
     "ink": "#0E1E2B"
   },
   "ctaText": "Book My Free Consultation",
-  "topBarCta": "Free Consultation",
-  "eyebrow": "{city}",
-  "headline": "Book Your *Free* Consultation",
-  "subhead": "Private, appointment-only personal training in {city}. Tell us your goals and we'll show you how we can help.",
+  "topBarCta": "",
+  "eyebrow": "Free Consultation · {city}",
+  "headline": "Personal Training in Mount Dora. *Book Your Free Consultation.*",
+  "subhead": "Private, appointment-only training for adults. Tell us your goals, any injuries or limits, and we'll show you how we can help.",
   "trustBullets": [
     "Private, appointment-only studio",
-    "Injury recovery and prevention",
-    "Zero pressure, nothing to pay"
+    "Strength, balance and mobility at any age",
+    "Injury recovery and prevention"
   ],
   "formHeading": "Claim Your Free Consultation",
   "formSubtext": "Takes 30 seconds. We'll text you to set a time.",
@@ -60,7 +60,7 @@
     }
   ],
   "finalHeadline": "Your *Free Consultation* Is Waiting",
-  "finalSubtext": "Request yours now and we'll text you to set a time.",
+  "finalSubtext": "Talk with a trainer about your goals and find the right next step, with no pressure to join. Request yours now and we'll text you to set a time.",
   "thankYou": {
     "headline": "Your *Free Consultation* Is Claimed",
     "subhead": "Keep an eye on your phone. Someone from {gym} will text you shortly to set up your consultation.",
@@ -77,8 +77,36 @@
         "title": "Bring your goals",
         "text": "Come ready to talk about your goals and anything that has been holding you back. We'll take it from there."
       }
-    ]
+    ],
+    "phoneLabel": "Questions? Call"
   },
   "copyPageUrl": "https://claude.ai/artifact/QJ8kTcqTqu41FrzA5xTCf2",
-  "notes": "Private, appointment-only personal training studio in Mount Dora, FL, focused on injury recovery and prevention (strength, weight loss, assisted stretching, balance, seniors). Facts from search (site blocked from sandbox); a different 'Wallace Fitness Center' exists in Delmont, PA, not this one. Offer: free consultation, NO length mentioned (Ryan). Brand: green #9bba43 (buttons, dark text), blue #32a4da (highlights + How It Works band), white; dark navy #0E1E2B added for contrast. Anton (single weight 400, condensed) + Open Sans. Logo is blue/green on white, so light top bar with the green-blue stripe. Waiting on: confirm domain/paths, privacy policy location, Google ad headline, dark brand color if they have one."
+  "notes": "Private, appointment-only personal training studio in Mount Dora, FL, focused on injury recovery and prevention (strength, weight loss, assisted stretching, balance, seniors). Facts from search (site blocked from sandbox); a different 'Wallace Fitness Center' exists in Delmont, PA, not this one. Offer: free consultation, NO length mentioned (Ryan). Brand: green #9bba43 (buttons, dark text), blue #32a4da (highlights + How It Works band), white; dark navy #0E1E2B added for contrast. Anton (single weight 400, condensed) + Open Sans. Logo is blue/green on white, so light top bar with the green-blue stripe. Waiting on: confirm domain/paths, privacy policy location, Google ad headline, dark brand color if they have one.",
+  "topBarCall": "Call",
+  "topBarCallNumber": true,
+  "heroNote": "Free, with no pressure to join.",
+  "heroCall": "Prefer to talk? Call",
+  "services": {
+    "heading": "A Private Studio, Not a Big Gym.",
+    "items": [
+      {
+        "title": "Personal Training",
+        "text": "Private sessions built around your goals, your physical history and how you want to feel."
+      },
+      {
+        "title": "High Performance Aging™",
+        "text": "Strength, balance, mobility and flexibility to keep doing what you love, from golf to grandkids."
+      },
+      {
+        "title": "Injury Recovery & Prevention",
+        "text": "A next step after physical therapy, with training that progresses safely at your pace."
+      }
+    ]
+  },
+  "location": {
+    "heading": "Find Us in Mount Dora",
+    "mapLink": true,
+    "note": "By appointment, Monday to Saturday."
+  },
+  "compact": true
 }

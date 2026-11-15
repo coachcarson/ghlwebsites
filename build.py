@@ -278,6 +278,8 @@ def extras(g):
         loc = g["location"]
         hours = "".join(f"<dt>{text(d, g)}</dt><dd>{text(h, g)}</dd>" for d, h in loc.get("hours", []))
         call = f'<p class="call">{tel_link(g)}</p>' if g.get("phone") else ""
+        # Optional line under the hours (Andrea Klas: the areas they serve)
+        note = f'<p class="call">{text(loc["note"], g)}</p>' if loc.get("note") else ""
         addr = text(g["address"], g)
         if loc.get("mapLink"):
             # Tap the address for directions (no embedded map: it is heavy)
@@ -285,7 +287,9 @@ def extras(g):
                     f'target="_blank" rel="noopener">{addr}</a>')
         sections.append(f'<section class="{band()}"><div class="wrap">{section_head(loc["heading"], g)}'
                         f'<div class="find"><p class="addr">{addr}</p>{call}'
-                        f'{f"<dl class=hours>{hours}</dl>" if hours else ""}</div></div></section>')
+                        f'{f"<dl class=hours>{hours}</dl>" if hours else ""}'
+                        f'{note}'
+                        f'</div></div></section>')
     return top_call, hero_call, "\n".join(sections)
 
 

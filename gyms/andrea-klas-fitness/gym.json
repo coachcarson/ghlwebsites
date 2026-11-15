@@ -2,9 +2,9 @@
   "gymName": "Andrea Klas Fitness",
   "city": "North Vancouver, BC",
   "address": "1400 Marine Dr, North Vancouver, BC V7P 1T6",
-  "phone": "",
+  "phone": "604-265-0493",
   "domain": "info.andreaklasfitness.com",
-  "pagePath": "complimentary-consultation",
+  "pagePath": "discovery-call",
   "thankYouPath": "complimentary-consultation-thank-you",
   "privacyUrl": "",
   "logoFile": "logo.png",
@@ -22,8 +22,8 @@
     "bodyWeights": "400;500;700",
     "headingWeight": "700"
   },
-  "seoTitle": "Complimentary Discovery Call | Andrea Klas Fitness, North Vancouver",
-  "seoDescription": "Book a complimentary 15-minute discovery call with Andrea Klas Fitness in North Vancouver, BC. Personal training, nutrition and mindset coaching.",
+  "seoTitle": "Personal Training in North Vancouver | Andrea Klas Fitness",
+  "seoDescription": "Personal training, nutrition and mindset coaching in North Vancouver, coached as one 8-week program. Book a complimentary 15-minute Discovery Call.",
   "colors": {
     "accent": "#3E3A31",
     "accent2": "#ADBEC5",
@@ -37,14 +37,14 @@
     "ink": "#3E3A31"
   },
   "ctaText": "Book My Discovery Call",
-  "topBarCta": "Book a Call",
-  "eyebrow": "{city}",
-  "headline": "Book Your *Complimentary* Discovery Call",
-  "subhead": "A 15⁠-⁠minute call with our team to talk through your goals and see if our program is the right fit.",
+  "topBarCta": "",
+  "eyebrow": "Complimentary Call · North Vancouver",
+  "headline": "Personal Training in North Vancouver. *Start With a Discovery Call.*",
+  "subhead": "A 15⁠-⁠minute call with our team to talk through your goals and see if our 8⁠-⁠week program is the right fit. Strength training, nutrition and mindset, coached as one system.",
   "trustBullets": [
     "15⁠-⁠minute call, no obligation",
-    "Training, nutrition and mindset",
-    "Certified coaches and dietitians"
+    "Training, nutrition and mindset in one plan",
+    "Progress measured with weekly body scans"
   ],
   "formHeading": "Book Your Discovery Call",
   "formSubtext": "Takes 30 seconds. Our team will reach out to set a time.",
@@ -63,7 +63,7 @@
       "text": "A 15⁠-⁠minute call about your goals and whether our program is the right fit for you."
     }
   ],
-  "finalHeadline": "Book Your *Discovery Call*",
+  "finalHeadline": "Start Before the *January Rush.*",
   "finalSubtext": "Complimentary, 15 minutes, no obligation.",
   "thankYou": {
     "headline": "Your *Discovery Call* Is Claimed",
@@ -81,8 +81,35 @@
         "title": "Bring your goals",
         "text": "Come ready to talk about where you are now and where you want to be. We'll take it from there."
       }
-    ]
+    ],
+    "phoneLabel": "Questions? Call"
   },
   "copyPageUrl": "https://claude.ai/artifact/PmF6eUaUFBsQGeSFontN8A",
-  "notes": "Andrea Klas Fitness: personal training studio, North Vancouver + Lions Bay, BC (Canada). Program pairs each client with a personal training coach, registered dietitian and mindset coach (from search; site blocked from sandbox). Brand-sensitive, premium client: only their colors, calm copy ('complimentary', no hype). Offer: complimentary 15-minute discovery call. Brand: blue #adbec5 (highlight marker, stripes, check circles, How It Works band), brown grey #3e3a31 (text, buttons with off-white text, step numbers), off-white #efefed (hero + final band). Light theme: Ryan felt the brown hero/final band was too much brown. Title font Helvetica Neue is not on Google Fonts: displayFirst uses the real Helvetica Neue on Apple devices, Inter elsewhere. Body Work Sans. Wide wordmark logo on a light top bar. Location confirmed: North Vancouver, 1400 Marine Dr (Ryan). Ad: complimentary discovery call; 15 minutes kept on the page as a low-commitment signal. Page live at info.andreaklasfitness.com/complimentary-consultation (Ryan's path). Waiting on: privacy policy."
+  "notes": "Andrea Klas Fitness: personal training studio, North Vancouver + Lions Bay, BC (Canada). Program pairs each client with a personal training coach, registered dietitian and mindset coach (from search; site blocked from sandbox). Brand-sensitive, premium client: only their colors, calm copy ('complimentary', no hype). Offer: complimentary 15-minute discovery call. Brand: blue #adbec5 (highlight marker, stripes, check circles, How It Works band), brown grey #3e3a31 (text, buttons with off-white text, step numbers), off-white #efefed (hero + final band). Light theme: Ryan felt the brown hero/final band was too much brown. Title font Helvetica Neue is not on Google Fonts: displayFirst uses the real Helvetica Neue on Apple devices, Inter elsewhere. Body Work Sans. Wide wordmark logo on a light top bar. Location confirmed: North Vancouver, 1400 Marine Dr (Ryan). Ad: complimentary discovery call; 15 minutes kept on the page as a low-commitment signal. Page live at info.andreaklasfitness.com/complimentary-consultation (Ryan's path). Waiting on: privacy policy.",
+  "topBarCall": "Call",
+  "topBarCallNumber": true,
+  "heroCall": "Prefer to talk? Call",
+  "services": {
+    "heading": "One Team. One System. Your Results.",
+    "items": [
+      {
+        "title": "Personal Training",
+        "text": "Coached strength sessions, built around your schedule and your starting point."
+      },
+      {
+        "title": "Nutrition and Mindset Coaching",
+        "text": "A nutrition plan built for your body, with mindset and accountability coaching from a team working toward the same results."
+      },
+      {
+        "title": "Strength After 40",
+        "text": "Training and nutrition for women in perimenopause and menopause and men navigating andropause, measured with weekly body composition scans."
+      }
+    ]
+  },
+  "location": {
+    "heading": "Coaching on the North Shore",
+    "mapLink": true,
+    "note": "Serving North and West Vancouver, Lions Bay and Squamish."
+  },
+  "compact": true
 }
