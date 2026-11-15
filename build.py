@@ -178,6 +178,9 @@ def gym_css(g):
         css += "\n" + TOP_NAME_CSS.strip()
     if g.get("topBarAddress"):
         css += "\n" + TOP_ADDR_CSS.strip()
+        if g.get("topBarAddressPhone") is False:
+            # Wide wordmark logos leave no room on phones (Andrea Klas): desktop/tablet only
+            css += "\n@media (max-width: 719px) { #fcl .top-addr { display: none; } }"
     if g.get("logoHeight"):
         # Tall logos: grow the bar so the logo (and the optional stripe) never clip
         css += (f"\n#fcl .brand-logo {{ height: {g['logoHeight']}px; }}"

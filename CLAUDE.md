@@ -92,7 +92,7 @@ Change a gym's words/colors/offer in its `gym.json`, then rebuild that gym.
      `location.note` = one line under the address/hours (Andrea Klas service area, Wallace "By appointment").
      Use a note instead of hours when the band color makes the muted hours text hard to read.
      `topBarAddress` true (or [street, city line]) centers the address in the top bar, two lines
-     (Grinders). `topBarName` true shows the gym name beside the logo (monogram-only logos, CrossFit East Coast).
+     (Grinders). `topBarAddressPhone` false = desktop/tablet only (wide wordmark logos, Andrea Klas). `topBarName` true shows the gym name beside the logo (monogram-only logos, CrossFit East Coast).
      Extra sections alternate white / light automatically, so skipping one (F45 has no reviews yet)
      never puts two same-color sections together.
      The minimal layout above stays the default for every other gym.
